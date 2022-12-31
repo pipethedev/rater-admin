@@ -10,8 +10,6 @@ const Layout = () => {
                 <Sidebar />
 
                 <div className="pr-5 right-child flex-1">
-                    {/* <Header {...{ setHideSide }} /> */}
-                    <Header title='Overide' />
                     <Outlet />
                 </div>
             </div>

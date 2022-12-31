@@ -2,7 +2,12 @@ import React, { useCallback } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { routeList } from '../assets/data/sidebar-data';
 import DashboardIcon from '../assets/svg/DashboardIcon';
+import MusicIcon from '../assets/svg/MusicIcon';
+import MyProfileIcon from '../assets/svg/MyProfileIcon';
 import NotificationIcon from '../assets/svg/NotificationIcon';
+import SettingsIcon from '../assets/svg/SettingsIcon';
+import TransactionIcon from '../assets/svg/TransactionIcon';
+import UserIcon from '../assets/svg/UserIcon';
 
 const Sidebar = () => {
     const location = useLocation()
@@ -37,12 +42,12 @@ const Sidebar = () => {
                         // console.log(activeItem, 'ROUTE');
                         const iconArr = [
                             <DashboardIcon key={1} index={activeItem} />,
-                            <DashboardIcon key={2} index={activeItem} />,
-                            <DashboardIcon key={3} index={activeItem} />,
-                            <DashboardIcon key={4} index={activeItem} />,
-                            <DashboardIcon key={5} index={activeItem} />,
-                            <DashboardIcon key={6} index={activeItem} />,
-                            <DashboardIcon key={7} index={activeItem} />,
+                            <MusicIcon key={2} index={activeItem} />,
+                            <UserIcon key={3} index={activeItem} />,
+                            <UserIcon key={4} index={activeItem} />,
+                            <TransactionIcon key={5} index={activeItem} />,
+                            <MyProfileIcon key={6} index={activeItem} />,
+                            <SettingsIcon key={7} index={activeItem} />,
                         ]
                         return (
                             <Link to={item.route} key={index} className={`${activeItem && "bg-[#142349] text-[#3B71F7] font-bold border-r-4 border-[#3B71F7]"} flex items-center p-3 cursor-pointer my-4 text-lg space-x-3 text-[rgba(255, 255, 255, 0.65)]`}>
