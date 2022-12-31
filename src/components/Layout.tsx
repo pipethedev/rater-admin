@@ -9,7 +9,7 @@ const Layout = () => {
             <div className="flex w-full gap-10">
                 <Sidebar />
 
-                <div className="pr-5 right-child flex-1">
+                <div className="pr-10 right-child flex-1">
                     <Outlet />
                 </div>
             </div>
