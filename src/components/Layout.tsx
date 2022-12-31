@@ -6,10 +6,9 @@ import Sidebar from './Sidebar'
 const Layout = () => {
     return (
         <>
-            <div className="flex w-full gap-4">
-                <div>
-                    <Sidebar />
-                </div>
+            <div className="flex w-full gap-10">
+                <Sidebar />
+
                 <div className="pr-5 right-child flex-1">
                     {/* <Header {...{ setHideSide }} /> */}
                     <Header title='Overide' />
