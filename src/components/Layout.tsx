@@ -6,10 +6,10 @@ import Sidebar from './Sidebar'
 const Layout = () => {
     return (
         <>
-            <div className="flex w-full gap-10">
+            <div className="overflow-hidden">
                 <Sidebar />
 
-                <div className="pr-10 right-child flex-1">
+                <div className="sm:pl-60 sm:pr-10 px-5">
                     <Outlet />
                 </div>
             </div>
@@ -18,3 +18,16 @@ const Layout = () => {
 }
 
 export default Layout
+
+
+// return (
+//     <>
+//         <div className="flex w-full gap-10 px-5 sm:px-0">
+//             <Sidebar />
+
+//             <div className="sm:pr-10 right-child flex-1">
+//                 <Outlet />
+//             </div>
+//         </div>
+//     </>
+// )

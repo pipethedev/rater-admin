@@ -5,7 +5,170 @@ import PlayMusicIcon from '../assets/svg/PlayMusicIcon'
 import RevenueIcon from '../assets/svg/RevenueIcon'
 import SongRaterIcon from '../assets/svg/SongRaterIcon'
 import UserRaterIcon from '../assets/svg/UserRater.Icon'
+import CardPlatList from '../components/CardPlatList'
 import Header from '../components/Header'
+import { Table } from '../components/Table'
+import * as dayjs from 'dayjs'
+import TableMam from '../components/TableMam'
+
+
+
+const dataTable = [
+    {
+        recipent: 'Adimora Augustine AUgustine',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Ubah Ikechukwu Dominion',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine AUgustine',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine AUgustine',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine AUgustine',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine AUgustine',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine AUgustine',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine AUgustine',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine AUgustine',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine AUgustine',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine AUgustine',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine AUgustine',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine AUgustine',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine AUgustine',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine AUgustine',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine AUgustine',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine AUgustine',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine AUgustine',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine AUgustine',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine AUgustine',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine AUgustine',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine AUgustine',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+]
 
 const Dashboard = () => {
     return (
@@ -44,30 +207,60 @@ const Dashboard = () => {
             <div className="my-10">
 
                 <div className="flex items-center justify-between">
-                    <p className="text-lg font-extrabold">Top Rated Songs By Worker to listen to....</p>
+                    <p className="text-sm sm:text-lg font-extrabold">Top Rated Songs By Worker to listen to....</p>
 
-                    <p className="text-base text-[#3B71F7] font-bold"><Link to="#" className='flex items-center'><p>View More</p> <span className='ml-3'><Arrowlong /></span></Link></p>
+                    <p className="text-sm sm:text-base text-[#3B71F7] font-bold"><Link to="#" className='flex items-center'><p>View More</p> <span className='ml-3'><Arrowlong /></span></Link></p>
                 </div>
 
                 <div className="my-10">
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                        <div className="flex flex-col my-3">
-                            <PlayMusicIcon />
-
-                            <p className='text-xl font-extrabold'>Song Title</p>
-                            <p className='text-[#666666] text-sm'>Play Time — 2mins 45sec</p>
-                            <p className='bg-[#EBFFF9] p-2 text-[#00C288] text-base rounded-full'>Good</p>
-                        </div>
-
-                        <div className="flex flex-col my-3">
-                            <PlayMusicIcon />
-
-                            <p className='text-xl font-extrabold'>Song Title</p>
-                            <p className='text-[#666666] text-sm'>Play Time — 2mins 45sec</p>
-                            <p className='bg-[#EBFFF9] p-2 text-[#00C288] text-base rounded-full'>Good</p>
-                        </div>
-
+                        {Array(8).fill('').map((item) => (
+                            <CardPlatList title='Song Title' subtitle='Play Time — 2mins 45sec' rate='Good' />
+                        ))}
                     </div>
+                </div>
+
+                <div className="flex items-center justify-between my-20">
+                    <p className="text-sm sm:text-lg font-extrabold">Recent Transactions</p>
+
+                    <p className="text-sm sm:text-base text-[#3B71F7] font-bold"><Link to="#" className='flex items-center'><p>View More</p> <span className='ml-3'><Arrowlong /></span></Link></p>
+                </div>
+
+
+                <div className="mt-5">
+
+                    <Table
+                        // loading={customerData.isLoading}
+                        columns={[
+                            {
+                                header: "DATE",
+                                // view: (row) => `${row?.user.first_name} ${row?.user.last_name}`,
+                                view: (row) => `${row?.date} ${row?.date}`,
+                            },
+                            { header: "RECIPENT", view: (row) => row?.recipent },
+                            {
+                                header: "DESCRIPTION",
+                                view: (row) => row?.totalAmount ? currencyFormat(row?.amount) : 0
+                            },
+                            {
+                                header: "DESCRIPTION",
+                                view: (row) => (row?.description),
+                                // view: (row) => dayjs(row?.description).format("DD MMM YYYY"),
+                            },
+                        ]}
+                        // data={[] ?? []}
+                        // data={customerData?.data?.customers ?? []}
+                        data={dataTable ?? []}
+                        pagination={{page: 5, pageSize: 1, totalRows: 1}}
+                        rowActions={(row) => [
+                            {
+                                action: () => { },
+                                name: "ACTION",
+                            },
+                        ]}
+                    />
+
+                    {/* <TableMam /> */}
                 </div>
             </div>
         </section>

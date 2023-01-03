@@ -12,14 +12,18 @@ import ManageWorkers from './pages/ManageWorkers'
 import Transactions from './pages/Transactions'
 import Settings from './pages/Settings'
 import MyProfile from './pages/MyProfile'
+import Login from './pages/Login'
+import ResetPassword from './pages/ResetPassword'
+import ForgotPassword from './pages/ForgotPassword'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <Suspense fallback={<p>Loading Components</p>}>
       <Routes>
-        {/* <Route path='/login' element={<Home />} /> */}
+        <Route path='/login' element={<Login />} />
+        <Route path='/reset-password' element={<ResetPassword />} />
+        <Route path='/forgot-password' element={<ForgotPassword />} />
 
       {/* Private routes */}
       <Route element={<RequiredRoute />}>
@@ -31,13 +35,6 @@ function App() {
               <Route path="/transactions" element={<Transactions />} />
               <Route path="/my-profile" element={<MyProfile />} />
               <Route path="/settings" element={<Settings />} />
-
-              {/* <Route path="/fedpay-loan" element={<FedPayLoan />} />
-              <Route path="/fedpay-loan-application" element={<FedPayLoanApplication />} />
-              <Route path="/transactions" element={<Transactions />} />
-              <Route path="/account" element={<Account />} />
-              <Route path="/debit-card" element={<DebitCard />} />
-              <Route path="/beneficiaries" element={<Beneficiaries />} /> */}
             </Route>
           </Route>
           {/* 404 page */}
