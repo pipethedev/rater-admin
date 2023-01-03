@@ -1,22 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { dataTable } from '../assets/data/sidebar-data'
 import Button from '../components/Button'
 import Header from '../components/Header'
 import SearchInput from '../components/SearchInput'
 import { Table } from '../components/Table'
+import Modal from '../components/Modal'
 
 const ManageWorkers = () => {
+
+    const [stateBool, setStateBool] = useState<boolean>(false)
     return (
         <section>
             <div className="flex items-center justify-between">
                 <Header title='Workers' subtitle='All workers added to the platform' />
 
                 <div className="mt-10">
-                    <Button title='Add a Worker' />
+                    <Button title='Add a Worker' onClick={() => setStateBool(true)} />
                 </div>
             </div>
 
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between my-10">
 
                 <SearchInput placeholder='Search through workers on the platform' />
 
@@ -66,6 +69,21 @@ const ManageWorkers = () => {
                 </div>
 
 
+
+                <Modal
+                    show={stateBool}
+                    closeModal={setStateBool}
+                    title="Create Worker Profile"
+                    // subTitle="For security reasons, we’ve sent you a mail that contains a link to verify your account"
+                // icon={<img src={verify} />}
+                    >
+                <>
+                    <div className="flex justify-center m-5">
+                        <Button type="button" onClick={() => setStateBool(false)} title="Send Invitaion" />
+
+                    </div>
+                </>
+            </Modal>
         </section>
     )
 }

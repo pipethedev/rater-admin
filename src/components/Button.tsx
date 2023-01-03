@@ -1,6 +1,6 @@
 import React, { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
 
-const Spinner = () => < div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></>
+const Spinner = () => < div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400" />
 
 type Props = DetailedHTMLProps<
     ButtonHTMLAttributes<HTMLButtonElement>,
@@ -44,7 +44,9 @@ const Button = ({
             {...rest}
             type={type}
             disabled={loading || disabled}
-            className="bg-[#3B71F7] shadow-md py-4 md:py-6 px-8 md:px-12 rounded-full font-bold text-white">{loading ? <Spinner /> : <>{title}</>}</button>
+            className="bg-[#3B71F7] shadow-md py-4 md:py-6 px-8 md:px-12 rounded-full font-bold text-white">
+            {loading ? <Spinner /> : <>{title}</>}
+        </button>
     )
 }
 
