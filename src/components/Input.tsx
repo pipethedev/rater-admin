@@ -1,6 +1,65 @@
-import React from 'react'
+import React, { ReactElement, MouseEvent } from "react"
+export interface IFormType {
+    input?: string
+    error?: string
+}
 
-const Input = () => {
+export const initInput: IFormType = { input: "", error: "" }
+interface InputIconProps {
+    TrailingIcon?: () => JSX.Element
+    Loadingicon? : () => JSX.Element
+}
+interface Iprops {
+    type?: "text" | "email" | "password" | "date" | "radio" | "tel" | "number" | "search" | "file"
+    label?: string
+    value?: string
+    placeholder?: string
+    name?: string
+    children?: ReactElement
+    onChange?: Function
+    onBlur?: Function
+    onClick?: Function
+    onKeyDown?: Function
+    onKeyPress?: Function
+    required?: boolean
+    requiredMsg?: string
+    error?: string
+    disabled?: boolean
+    additionalInfo?: string
+    className?: string
+    autoCorrect?: boolean
+    full?: boolean
+    checked?: boolean
+    divStyle?: string
+    labelStyle?: string
+    minLength?: number
+    maxLength?: number
+    TrailingIcon?: Function | any
+}
+const Input = ({
+    type = "text",
+    label = "",
+    value = "",
+    placeholder = "",
+    name = "name",
+    children,
+    onChange = () => { },
+    onBlur = () => { },
+    onClick = () => { },
+    onKeyPress = () => { },
+    onKeyDown = () => { },
+    required = true,
+    requiredMsg = "",
+    error = "",
+    disabled = false,
+    className = "",
+    checked = false,
+    divStyle = "",
+    labelStyle = "",
+    maxLength,
+    minLength,
+    TrailingIcon = null
+}: Iprops) => {
     return (
         <fieldset className="w-full space-y-1 dark:text-gray-100">
             <label className="hidden">Search</label>
