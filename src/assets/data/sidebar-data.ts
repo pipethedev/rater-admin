@@ -3,8 +3,8 @@ export const routeList = [
     { route: "/allmusic", title: "All Music" },
     { route: "/users", title: "Users" },
     { route: "/manage-workers", title: "Manage Workers" },
-    { route: "/my-profile", title: "My Profile" },
     { route: "/transactions", title: "Transactions" },
+    { route: "/my-profile", title: "My Profile" },
     { route: "/settings", title: "Settings" },
 ];
 
