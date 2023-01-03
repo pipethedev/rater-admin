@@ -10,165 +10,8 @@ import Header from '../components/Header'
 import { Table } from '../components/Table'
 import * as dayjs from 'dayjs'
 import TableMam from '../components/TableMam'
+import { dataTable } from '../assets/data/sidebar-data'
 
-
-
-const dataTable = [
-    {
-        recipent: 'Adimora Augustine AUgustine',
-        date: '12 / 12 / 2022',
-        description: 'Sound Upload — I_don_manya.mp3',
-        amount: '₦3,500.00',
-        action: ''
-    },
-    {
-        recipent: 'Ubah Ikechukwu Dominion',
-        date: '12 / 12 / 2022',
-        description: 'Sound Upload — I_don_manya.mp3',
-        amount: '₦3,500.00',
-        action: ''
-    },
-    {
-        recipent: 'Adimora Augustine AUgustine',
-        date: '12 / 12 / 2022',
-        description: 'Sound Upload — I_don_manya.mp3',
-        amount: '₦3,500.00',
-        action: ''
-    },
-    {
-        recipent: 'Adimora Augustine AUgustine',
-        date: '12 / 12 / 2022',
-        description: 'Sound Upload — I_don_manya.mp3',
-        amount: '₦3,500.00',
-        action: ''
-    },
-    {
-        recipent: 'Adimora Augustine AUgustine',
-        date: '12 / 12 / 2022',
-        description: 'Sound Upload — I_don_manya.mp3',
-        amount: '₦3,500.00',
-        action: ''
-    },
-    {
-        recipent: 'Adimora Augustine AUgustine',
-        date: '12 / 12 / 2022',
-        description: 'Sound Upload — I_don_manya.mp3',
-        amount: '₦3,500.00',
-        action: ''
-    },
-    {
-        recipent: 'Adimora Augustine AUgustine',
-        date: '12 / 12 / 2022',
-        description: 'Sound Upload — I_don_manya.mp3',
-        amount: '₦3,500.00',
-        action: ''
-    },
-    {
-        recipent: 'Adimora Augustine AUgustine',
-        date: '12 / 12 / 2022',
-        description: 'Sound Upload — I_don_manya.mp3',
-        amount: '₦3,500.00',
-        action: ''
-    },
-    {
-        recipent: 'Adimora Augustine AUgustine',
-        date: '12 / 12 / 2022',
-        description: 'Sound Upload — I_don_manya.mp3',
-        amount: '₦3,500.00',
-        action: ''
-    },
-    {
-        recipent: 'Adimora Augustine AUgustine',
-        date: '12 / 12 / 2022',
-        description: 'Sound Upload — I_don_manya.mp3',
-        amount: '₦3,500.00',
-        action: ''
-    },
-    {
-        recipent: 'Adimora Augustine AUgustine',
-        date: '12 / 12 / 2022',
-        description: 'Sound Upload — I_don_manya.mp3',
-        amount: '₦3,500.00',
-        action: ''
-    },
-    {
-        recipent: 'Adimora Augustine AUgustine',
-        date: '12 / 12 / 2022',
-        description: 'Sound Upload — I_don_manya.mp3',
-        amount: '₦3,500.00',
-        action: ''
-    },
-    {
-        recipent: 'Adimora Augustine AUgustine',
-        date: '12 / 12 / 2022',
-        description: 'Sound Upload — I_don_manya.mp3',
-        amount: '₦3,500.00',
-        action: ''
-    },
-    {
-        recipent: 'Adimora Augustine AUgustine',
-        date: '12 / 12 / 2022',
-        description: 'Sound Upload — I_don_manya.mp3',
-        amount: '₦3,500.00',
-        action: ''
-    },
-    {
-        recipent: 'Adimora Augustine AUgustine',
-        date: '12 / 12 / 2022',
-        description: 'Sound Upload — I_don_manya.mp3',
-        amount: '₦3,500.00',
-        action: ''
-    },
-    {
-        recipent: 'Adimora Augustine AUgustine',
-        date: '12 / 12 / 2022',
-        description: 'Sound Upload — I_don_manya.mp3',
-        amount: '₦3,500.00',
-        action: ''
-    },
-    {
-        recipent: 'Adimora Augustine AUgustine',
-        date: '12 / 12 / 2022',
-        description: 'Sound Upload — I_don_manya.mp3',
-        amount: '₦3,500.00',
-        action: ''
-    },
-    {
-        recipent: 'Adimora Augustine AUgustine',
-        date: '12 / 12 / 2022',
-        description: 'Sound Upload — I_don_manya.mp3',
-        amount: '₦3,500.00',
-        action: ''
-    },
-    {
-        recipent: 'Adimora Augustine AUgustine',
-        date: '12 / 12 / 2022',
-        description: 'Sound Upload — I_don_manya.mp3',
-        amount: '₦3,500.00',
-        action: ''
-    },
-    {
-        recipent: 'Adimora Augustine AUgustine',
-        date: '12 / 12 / 2022',
-        description: 'Sound Upload — I_don_manya.mp3',
-        amount: '₦3,500.00',
-        action: ''
-    },
-    {
-        recipent: 'Adimora Augustine AUgustine',
-        date: '12 / 12 / 2022',
-        description: 'Sound Upload — I_don_manya.mp3',
-        amount: '₦3,500.00',
-        action: ''
-    },
-    {
-        recipent: 'Adimora Augustine AUgustine',
-        date: '12 / 12 / 2022',
-        description: 'Sound Upload — I_don_manya.mp3',
-        amount: '₦3,500.00',
-        action: ''
-    },
-]
 
 const Dashboard = () => {
     return (
@@ -240,7 +83,8 @@ const Dashboard = () => {
                             { header: "RECIPENT", view: (row) => row?.recipent },
                             {
                                 header: "DESCRIPTION",
-                                view: (row) => row?.totalAmount ? currencyFormat(row?.amount) : 0
+                                view: (row) => row?.amount ? (row?.amount) : 0
+                                // view: (row) => row?.amount ? currencyFormat(row?.amount) : 0
                             },
                             {
                                 header: "DESCRIPTION",
@@ -258,9 +102,10 @@ const Dashboard = () => {
                                 name: "ACTION",
                             },
                         ]}
+                        title="No Transactions yet"
+                        subtitle="It looks like you haven't added any music to your sound page yet. To add a song to the sound page, click the button below"
                     />
 
-                    {/* <TableMam /> */}
                 </div>
             </div>
         </section>

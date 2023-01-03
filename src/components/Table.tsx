@@ -47,6 +47,8 @@ export interface ITableProps<TRow> {
   showCheckbox?: boolean;
   selectedRows?: (selections: string[]) => void;
   clearSelection?: boolean;
+  title?: string
+  subtitle?: string
 }
 
 export function Table<TRow extends {}>({
@@ -181,8 +183,8 @@ export function Table<TRow extends {}>({
                       <div className="w-full grid place-content-center">
                         {props.emptyMessage ?? (
                           <TableEmpty
-                            title="No Transactions yet"
-                            subtitle="It looks like you haven't added any music to your sound page yet. To add a song to the sound page, click the button below"
+                            {...{title}}
+                            {...{subtitle}}
                           />
                         )}
                       </div>

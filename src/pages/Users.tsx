@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { dataTable } from '../assets/data/sidebar-data'
 import Header from '../components/Header'
 import SearchInput from '../components/SearchInput'
+import { Table } from '../components/Table'
 
 const Users = () => {
     return (
@@ -34,6 +36,39 @@ const Users = () => {
                 <div className="flex items-center space-x-4">
                     <button type="submit" className="text-[#3B71F7] bg-[#F5F8FF] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-[72px] text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Date : All</button>
                 </div>
+            </div>
+
+
+            <div className="my-10">
+                <Table
+                    // loading={customerData.isLoading}
+                    columns={[
+                        {
+                            header: "FULLNAME",
+                            // view: (row) => `${row?.user.first_name} ${row?.user.last_name}`,
+                            view: (row) => `${row?.date} ${row?.date}`,
+                        },
+                        { header: "EMAIL ADDRESS", view: (row) => row?.recipent },
+                        {
+                            header: "DESCRIPTION",
+                            view: (row) => row?.amount ? (row?.amount) : 0
+                        },
+                        {
+                            header: "MOBILE NUMBER",
+                            view: (row) => (row?.description),
+                        },
+                    ]}
+                    data={dataTable ?? []}
+                    pagination={{ page: 5, pageSize: 1, totalRows: 1 }}
+                    // rowActions={(row) => [
+                    //     {
+                    //         action: () => { },
+                    //         name: "DATE REGISTERED",
+                    //     },
+                    // ]}
+                    title="No Transactions yet"
+                    subtitle="It looks like you haven't added any music to your sound page yet. To add a song to the sound page, click the button below"
+                />
             </div>
         </section>
     )

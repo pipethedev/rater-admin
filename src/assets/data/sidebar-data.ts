@@ -7,3 +7,162 @@ export const routeList = [
     { route: "/transactions", title: "Transactions" },
     { route: "/settings", title: "Settings" },
 ];
+
+
+
+export const dataTable = [
+    {
+        recipent: 'Adimora Augustine Onyekachi',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Ubah Ikechukwu Dominion',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine Onyekachi',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine Onyekachi',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine Onyekachi',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine Onyekachi',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine Onyekachi',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine Onyekachi',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine Onyekachi',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine Onyekachi',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine Onyekachi',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine Onyekachi',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine Onyekachi',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine Onyekachi',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine Onyekachi',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine Onyekachi',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine Onyekachi',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine Onyekachi',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine Onyekachi',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine Onyekachi',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine Onyekachi',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+    {
+        recipent: 'Adimora Augustine Onyekachi',
+        date: '12 / 12 / 2022',
+        description: 'Sound Upload — I_don_manya.mp3',
+        amount: '₦3,500.00',
+        action: ''
+    },
+]

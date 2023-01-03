@@ -15,6 +15,7 @@ import MyProfile from './pages/MyProfile'
 import Login from './pages/Login'
 import ResetPassword from './pages/ResetPassword'
 import ForgotPassword from './pages/ForgotPassword'
+import UserId from './pages/UserId'
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/allmusic" element={<AllMusic />} />
               <Route path="/users" element={<Users />} />
+              <Route path="/users/:id" element={<UserId />} />
               <Route path="/manage-workers" element={<ManageWorkers />} />
               <Route path="/transactions" element={<Transactions />} />
               <Route path="/my-profile" element={<MyProfile />} />
