@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../components/Button'
 import CardPlatList from '../components/CardPlatList'
 import Header from '../components/Header'
+import Input from '../components/Input'
 import SearchInput from '../components/SearchInput'
 
 const AllMusic = () => {
+    const [searchAllSong, setSearchAllSong] = useState<string>("")
     return (
         <section>
             <Header title='Music' subtitle='All Songs uploaded on this platform' />
@@ -40,8 +42,17 @@ const AllMusic = () => {
                         <input type="search" id="default-search" className="w-full lg:w-96 p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search songs by title or Artiste’s name" required />
                     </div>
                 </form> */}
-                <SearchInput placeholder='Search songs by title or Artiste’s name' />
+                {/* <SearchInput placeholder='Search songs by title or Artiste’s name' /> */}
 
+                <Input
+                    className="w-full lg:w-96 p-4 pl-10 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    divStyle=''
+                    placeholder="Search songs by title or Artiste’s name'"
+                    searchIcon
+                    type="search"
+                    value={searchAllSong}
+                    onChange={(e: Event) => setSearchAllSong((e.target as HTMLInputElement).value)}
+                />
 
                 <div className="flex items-center space-x-4">
                     <button type="submit" className="text-[#3B71F7] bg-[#F5F8FF]  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-[72px] text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Alphabetic Order</button>

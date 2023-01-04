@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Button from '../components/Button'
 import Header from '../components/Header'
+import Input from '../components/Input'
 import SearchInput from '../components/SearchInput'
 
 const Settings = () => {
+    const [currentPassword, setCurrentPassword] = useState<string>("")
+    const [NewPassword, setNewPassword] = useState<string>("")
+
     return (
         <section>
             <Header title='Settings' subtitle='feedback from admin on your songs' />
@@ -33,9 +38,31 @@ const Settings = () => {
             </div>
 
             <form className="flex items-center justify-between my-10">
+                <Input
+                    label='Current Password'
+                    className="w-full lg:w-96 p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    divStyle='w-full block'
+                    placeholder='Current Password'
+                    // searchIcon
+                    type="password"
+                    value={currentPassword}
+                    onChange={(e: Event) => setCurrentPassword((e.target as HTMLInputElement).value)}
+                />
+                <Input
+                    label='New Password'
+                    className="w-full lg:w-96 p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    divStyle='w-full block'
+                    placeholder='New Password'
+                    // searchIcon
+                    type="password"
+                    value={NewPassword}
+                    onChange={(e: Event) => setNewPassword((e.target as HTMLInputElement).value)}
+                />
 
-                <SearchInput placeholder='Search through workers on the platform' />
+                <div>
 
+                <Button className='block' type='submit' onClick={() => null} title="Save New Password"  />
+                </div>
             </form>
 
         </section>
