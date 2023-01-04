@@ -5,10 +5,12 @@ import Header from '../components/Header'
 import SearchInput from '../components/SearchInput'
 import { Table } from '../components/Table'
 import Modal from '../components/Modal'
+import Input from '../components/Input'
 
 const ManageWorkers = () => {
 
     const [stateBool, setStateBool] = useState<boolean>(false)
+    const [search, setSearch] = useState<string>("")
     return (
         <section>
             <div className="flex items-center justify-between">
@@ -21,7 +23,15 @@ const ManageWorkers = () => {
 
             <div className="flex items-center justify-between my-10">
 
-                <SearchInput placeholder='Search through workers on the platform' />
+                 <Input
+                    className="w-full lg:w-96 p-4 pl-10 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    divStyle=''
+                    placeholder="Search through workers on the platform"
+                    searchIcon
+                    type="search"
+                    value={search}
+                    onChange={(e: Event) => setSearch((e.target as HTMLInputElement).value)}
+                />
 
 
                 <div className="flex items-center space-x-4">

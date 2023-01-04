@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import Button from '../components/Button'
 import Header from '../components/Header'
 import Input from '../components/Input'
-import SearchInput from '../components/SearchInput'
 
 const Settings = () => {
     const [currentPassword, setCurrentPassword] = useState<string>("")

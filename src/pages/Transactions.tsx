@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { dataTable } from '../assets/data/sidebar-data'
 import Header from '../components/Header'
-import SearchInput from '../components/SearchInput'
+import Input from '../components/Input'
 import { Table } from '../components/Table'
 
 const Transactions = () => {
+    const [search, setSearch] = useState<string>("")
+
     return (
         <section>
             <Header title='Transactions' subtitle='All workers added to the platform' />
@@ -31,7 +33,15 @@ const Transactions = () => {
             </nav>
 
             <div className="flex items-center justify-between">
-                <SearchInput placeholder="Search through transactions..." />
+                <Input
+                    className="w-full lg:w-96 p-4 pl-10 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    divStyle=''
+                    placeholder="Search through transactions..."
+                    searchIcon
+                    type="search"
+                    value={search}
+                    onChange={(e: Event) => setSearch((e.target as HTMLInputElement).value)}
+                />
 
                 <div className="flex items-center space-x-4">
                     <button type="submit" className="text-[#3B71F7] bg-[#F5F8FF] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-[72px] text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Date : All</button>

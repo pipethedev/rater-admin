@@ -33,12 +33,12 @@ const MyProfile = () => {
             </nav>
 
             <div className="my-5 flex items-center">
-                <div className="rounded-full w-[150px] h-[150px] p-10 bg-[#3B71F7] text-white text-center text-[54px] font-extrabold">
+                <div className="flex items-center justify-center rounded-full w-20 h-20 lg:w-[150px] lg:h-[150px] lg:p-10 bg-[#3B71F7] text-white text-center text-xl lg:text-[50px] font-extrabold">
                     <span>LG</span>
                 </div>
 
                 <div className="ml-5">
-                    <span className='text-[56px] font-extrabold'>Lord Gerald Kachi</span>
+                    <span className='text-2xl lg:text-[56px] font-extrabold'>Lord Gerald Kachi</span>
                     <div className="text-[#888888] text-lg">fitzgeraldkachi@gmail.com</div>
                 </div>
             </div>
