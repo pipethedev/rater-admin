@@ -1,6 +1,6 @@
 import React, { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
 
-const Spinner = () => < div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400" />
+const Spinner = () => < div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-[#3B71F7]" />
 
 type Props = DetailedHTMLProps<
     ButtonHTMLAttributes<HTMLButtonElement>,
