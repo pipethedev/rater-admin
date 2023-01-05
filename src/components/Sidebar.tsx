@@ -50,7 +50,7 @@ const Sidebar = () => {
                         ]
                         return (
                             <Link to={item.route} key={index} className={`${activeItem && "bg-[#142349] text-[#3B71F7] font-extrabold border-r-4 border-[#3B71F7]"} flex items-center p-3 cursor-pointer my-4 text-lg space-x-3 text-[rgba(255, 255, 255, 0.65)]`}>
-                                <div key={index}>{iconArr[index]}</div>
+                                <div key={item.route}>{iconArr[index]}</div>
 
                                 <span className='origin-left duration-200'>
                                     {item.title}

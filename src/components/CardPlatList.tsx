@@ -9,7 +9,7 @@ interface CardPlatListProps {
 const CardPlatList = ({ title, subtitle, rate }: CardPlatListProps) => {
     return (
         <div className="my-3">
-            <div className="bg-[#F5F8FF] p-4 flex items-center justify-center my-2">
+            <div className="bg-[#F5F8FF] p-4 flex items-center justify-center my-2 rounded-xl py-10">
                 <PlayMusicIcon className='' />
             </div>
 
