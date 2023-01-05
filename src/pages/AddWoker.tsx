@@ -5,6 +5,7 @@ import Input from '../components/Input'
 const AddWoker = ({setStateBool}: any) => {
     const [email, setEmail] = useState<string>()
     const [firstName, setFirstName] = useState<string>()
+    const [lastName, setLastName] = useState<string>()
     return (
         <div>
             <div className="flex flex-col max-w-md mx-auto my-auto rounded-md sm:p-10 dark:bg-gray-900 dark:text-gray-100">
@@ -14,16 +15,16 @@ const AddWoker = ({setStateBool}: any) => {
                 </div>
                 <form className="space-y-12 ng-untouched ng-pristine ng-valid">
                     <div className=" flex items-center justify-between gap-4">
-                        <Input type="email" name="email" label='Email Address' placeholder='Enter Email Address'
+                        <Input type="text" name="firstname" label='Firstname' placeholder='Enter Firstname'
                             className="w-full p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            value={email}
-                            onChange={(e: Event) => setEmail((e.target as HTMLInputElement).value)}
+                            value={firstName}
+                            onChange={(e: Event) => setFirstName((e.target as HTMLInputElement).value)}
                         />
 
-                        <Input type="email" name="email" label='Email Address' placeholder='Enter Email Address'
+                        <Input type="text" name="lastname" label='Lastname' placeholder='Enter Lastname'
                             className="w-full p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            value={email}
-                            onChange={(e: Event) => setEmail((e.target as HTMLInputElement).value)}
+                            value={lastName}
+                            onChange={(e: Event) => setLastName((e.target as HTMLInputElement).value)}
                         />
                     </div>
                     <div className="space-y-4">
