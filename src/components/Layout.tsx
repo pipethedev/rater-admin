@@ -1,5 +1,6 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import BottomNav from './BottomNav'
 import Header from './Header'
 import Sidebar from './Sidebar'
 
@@ -12,6 +13,7 @@ const Layout = () => {
                 <div className="sm:pl-60 sm:pr-10 px-5">
                     <Outlet />
                 </div>
+                <BottomNav />
             </div>
         </>
     )
