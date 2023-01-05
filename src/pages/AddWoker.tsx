@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Button from '../components/Button'
 import Input from '../components/Input'
 
-const AddWoker = () => {
+const AddWoker = ({setStateBool}: any) => {
     const [email, setEmail] = useState<string>()
     const [firstName, setFirstName] = useState<string>()
     return (

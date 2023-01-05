@@ -82,15 +82,9 @@ const ManageWorkers = () => {
 
 
 
-                <Modal show={stateBool} closeModal={setStateBool}>
-                    <AddWoker />
-                        </Modal>
+                <Modal show={stateBool} closeModal={setStateBool}> <AddWoker {...{ setStateBool }} />        </Modal>
         </section >
     )
 }
 
 export default ManageWorkers
-
-                        // title="Create Worker Profile"
-                        // subTitle="For security reasons, we’ve sent you a mail that contains a link to verify your account"
-                    // icon={<img src={verify} />}
