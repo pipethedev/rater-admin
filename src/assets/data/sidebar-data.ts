@@ -1,5 +1,5 @@
 export const routeList = [
-    { route: "/dashboard", title: "Dashboard" },
+    { route: "/", title: "Dashboard" },
     { route: "/allmusic", title: "All Music" },
     { route: "/users", title: "Users" },
     { route: "/manage-workers", title: "Manage Workers" },

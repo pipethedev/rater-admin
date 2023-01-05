@@ -10,6 +10,8 @@ type Props = DetailedHTMLProps<
     loading?: boolean;
     size?: 'sm' | 'md' | 'lg';
     variant?: 'primary' | 'secondary' | 'outline' | 'link' | 'secondary-outline';
+    prefixIcon?: React.ReactNode;
+    suffixIcon?: React.ReactNode;
 };
 
 const variants = {
@@ -37,15 +39,16 @@ const Button = ({
     size = 'lg',
     type = 'button',
     variant = 'primary',
+    prefixIcon = null,
+    suffixIcon = null,
     ...rest
 }: Props) => {
     return (
-        <button
-            {...rest}
-            type={type}
-            disabled={loading || disabled}
-            className="bg-[#3B71F7] shadow-md py-4 md:py-6 px-8 md:px-12 rounded-full font-bold text-white">
+        <button {...rest} type={type} disabled={loading || disabled}
+            className={`bg-[#3B71F7] shadow-md py-4 md:py-4 px-8 md:px-12 rounded-full font-bold text-white ${variants[variant]} ${sizes[size]} ${className}`}>
+            {prefixIcon && (<> {prefixIcon}&nbsp;&nbsp;&nbsp;</>)}
             {loading ? <Spinner /> : <>{title}</>}
+            {suffixIcon && (<> {suffixIcon}&nbsp;&nbsp;&nbsp;</>)}
         </button>
     )
 }
