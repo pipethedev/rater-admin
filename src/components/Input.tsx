@@ -102,11 +102,11 @@ const Input = ({
         <div className={`form-input space-y-1 ${divStyle} ` + (error && "error")}>
             <div>
 
-            <label htmlFor={name} className={`block text-xs text-[#3B71F7]  ${labelStyle}`}>
+            <label htmlFor={name} className={`block text-xs text-[#000000]  ${labelStyle}`}>
                 {label}{" "}
                 <p className="text-[#EB0000] inline">{`${requiredMsg}`}</p>
                 </label>
-                
+
             </div>
             <div className="relative">
                 {searchIcon &&

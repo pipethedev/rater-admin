@@ -26,10 +26,10 @@ const Modal = (props: Props) => {
                   {icon}
                 </div>
                 )}
-                <div className="mx-auto p-5">
-                  <h5 className="text-3xl text-700 mt-5 text-center w-80">
+                <div className="mx-auto">
+                  {/* <h5 className="text-4xl text-700 mt-5 text- w-80">
                     {title}
-                  </h5>
+                  </h5> */}
                   <p className="text-center container mt-2 text-grey-slate text-base w-80">
                     {subTitle}
                   </p>
