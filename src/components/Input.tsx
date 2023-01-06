@@ -103,7 +103,7 @@ const Input = ({
             <div>
 
             <label htmlFor={name} className={`block text-xs text-[#000000]  ${labelStyle}`}>
-                {label}{" "}
+            {" "}{" "} &nbsp;&nbsp;&nbsp;&nbsp;{label}
                 <p className="text-[#EB0000] inline">{`${requiredMsg}`}</p>
                 </label>
 

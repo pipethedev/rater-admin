@@ -82,8 +82,8 @@ const ManageWorkers = () => {
 
 
 
-                <Modal show={stateBool} closeModal={setStateBool}> <AddWoker {...{ setStateBool }} />        </Modal>
-        </section >
+                <Modal show={stateBool} closeModal={setStateBool}> <AddWoker {...{ setStateBool }} /> </Modal>
+        </section>
     )
 }
 

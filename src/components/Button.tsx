@@ -45,7 +45,7 @@ const Button = ({
 }: Props) => {
     return (
         <button {...rest} type={type} disabled={loading || disabled}
-            className={`bg-[#3B71F7] shadow-md py-4 md:py-4 px-8 md:px-12 rounded-full font-bold text-white ${variants[variant]} ${sizes[size]} ${className}`}>
+            className={`bg-[#3B71F7] shadow-md py-4 md:py-4 px-8 md:px-12 rounded-full font-bold text-white disabled:bg-grey border disabled:text-grey-slate ${variants[variant]} ${sizes[size]} ${className}`}>
             {prefixIcon && (<> {prefixIcon}&nbsp;&nbsp;&nbsp;</>)}
             {loading ? <Spinner /> : <>{title}</>}
             {suffixIcon && (<> &nbsp;&nbsp;&nbsp;{suffixIcon}</>)}

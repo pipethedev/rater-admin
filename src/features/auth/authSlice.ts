@@ -15,8 +15,8 @@ export const authSlice = createSlice({
     reducers: {
         setUserDetail: (state, { payload }) => {
             state.user = {
-                firstName: payload.firstName,
-                lastName: payload.lastName,
+                first_name: payload.first_name,
+                last_name: payload.last_name,
                 phone: payload.phone,
                 email: payload.email,
                 isAdmin: payload.isAdmin,

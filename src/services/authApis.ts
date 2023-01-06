@@ -7,7 +7,7 @@ import {logout, setCredentials } from "../features/auth/authSlice";
 // import { toast } from 'react-toastify'
 
 const baseQuery = fetchBaseQuery({
-    baseUrl: `https://rater-be.herokuapp.com`,
+    baseUrl: `https://rater-be.herokuapp.com/api/v1`,
     // baseUrl: process.env.REACT_APP_API_KEY,
     credentials: 'include',
     prepareHeaders: (headers, { getState }: { getState: any }) => {
