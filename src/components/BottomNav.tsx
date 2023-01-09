@@ -30,7 +30,7 @@ const BottomNav = () => {
                         className={`${activeItem && "text-white rounded-2xl bg-[#02123B] w-max"} flex justify-between gap-x-4 items-center rounded-full px-3 py-2 cursor-pointer my-3  text-sm space-x-1`}>
                         <div className=''> {iconArr[index]}</div>
 
-                        <span className={`${!activeItem && "scale(0) hidden"} origin-left duration-200`}>
+                        <span className={`origin-left duration-200`}>
                             {item.title}
                         </span>
                     </Link>
