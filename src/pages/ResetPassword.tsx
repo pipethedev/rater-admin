@@ -1,8 +1,12 @@
 import React from 'react'
+import AuthWrapper from '../components/AuthWrapper'
+import ResetForm from './ResetForm'
 
 const ResetPassword = () => {
   return (
-    <div>ResetPassword</div>
+    <AuthWrapper>
+      <ResetForm />
+    </AuthWrapper>
   )
 }
 

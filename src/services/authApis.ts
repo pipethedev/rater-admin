@@ -11,7 +11,7 @@ const baseQuery = fetchBaseQuery({
     // baseUrl: process.env.REACT_APP_API_KEY,
     credentials: 'include',
     prepareHeaders: (headers, { getState }: { getState: any }) => {
-        const token = (getState() as RootState).auth.token
+        const token = getState().auth.token
         if (token) {
             headers.set("authorization", `Bearer ${token}`)
             headers.set("Access-Control-Allow-Origin", `*`);
@@ -53,21 +53,6 @@ const baseQueryWithReauth = async (args: any, api: any, extraOptions: any) => {
 export const apiSlice = createApi({
     baseQuery: baseQueryWithReauth,
     reducerPath: "authApi",
-    tagTypes: ['Auth', 'Advert', "UserAuth", "UserAuth", "Wallet", 'Stats', "Settings", "UserManagerment", "Vouchers"],
+    tagTypes: ['Auth'],
     endpoints: builder => ({})
 })
-
-// const {useCreateAdvertMutation, useGetAdvertAdminQuery} = apiSlice
-
-
-  // if (
-    //     result?.error &&
-    //     result?.error?.data?._meta?.error?.message.includes("logged in")
-    //     // result?.error?.data?._meta?.error?.code === 401 &&
-    //   ) {
-    //     // logout
-    //     toaster("error", "Something went wrong, Please login again.");
-    //     setTimeout(() => {
-    //       api.dispatch(logOut());
-    //     }, 1000);
-    //   }

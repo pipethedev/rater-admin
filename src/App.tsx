@@ -21,27 +21,27 @@ function App() {
 
   return (
     // <Suspense fallback={<p>Loading Components</p>}>
-      <Routes>
-        <Route path='login' element={<Login />} />
-        <Route path='reset-password' element={<ResetPassword />} />
-        <Route path='forgot-password' element={<ForgotPassword />} />
+    <Routes>
+      <Route path='login' element={<Login />} />
+      <Route path='reset-password' element={<ResetPassword />} />
+      <Route path='forgot-password' element={<ForgotPassword />} />
 
-        {/* Private routes */}
-        <Route element={<RequiredRoute />}>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Dashboard />} />
-            <Route path="allmusic" element={<AllMusic />} />
-            <Route path="users" element={<Users />} />
-            <Route path="users/:id" element={<UserId />} />
-            <Route path="manage-workers" element={<ManageWorkers />} />
-            <Route path="transactions" element={<Transactions />} />
-            <Route path="my-profile" element={<MyProfile />} />
-            <Route path="settings" element={<Settings />} />
-          </Route>
-        </Route>
-        {/* 404 page */}
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
+      {/* Private routes */}
+      {/* <Route element={<RequiredRoute />}> */}
+      <Route element={<Layout />}>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="allmusic" element={<AllMusic />} />
+        <Route path="users" element={<Users />} />
+        <Route path="users/:id" element={<UserId />} />
+        <Route path="manage-workers" element={<ManageWorkers />} />
+        <Route path="transactions" element={<Transactions />} />
+        <Route path="my-profile" element={<MyProfile />} />
+        <Route path="settings" element={<Settings />} />
+      </Route>
+      {/* </Route> */}
+      {/* 404 page */}
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
     // </Suspense>
   )
 }

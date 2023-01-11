@@ -1,13 +1,13 @@
 import React, { useCallback } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { routeList } from '../assets/data/sidebar-data';
-import DashboardIcon from '../assets/svg/DashboardIcon';
-import MusicIcon from '../assets/svg/MusicIcon';
-import MyProfileIcon from '../assets/svg/MyProfileIcon';
-import NotificationIcon from '../assets/svg/NotificationIcon';
-import SettingsIcon from '../assets/svg/SettingsIcon';
-import TransactionIcon from '../assets/svg/TransactionIcon';
-import UserIcon from '../assets/svg/UserIcon';
+import { routeList } from '../../assets/data/sidebar-data';
+import DashboardIcon from '../../assets/svg/DashboardIcon';
+import MusicIcon from '../../assets/svg/MusicIcon';
+import MyProfileIcon from '../../assets/svg/MyProfileIcon';
+import NotificationIcon from '../../assets/svg/NotificationIcon';
+import SettingsIcon from '../../assets/svg/SettingsIcon';
+import TransactionIcon from '../../assets/svg/TransactionIcon';
+import UserIcon from '../../assets/svg/UserIcon';
 
 const Sidebar = () => {
     const location = useLocation()
@@ -26,8 +26,7 @@ const Sidebar = () => {
 
     return (
         <section className={`hidden sm:block`}>
-            {/* <div className={` ${'open' ? "sm:w-60" : "w-max"} flex flex-col justify-between transition-all ease-in-out top-0 left-0 bg-[#02123B] text-white h-screen pt-8 relative duration-300`}> */}
-            <div className={`max-w-[18vw] flex flex-col justify-between transition-all ease-in-out top-0 left-0 bg-[#02123B] text-white h-screen pt-8 duration-300 fixed`}>
+            <div className={`sm:w-60 w-max  flex flex-col justify-between transition-all ease-in-out top-0 left-0 bg-[#02123B] text-white h-screen pt-8 duration-300 fixed`}>
 
                 <div className={`pt-3`}>
                     <div className="flex items-center justify-between pb-10 px-5">

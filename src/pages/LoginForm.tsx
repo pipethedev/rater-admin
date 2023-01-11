@@ -100,7 +100,7 @@ const LoginForm = () => {
 
 
     return (
-        <div className="flex flex-col max-w-md p-6 mx-auto my-auto rounded-md sm:p-10 dark:bg-gray-900 dark:text-gray-100">
+        <div className="flex flex-col p-6 mx-auto my-auto rounded-md sm:p-10 dark:bg-gray-900 dark:text-gray-100">
             <div className="mb-8">
                 <p className="text-sm dark:text-gray-400">Welcome Back Admin</p>
                 <h1 className="my-3 text-4xl font-bold">Administrator</h1>
