@@ -1,16 +1,13 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
+import { selectCurrentToken } from '../features/auth/authSlice'
+import { useAppSelector } from '../hocks/hocks'
 // import useAuth from '../hooks/useAuth';
 
 
 const RequiredRoute = () => {
-
-  // const isAuthenticated = useAuth((state) => state.isAuthenticated);
-//   const token = useAuth((state) => state.token);
-  const token = ''
-
-  // console.log(isAuthenticated, "isAuthenticated")
-
+  const  token  = useAppSelector(selectCurrentToken)
   const location = useLocation()
+
   return !token ? <Outlet /> : <Navigate to="/login" state={{ from: location }} replace />
 }
 

@@ -119,7 +119,7 @@ export function Table<TRow extends {}>({
         )}
         <div className="h-full w-full overflow-auto  relative ">
           <table className="table table-auto w-full border-collapse text-mid-night-80">
-            <thead className=" sticky top-0">
+            <thead className=" sticky top-0 bg-[#F5F8FF] text-[#0F1141] font-semibold">
               <tr className="">
                 {props.bulkAction && <th></th>}
                 {showCheckbox && (

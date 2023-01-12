@@ -27,7 +27,7 @@ function App() {
       <Route path='forgot-password' element={<ForgotPassword />} />
 
       {/* Private routes */}
-      {/* <Route element={<RequiredRoute />}> */}
+      <Route element={<RequiredRoute />}>
       <Route element={<Layout />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="allmusic" element={<AllMusic />} />
@@ -38,9 +38,9 @@ function App() {
         <Route path="my-profile" element={<MyProfile />} />
         <Route path="settings" element={<Settings />} />
       </Route>
-      {/* </Route> */}
+      </Route>
       {/* 404 page */}
-      <Route path="*" element={<Navigate to="/" replace />} />
+      <Route path="*" element={<Navigate to="/dashboard" replace />} />
     </Routes>
     // </Suspense>
   )

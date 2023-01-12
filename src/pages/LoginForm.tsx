@@ -64,7 +64,7 @@ const LoginForm = () => {
         // dispatch(setUser({ user: admin.firstName, token }))
         dispatch(setUser({ user: admin, token }))
         if (isLoginSuccess) {
-          navigate('/', { replace: true })
+          navigate('/dashboard', { replace: true })
           toast.success("Login successful");
         }
         setFormValue({ email: '', password: '' })
@@ -95,7 +95,7 @@ const LoginForm = () => {
     if (isLoginSuccess) {
       const { token, admin }: any = loginData
       dispatch(setUser({ user: admin, token }))
-      navigate('/', { replace: true })
+      navigate('/dashboard', { replace: true })
       toast.success("User Login Successfully")
     }
   }, [isLoginSuccess, navigate, dispatch, loginData])
