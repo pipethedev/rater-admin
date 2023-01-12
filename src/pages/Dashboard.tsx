@@ -11,6 +11,7 @@ import { Table } from '../components/Table'
 import * as dayjs from 'dayjs'
 import TableMam from '../components/TableMam'
 import { dataTable } from '../assets/data/sidebar-data'
+import DownloadIcon from '../assets/svg/DownloadIcon'
 
 
 const Dashboard = () => {
@@ -83,23 +84,23 @@ const Dashboard = () => {
                             { header: "RECIPENT", view: (row) => row?.recipent },
                             {
                                 header: "DESCRIPTION",
-                                view: (row) => row?.amount ? (row?.amount) : 0
+                                view: (row) => row?.description ? (row?.amount) : 0
                                 // view: (row) => row?.amount ? currencyFormat(row?.amount) : 0
                             },
                             {
-                                header: "DESCRIPTION",
-                                view: (row) => (row?.description),
+                                header: "AMOUNT",
+                                view: (row) => (row?.amount),
                                 // view: (row) => dayjs(row?.description).format("DD MMM YYYY"),
                             },
                         ]}
                         // data={[] ?? []}
                         // data={customerData?.data?.customers ?? []}
-                        data={dataTable ?? []}
+                        data={[] ?? []}
                         pagination={{page: 5, pageSize: 1, totalRows: 1}}
                         rowActions={(row) => [
                             {
-                                action: () => { },
-                                name: "ACTION",
+                                action: () => {< DownloadIcon /> },
+                                name: "AON",
                             },
                         ]}
                         titleEmpty="No Transactions yet"

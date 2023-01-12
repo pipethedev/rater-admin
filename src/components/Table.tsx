@@ -175,7 +175,7 @@ export function Table<TRow extends {}>({
                   )}
               </tr>
             </thead>
-            <tbody className="px-4 mt-5 text-mid-night-80/80 ">
+            <tbody className="px-4 mt-5 text-mid-night-80/80 bg-[url('assets/svg/nodata.svg')]">
               {data.length < 1 && !props.loading && (
                 <tr className=" text-base">
                   <td colSpan={columns.length + 1} className="py-40">
@@ -388,7 +388,7 @@ export const TableEmpty = (props: {
   image?: string;
 }) => {
   return (
-    <div className="max-w-[564px]  text-center flex flex-col items-center ">
+    <div className="max-w-[564px]  text-center flex flex-col items-center">
       <p className="text-3xl font-extrabold text-mid-night-80 mt-4 text-[#02123B]">
         {props.title}
       </p>
