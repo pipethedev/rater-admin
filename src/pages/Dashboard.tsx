@@ -23,8 +23,8 @@ const Dashboard = () => {
                     <SongRaterIcon className='space-x-10' />
 
                     <div className="items-center ml-5">
-                        <div className='text-4xl'>0</div>
-                        <div className='text-[#888888] mt-3'>Songs on Music Rater</div>
+                        <div className='text-4xl font-semibold'>0</div>
+                        <div className='text-[#888888] mt-3 font-medium'>Songs on Music Rater</div>
                     </div>
                 </div>
 
@@ -32,8 +32,8 @@ const Dashboard = () => {
                     <UserRaterIcon className='space-x-10' />
 
                     <div className="items-center ml-5">
-                        <div className='text-4xl'>0</div>
-                        <div className='text-[#888888] mt-3'>Users on Music Rater</div>
+                        <div className='text-4xl font-semibold'>0</div>
+                        <div className='text-[#888888] mt-3 font-medium'>Users on Music Rater</div>
                     </div>
                 </div>
 
@@ -41,8 +41,8 @@ const Dashboard = () => {
                     <RevenueIcon className='space-x-10' />
 
                     <div className="items-center ml-5">
-                        <div className='text-4xl'>₦0.00</div>
-                        <div className='text-[#888888] mt-3'>Revenue</div>
+                        <div className='text-4xl font-semibold'>₦0.00</div>
+                        <div className='text-[#888888] mt-3 font-medium'>Revenue</div>
                     </div>
                 </div>
             </div>
@@ -50,9 +50,9 @@ const Dashboard = () => {
             <div className="my-10">
 
                 <div className="flex items-center justify-between">
-                    <p className="text-sm sm:text-lg font-extrabold">Top Rated Songs By Worker to listen to....</p>
+                    <p className="text-sm sm:text-lg font-medium">Top Rated Songs By Worker to listen to....</p>
 
-                    <p className="text-sm sm:text-base text-[#3B71F7] font-bold"><Link to="#" className='flex items-center'><p>View More</p> <span className='ml-3'><Arrowlong /></span></Link></p>
+                    <p className="text-sm sm:text-base text-[#3B71F7] font-semibold"><Link to="#" className='flex items-center'><p>View More</p> <span className='ml-3'><Arrowlong /></span></Link></p>
                 </div>
 
                 <div className="my-10">
@@ -102,8 +102,8 @@ const Dashboard = () => {
                                 name: "ACTION",
                             },
                         ]}
-                        title="No Transactions yet"
-                        subtitle="It looks like you haven't added any music to your sound page yet. To add a song to the sound page, click the button below"
+                        titleEmpty="No Transactions yet"
+                        subtitleEmpty="It looks like you haven't added any music to your sound page yet. To add a song to the sound page, click the button below"
                     />
 
                 </div>

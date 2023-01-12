@@ -11,7 +11,7 @@ const AddWoker = ({setStateBool}: any) => {
             <div className="flex flex-col max-w-md mx-auto my-auto rounded-md  dark:bg-gray-900 dark:text-gray-100">
                 <div className="mb-8">
                     {/* <p className="text-sm dark:text-gray-400">Welcome Back Admin</p> */}
-                    <h1 className="my-3 text-4xl font-bold">Create Worker Profile"</h1>
+                    <h1 className="my-3 text-4xl font-semibold">Create Worker Profile</h1>
                 </div>
                 <form className="space-y-12 ng-untouched ng-pristine ng-valid">
                     <div className=" flex items-center justify-between gap-4">

@@ -13,9 +13,9 @@ const CardPlatList = ({ title, subtitle, rate }: CardPlatListProps) => {
                 <PlayMusicIcon className='' />
             </div>
 
-            <p className='text-xl font-extrabold my-1'>{title}</p>
-            <p className='text-[#666666] text-sm my-3'>{subtitle}</p>
-            <span className='bg-[#EBFFF9] p-2 text-[#00C288] text-base rounded-full min-w-max'>{rate}</span>
+            <p className='text-xl font-semibold my-1'>{title}</p>
+            <p className='text-[#666666] text-sm my-3 font-medium'>{subtitle}</p>
+            <span className='bg-[#EBFFF9] px-4 py-2 text-[#00C288] font-semibold text-base rounded-full min-w-max'>{rate}</span>
         </div>
     )
 }
