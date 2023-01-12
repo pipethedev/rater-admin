@@ -95,7 +95,7 @@ const Dashboard = () => {
                         ]}
                         // data={[] ?? []}
                         // data={customerData?.data?.customers ?? []}
-                        data={[] ?? []}
+                        data={dataTable ?? []}
                         pagination={{page: 5, pageSize: 1, totalRows: 1}}
                         rowActions={(row) => [
                             {
