@@ -19,10 +19,6 @@ export const authSlice = createSlice({
                 last_name: payload.last_name,
                 phone: payload.phone,
                 email: payload.email,
-                isAdmin: payload.isAdmin,
-                status: payload.status,
-                type: payload.type,
-                role: payload.role,
                 id: payload._id,
             };
         },

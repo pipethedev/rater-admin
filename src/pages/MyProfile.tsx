@@ -38,7 +38,7 @@ const MyProfile = () => {
                 </div>
 
                 <div className="ml-5">
-                    <span className='text-2xl lg:text-[56px] font-extrabold'>Lord Gerald Kachi</span>
+                    <span className='text-2xl lg:text-[56px] font-semibold'>Lord Gerald Kachi</span>
                     <div className="text-[#888888] text-lg">fitzgeraldkachi@gmail.com</div>
                 </div>
             </div>
@@ -48,8 +48,8 @@ const MyProfile = () => {
                     <SongRaterIcon className='space-x-10' />
 
                     <div className="items-center ml-5">
-                        <div className='text-4xl'>0</div>
-                        <div className='text-[#888888] mt-3'>Workers in Platform</div>
+                        <div className='text-4xl font-semibold'>0</div>
+                        <div className='text-[#888888] mt-3 font-medium'>Songs on Music Rater</div>
                     </div>
                 </div>
 
@@ -57,8 +57,8 @@ const MyProfile = () => {
                     <UserRaterIcon className='space-x-10' />
 
                     <div className="items-center ml-5">
-                        <div className='text-4xl'>0</div>
-                        <div className='text-[#888888] mt-3'>Feedbacks Given</div>
+                        <div className='text-4xl font-semibold'>0</div>
+                        <div className='text-[#888888] mt-3 font-medium'>Users on Music Rater</div>
                     </div>
                 </div>
 
@@ -66,8 +66,8 @@ const MyProfile = () => {
                     <RevenueIcon className='space-x-10' />
 
                     <div className="items-center ml-5">
-                        <div className='text-4xl'>₦0.00</div>
-                        <div className='text-[#888888] mt-3'>Songs you’ve rated</div>
+                        <div className='text-4xl font-semibold'>₦0.00</div>
+                        <div className='text-[#888888] mt-3 font-medium'>Revenue</div>
                     </div>
                 </div>
             </div>

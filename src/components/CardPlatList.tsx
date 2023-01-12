@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import PlayMusicIcon from '../assets/svg/PlayMusicIcon'
 
 interface CardPlatListProps {
@@ -7,8 +8,11 @@ interface CardPlatListProps {
     rate: string
 }
 const CardPlatList = ({ title, subtitle, rate }: CardPlatListProps) => {
+    const navigate = useNavigate()
+
     return (
-        <div className="my-3">
+        // <div className="my-3" onClick={() => navigate(`finance/${item?._id}`)}>
+        <div className="my-3 cursor-pointer" onClick={() => navigate(`/users/:id`)}>
             <div className="bg-[#F5F8FF] p-4 flex items-center justify-center my-2 rounded-xl py-10">
                 <PlayMusicIcon className='' />
             </div>
