@@ -100,7 +100,7 @@ const Dashboard = () => {
                         rowActions={(row) => [
                             {
                                 action: () => {< DownloadIcon /> },
-                                name: "AON",
+                                name: "ACTION",
                             },
                         ]}
                         titleEmpty="No Transactions yet"
