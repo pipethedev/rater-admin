@@ -105,7 +105,7 @@ const LoginForm = () => {
     <div className="flex flex-col p-6 mx-auto my-auto rounded-md sm:p-10 dark:bg-gray-900 dark:text-gray-100">
       <div className="mb-8">
         <p className="text-sm dark:text-gray-400">Welcome Back Admin</p>
-        <h1 className="my-3 text-4xl font-bold">Administrator</h1>
+        <h1 className="my-3 text-4xl font-semibold">Administrator</h1>
       </div>
       <form className="space-y-12 ng-untouched ng-pristine ng-valid" onSubmit={handleLogin}>
         <div className="space-y-4">

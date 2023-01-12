@@ -21,7 +21,7 @@ const ForgotForm = () => {
     return (
         <div className="flex flex-col p-6 mx-auto my-auto rounded-md sm:p-10 dark:bg-gray-900 dark:text-gray-100">
             <div className="mb-8">
-                <h1 className="my-3 text-4xl font-bold">Forgot Password</h1>
+                <h1 className="my-3 text-4xl font-semibold">Forgot Password</h1>
                 <p className="text-sm dark:text-gray-400">Hey there don’t fret. Kindly enter the email address used  in registering your account.</p>
             </div>
             <form className="space-y-12 ng-untouched ng-pristine ng-valid" onSubmit={() => null}>
