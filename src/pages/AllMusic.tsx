@@ -53,9 +53,15 @@ const AllMusic = () => {
 
             <div className="my-10">
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    {Array(20).fill('').map((item) => (
-                        <CardPlatList title='Song Title' subtitle='Play Time — 2mins 45sec' rate='Good' />
-                    ))}
+                    {/* {Array(20).fill('').map((item) => ( */}
+                    {allSongs.length === 0 ?
+                        (
+                            <div className='text-center'>No Songs</div>
+                        )
+                        :
+                        allSongs.map((item) => (
+                            <CardPlatList title='Song Title' subtitle='Play Time — 2mins 45sec' rate='Good' />
+                        ))}
                 </div>
             </div>
 

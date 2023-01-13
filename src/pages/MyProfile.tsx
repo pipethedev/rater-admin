@@ -12,6 +12,8 @@ import { useGetViewAllProfileQuery } from '../features/auth/authApiSplice'
 const MyProfile = () => {
     const { data, isLoading, isFetching } = useGetViewAllProfileQuery({})
 
+    console.log(data, 'datadatadata')
+
     return (
         <section>
             <Header title='My Profile' subtitle='feedback from admin on your songs' />
@@ -37,12 +39,12 @@ const MyProfile = () => {
 
             <div className="my-5 flex items-center">
                 <div className="flex items-center justify-center rounded-full w-20 h-20 lg:w-[150px] lg:h-[150px] lg:p-10 bg-[#3B71F7] text-white text-center text-xl lg:text-[50px] font-extrabold">
-                    <span>LG</span>
+                    <span>{data?.first_name[0]} {data?.last_name[0]}</span>
                 </div>
 
                 <div className="ml-5">
-                    <span className='text-2xl lg:text-[56px] font-semibold'>Lord Gerald Kachi</span>
-                    <div className="text-[#888888] text-lg">fitzgeraldkachi@gmail.com</div>
+                    <span className='text-2xl lg:text-[56px] font-semibold'>{data?.first_name}</span>
+                    <div className="text-[#888888] text-lg">{data?.email}</div>
                 </div>
             </div>
 

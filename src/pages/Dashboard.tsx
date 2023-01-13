@@ -18,7 +18,7 @@ import { useDashboardStatsQuery } from '../features/auth/authApiSplice'
 const Dashboard = () => {
     const { data, isLoading, isFetching } = useDashboardStatsQuery({})
 
-    console.log(data, 'datadatadata dashboard state')
+    // console.log(data, 'datadatadata dashboard state')
 
     return (
         <section>
@@ -29,7 +29,7 @@ const Dashboard = () => {
                     <SongRaterIcon className='space-x-10' />
 
                     <div className="items-center ml-5">
-                        <div className='text-4xl font-semibold'>0</div>
+                        <div className='text-4xl font-semibold'>{data?.songs}</div>
                         <div className='text-[#888888] mt-3 font-medium'>Songs on Music Rater</div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@ const Dashboard = () => {
                     <UserRaterIcon className='space-x-10' />
 
                     <div className="items-center ml-5">
-                        <div className='text-4xl font-semibold'>0</div>
+                        <div className='text-4xl font-semibold'>{data?.users}</div>
                         <div className='text-[#888888] mt-3 font-medium'>Users on Music Rater</div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@ const Dashboard = () => {
                     <RevenueIcon className='space-x-10' />
 
                     <div className="items-center ml-5">
-                        <div className='text-4xl font-semibold'>₦0.00</div>
+                        <div className='text-4xl font-semibold'>₦{data?.revenue}</div>
                         <div className='text-[#888888] mt-3 font-medium'>Revenue</div>
                     </div>
                 </div>

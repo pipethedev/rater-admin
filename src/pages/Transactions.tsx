@@ -11,6 +11,7 @@ const Transactions = () => {
     const [search, setSearch] = useState<string>("")
 
     const { data, isLoading, isFetching } = useGetAllTransactionsQuery({})
+    console.log(data, 'datadatadatadatadata transac')
 
     return (
         <section>
@@ -59,20 +60,19 @@ const Transactions = () => {
                     columns={[
                         {
                             header: "FULLNAME",
-                            // view: (row) => `${row?.user.first_name} ${row?.user.last_name}`,
-                            view: (row) => `${row?.date} ${row?.date}`,
+                            view: (row) => `${row?.payment_method} ${row?.payment_method}`,
                         },
-                        { header: "EMAIL ADDRESS", view: (row) => row?.recipent },
+                        { header: "EMAIL ADDRESS", view: (row) => row?.currency },
                         {
-                            header: "DESCRIPTION",
+                            header: "AMOUNT",
                             view: (row) => row?.amount ? (row?.amount) : 0
                         },
                         {
-                            header: "MOBILE NUMBER",
-                            view: (row) => (row?.description),
+                            header: "PAYMENT STATUS",
+                            view: (row) => (row?.payment_status),
                         },
                     ]}
-                    data={dataTable ?? []}
+                    data={data ?? []}
                     pagination={{ page: 5, pageSize: 1, totalRows: 1 }}
                     // rowActions={(row) => [
                     //     {
