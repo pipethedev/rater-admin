@@ -4,8 +4,13 @@ import Button from '../components/Button'
 import CardPlatList from '../components/CardPlatList'
 import Header from '../components/Header'
 import Input from '../components/Input'
+import { useAllSongsQuery } from '../features/auth/authApiSplice'
 
 const AllMusic = () => {
+    const { data: allSongs, isLoading, isFetching } = useAllSongsQuery({})
+
+    console.log(allSongs, 'allSongsallSongs')
+
     const [search, setSearch] = useState<string>("")
     return (
         <section>

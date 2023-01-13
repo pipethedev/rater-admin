@@ -12,9 +12,14 @@ import * as dayjs from 'dayjs'
 import TableMam from '../components/TableMam'
 import { dataTable } from '../assets/data/sidebar-data'
 import DownloadIcon from '../assets/svg/DownloadIcon'
+import { useDashboardStatsQuery } from '../features/auth/authApiSplice'
 
 
 const Dashboard = () => {
+    const { data, isLoading, isFetching } = useDashboardStatsQuery({})
+
+    console.log(data, 'datadatadata dashboard state')
+
     return (
         <section>
             <Header title='Good Evening Admin,' subtitle='Always remember you are a star, and you would always be!' />

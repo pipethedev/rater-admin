@@ -7,8 +7,11 @@ import SongRaterIcon from '../assets/svg/SongRaterIcon'
 import UserRaterIcon from '../assets/svg/UserRater.Icon'
 import Header from '../components/Header'
 import { Table } from '../components/Table'
+import { useGetViewAllProfileQuery } from '../features/auth/authApiSplice'
 
 const MyProfile = () => {
+    const { data, isLoading, isFetching } = useGetViewAllProfileQuery({})
+
     return (
         <section>
             <Header title='My Profile' subtitle='feedback from admin on your songs' />

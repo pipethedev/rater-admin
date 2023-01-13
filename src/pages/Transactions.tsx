@@ -4,9 +4,13 @@ import { dataTable } from '../assets/data/sidebar-data'
 import Header from '../components/Header'
 import Input from '../components/Input'
 import { Table } from '../components/Table'
+import { useGetAllTransactionsQuery } from '../features/auth/authApiSplice'
+
 
 const Transactions = () => {
     const [search, setSearch] = useState<string>("")
+
+    const { data, isLoading, isFetching } = useGetAllTransactionsQuery({})
 
     return (
         <section>

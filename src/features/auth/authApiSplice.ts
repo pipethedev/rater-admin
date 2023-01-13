@@ -32,6 +32,41 @@ export const authApiSlice = apiSlice.injectEndpoints({
             invalidatesTags: ['Auth'],
         }),
 
+        // fetch songs all songs
+        allSongs: builder.query({ // get advert admin
+            query: () => `/song/all`,
+            providesTags: ["Auth"],
+            transformResponse: (response: { data: any }, meta, arg) => response.data
+        }),
+        // dashboardState
+        dashboardStats: builder.query({ // get advert admin
+            query: () => `/dashboard/stats`,
+            providesTags: ["Auth"],
+            transformResponse: (response: { data: any }, meta, arg) => response.data
+        }),
+        // get All Transactions
+        getAllTransactions: builder.query({ // get advert admin
+            query: () => `/transactions/all`,
+            providesTags: ["Auth"],
+            transformResponse: (response: { data: any }, meta, arg) => response.data
+        }),
+        // get All Transactions
+        getViewAllProfile: builder.query({ // get advert admin
+            query: () => `/user/profile`,
+            providesTags: ["Auth"],
+            transformResponse: (response: { data: any }, meta, arg) => response.data
+        }),
+
+        updateProfile: builder.mutation({
+            query: body => ({
+                url: `/user/profile`,
+                method: 'PUT',
+                body
+            }),
+            transformResponse: (response: { data: AuthType }, meta, arg) => response.data,
+            invalidatesTags: ['Auth'],
+        }),
+
     })
 })
 
@@ -39,6 +74,18 @@ export const {
     useLoginMutation,
     useResetMutation,
     useForgotPasswordMutation,
+
+    // fetch songs
+    useAllSongsQuery,
+
+    // dashboardSTat
+    useDashboardStatsQuery,
+
+    // get All Transaction
+    useGetAllTransactionsQuery,
+    // view all profile
+    useGetViewAllProfileQuery
+
 } = authApiSlice
 
 // __.gail__ full video from a tiktok i saw
