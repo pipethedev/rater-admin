@@ -89,17 +89,6 @@ const Settings = () => {
                         value={password}
                         onChange={(e: Event) => setPassword((e.target as HTMLInputElement).value)}
                     />
-                    {/* <Input
-                        label='New Password'
-                        className="w-full lg:w-[1200px] p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        divStyle='w-full block'
-                        placeholder='New Password'
-                        // searchIcon
-                        type="password"
-                        value={confirmPassword}
-                        onChange={(e: Event) => setConfirmPassword((e.target as HTMLInputElement).value)}
-                    /> */}
-
                 </div>
                 <div className='block my-5'>
 
