@@ -1,12 +1,42 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import Button from '../components/Button'
 import Header from '../components/Header'
 import Input from '../components/Input'
+import { useChangePasswordMutation } from '../features/auth/authApiSplice'
 
 const Settings = () => {
-    const [currentPassword, setCurrentPassword] = useState<string>("")
-    const [NewPassword, setNewPassword] = useState<string>("")
+    const [oldPassword, setOldPassword] = useState<string>("")
+    const [password, setPassword] = useState<string>("")
+    const [confirmPassword, setConfirmPassword] = useState<string>("")
+    const [changePassword, { isSuccess, isLoading }] = useChangePasswordMutation({})
+
+    useEffect(() => {
+        if (isSuccess) {
+            toast.success("Password Changed successfully");
+        }
+    }, [isSuccess]);
+
+    const HandleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        try {
+            if (password && confirmPassword) {
+                await changePassword({
+                    password,
+                    password_confirmation: confirmPassword,
+                    old_password: oldPassword
+                }).unwrap()
+
+                setPassword('')
+                setConfirmPassword('')
+            }
+        } catch {
+            toast.error("Failed Please Try again")
+        }
+
+    }
 
     return (
         <section>
@@ -36,34 +66,58 @@ const Settings = () => {
                 <div className='text-[#888888]'>feedback from admin on your songs</div>
             </div>
 
-            <form className=" my-10">
+            <form className=" my-10" onSubmit={HandleSubmit}>
                 <Input
-                    label='Current Password'
+                    label='Old Password'
                     className="w-full lg:w-[1200px]  p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     divStyle='w-full block'
-                    placeholder='Current Password'
+                    placeholder='Old Password'
                     // searchIcon
                     type="password"
-                    value={currentPassword}
-                    onChange={(e: Event) => setCurrentPassword((e.target as HTMLInputElement).value)}
+                    value={oldPassword}
+                    onChange={(e: Event) => setOldPassword((e.target as HTMLInputElement).value)}
                 />
                 <div className='block my-5'>
 
-                <Input
-                    label='New Password'
-                    className="w-full lg:w-[1200px] p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    divStyle='w-full block'
-                    placeholder='New Password'
-                    // searchIcon
-                    type="password"
-                    value={NewPassword}
-                    onChange={(e: Event) => setNewPassword((e.target as HTMLInputElement).value)}
+                    <Input
+                        label='Current Password'
+                        className="w-full lg:w-[1200px]  p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        divStyle='w-full block'
+                        placeholder='Current Password'
+                        // searchIcon
+                        type="password"
+                        value={password}
+                        onChange={(e: Event) => setPassword((e.target as HTMLInputElement).value)}
                     />
-                    </div>
+                    {/* <Input
+                        label='New Password'
+                        className="w-full lg:w-[1200px] p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        divStyle='w-full block'
+                        placeholder='New Password'
+                        // searchIcon
+                        type="password"
+                        value={confirmPassword}
+                        onChange={(e: Event) => setConfirmPassword((e.target as HTMLInputElement).value)}
+                    /> */}
+
+                </div>
+                <div className='block my-5'>
+
+                    <Input
+                        label='New Password'
+                        className="w-full lg:w-[1200px] p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        divStyle='w-full block'
+                        placeholder='New Password'
+                        // searchIcon
+                        type="password"
+                        value={confirmPassword}
+                        onChange={(e: Event) => setConfirmPassword((e.target as HTMLInputElement).value)}
+                    />
+                </div>
 
                 <div>
 
-                <Button className='block' type='submit' onClick={() => null} title="Save New Password"  />
+                    <Button className='block' type='submit' loading={isLoading} onClick={() => null} title="Save New Password" />
                 </div>
             </form>
 

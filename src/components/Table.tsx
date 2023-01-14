@@ -114,7 +114,6 @@ export function Table<TRow extends {}>({
         {props.loading && (
           <div className="absolute top-0 w-full  z-10 text-center">
             <Loader />
-            {/* <Loader type="bar" /> */}
           </div>
         )}
         <div className="h-full w-full overflow-auto  relative ">

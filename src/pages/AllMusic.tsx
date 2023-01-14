@@ -7,9 +7,11 @@ import Input from '../components/Input'
 import { useAllSongsQuery } from '../features/auth/authApiSplice'
 
 const AllMusic = () => {
-    const { data, isLoading, isFetchingm, isError } = useAllSongsQuery({})
+    const { data, isLoading, isFetching, isError, isSuccess } = useAllSongsQuery({})
 
-    console.log(data, 'allSongsallSongs')
+    // console.log(data, 'allSongsallSongs')
+    const Loader = () => <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-[#3B71F7]"></div>
+
 
     const [search, setSearch] = useState<string>("")
     return (
@@ -52,22 +54,22 @@ const AllMusic = () => {
             </div>
 
             <div className="my-10">
+                <div className="flex items-center justify-center">
+                    {isLoading && <div className='text-3xl'>
+                        <Loader />
+                    </div>}
+                    {isFetching && <div className='text-3xl'>Fecthing all songs</div>}
+                </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {/* {Array(20).fill('').map((item) => ( */}
-                    {/* {data.length === 0 ?
-                        (
-                            <div className='flex items-center justify-center text-center'>
-                                <p>No Songs</p>
-                            </div>
-                        )
+                    {data?.length === 0 ?
+                        (<div className='flex items-center justify-center text-center'>
+                            <p>No Songs</p>
+                        </div>)
                         :
-                        data.map((item) => (
+                        data?.map((item) => (
                             // Array(20).fill('').map((item) => (
                             <CardPlatList title={item?.title} subtitle={item?.file_name} rate='Good' />
-                        ))} */}
-                    {data?.map((item) => (
-                            // Array(20).fill('').map((item) => (
-                            <CardPlatList title={item?.title} subtitle={item?.file_name} rate={item?.ratings[3]} />
                         ))}
                 </div>
             </div>
