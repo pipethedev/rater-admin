@@ -100,6 +100,7 @@ const Dashboard = () => {
                         ]}
                         // data={[] ?? []}
                         // data={customerData?.data?.customers ?? []}
+                        // loading={isLoading}
                         data={dataTable ?? []}
                         pagination={{page: 5, pageSize: 1, totalRows: 1}}
                         rowActions={(row) => [

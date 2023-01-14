@@ -4,8 +4,11 @@ import { dataTable } from '../assets/data/sidebar-data'
 import Header from '../components/Header'
 import SearchInput from '../components/SearchInput'
 import { Table } from '../components/Table'
+import { useGetAllUsersQuery } from '../features/auth/authApiSplice'
 
 const Users = () => {
+    const { data, isLoading, isFetching } = useGetAllUsersQuery({})
+    console.log(data, 'datadatadata uiser')
     return (
         <section>
             <Header title='Users' subtitle='All registered users on the platform' />
@@ -46,19 +49,20 @@ const Users = () => {
                         {
                             header: "FULLNAME",
                             // view: (row) => `${row?.user.first_name} ${row?.user.last_name}`,
-                            view: (row) => `${row?.date} ${row?.date}`,
+                            view: (row) => `${row?.first_name} ${row?.first_name}`,
                         },
-                        { header: "EMAIL ADDRESS", view: (row) => row?.recipent },
+                        { header: "EMAIL ADDRESS", view: (row) => row?.email },
                         {
                             header: "DESCRIPTION",
-                            view: (row) => row?.amount ? (row?.amount) : 0
+                            // view: (row) => row?.amount ? (row?.amount) : 0
+                            view: (row) => (row?.role)
                         },
                         {
                             header: "MOBILE NUMBER",
                             view: (row) => (row?.description),
                         },
                     ]}
-                    data={dataTable ?? []}
+                    data={data ?? []}
                     pagination={{ page: 5, pageSize: 1, totalRows: 1 }}
                     // rowActions={(row) => [
                     //     {
@@ -66,8 +70,8 @@ const Users = () => {
                     //         name: "DATE REGISTERED",
                     //     },
                     // ]}
-                    title="No Transactions yet"
-                    subtitle="It looks like you haven't added any music to your sound page yet. To add a song to the sound page, click the button below"
+                    titleEmpty="No user on the platform at the moment"
+                    subtitleEmpty="It looks like you haven't added any music to your sound page yet. To add a song to the sound page, click the button below"
                 />
             </div>
         </section>

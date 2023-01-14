@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { dataTable } from '../assets/data/sidebar-data'
 import Arrowlong from '../assets/svg/Arrowlong'
 import RevenueIcon from '../assets/svg/RevenueIcon'
@@ -12,7 +12,8 @@ import { useGetViewAllProfileQuery } from '../features/auth/authApiSplice'
 const MyProfile = () => {
     const { data, isLoading, isFetching } = useGetViewAllProfileQuery({})
 
-    console.log(data, 'datadatadata')
+    const navigate = useNavigate()
+
 
     return (
         <section>
@@ -39,7 +40,8 @@ const MyProfile = () => {
 
             <div className="my-5 flex items-center">
                 <div className="flex items-center justify-center rounded-full w-20 h-20 lg:w-[150px] lg:h-[150px] lg:p-10 bg-[#3B71F7] text-white text-center text-xl lg:text-[50px] font-extrabold">
-                    <span>{data?.first_name[0]} {data?.last_name[0]}</span>
+                    <span>{data?.first_name[0]}</span>
+                    <span> {data?.last_name[0]}</span>
                 </div>
 
                 <div className="ml-5">
@@ -48,7 +50,7 @@ const MyProfile = () => {
                 </div>
             </div>
 
-            <div className="card grid lg:grid-cols-3 gap-4 my-8">
+            <div className="card grid lg:grid-cols-2 gap-4 my-8">
                 <div className="bg-[#F5F8FF] flex items-center p-5 rounded-xl">
                     <SongRaterIcon className='space-x-10' />
 
@@ -67,14 +69,14 @@ const MyProfile = () => {
                     </div>
                 </div>
 
-                <div className="bg-[#F5FFFC] flex items-center p-5 rounded-xl">
+                {/* <div className="bg-[#F5FFFC] flex items-center p-5 rounded-xl">
                     <RevenueIcon className='space-x-10' />
 
                     <div className="items-center ml-5">
                         <div className='text-4xl font-semibold'>₦0.00</div>
                         <div className='text-[#888888] mt-3 font-medium'>Revenue</div>
                     </div>
-                </div>
+                </div> */}
             </div>
 
 
@@ -110,14 +112,15 @@ const MyProfile = () => {
                     ]}
                     data={dataTable ?? []}
                     pagination={{ page: 5, pageSize: 1, totalRows: 1 }}
-                    // rowActions={(row) => [
-                    //     {
-                    //         action: () => { },
-                    //         name: "DATE REGISTERED",
-                    //     },
-                    // ]}
-                    title="No Transactions yet"
-                    subtitle="It looks like you haven't added any music to your sound page yet. To add a song to the sound page, click the button below"
+                    rowActions={(row) => [
+                        {
+                            action: () => <div className="bg-red-600" onClick={()=> navigate(`/users/:id`)}>View More</div>,
+                            name: "View Detail",
+                        },
+                    ]}
+                    loading={isLoading}
+                    titleEmpty="No Worker on the platform"
+                    subtitleEmpty="A password reset link has been sent to the email address you used in registering on the platform. do check your mail to continue"
                 />
             </div>
 

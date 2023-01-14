@@ -80,8 +80,8 @@ const Transactions = () => {
                     //         name: "DATE REGISTERED",
                     //     },
                     // ]}
-                    title="No Transactions yet"
-                    subtitle="It looks like you haven't added any music to your sound page yet. To add a song to the sound page, click the button below"
+                    titleEmpty="No Revenue at the moment"
+                    subtitleEmpty="It looks like you haven't added any music to your sound page yet. To add a song to the sound page, click the button below"
                 />
             </div>
         </section>

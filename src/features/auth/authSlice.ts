@@ -28,10 +28,11 @@ export const authSlice = createSlice({
         setUserToken: (state, { payload: { token } }) => {
             state.token = token;
         },
-        setUser: (state, action: PayloadAction<{ user: {}, token: string }>) => {
-            const { user, token } = action.payload
+        // setUser: (state, action: PayloadAction<{ user: {}, token: string }>) => {
+        setUser: (state, action: PayloadAction<{ token: string }>) => {
+            const { token } = action.payload
             localStorage.setItem(
-                "user", JSON.stringify({ user, token })
+                "user", JSON.stringify({ token })
             )
             // localStorage.setItem(
             //     "user", JSON.stringify({
@@ -39,7 +40,7 @@ export const authSlice = createSlice({
             //         token: action.payload.token
             //     })
             // )
-            state.user = action.payload.user;
+            // state.user = action.payload.user;
             state.token = action.payload.token;
         },
 

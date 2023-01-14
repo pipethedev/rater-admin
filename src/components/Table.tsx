@@ -170,7 +170,7 @@ export function Table<TRow extends {}>({
                 {props.rowActions &&
                   props.rowActions({} as any, 0).length > 0 && (
                     <th className="text-mid-night-80 text-[15px] font-normal text-right px-6 py-3 whitespace-nowrap bg-pearl-2  first:rounded-tl-lg last:rounded-tr-lg max-w-sm">
-                      {hideActionName ? "" : "Action"}
+                      {hideActionName ? "" : "ACTION"}
                     </th>
                   )}
               </tr>

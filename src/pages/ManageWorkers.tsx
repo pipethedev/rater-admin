@@ -7,9 +7,11 @@ import { Table } from '../components/Table'
 import Modal from '../components/Modal'
 import Input from '../components/Input'
 import AddWoker from './AddWoker'
+import { useGetAllWorkersQuery } from '../features/auth/authApiSplice'
 
 const ManageWorkers = () => {
-
+    const { data, isLoading, isFetching } = useGetAllWorkersQuery({})
+    console.log(data, 'data list of workers')
     const [stateBool, setStateBool] = useState<boolean>(false)
     const [search, setSearch] = useState<string>("")
 
@@ -49,25 +51,26 @@ const ManageWorkers = () => {
                         {
                             header: "FULLNAME",
                             // view: (row) => `${row?.user.first_name} ${row?.user.last_name}`,
-                            view: (row) => `${row?.date} ${row?.date}`,
+                            view: (row) => `${row?.first_name} ${row?.first_name}`,
                         },
-                        { header: "EMAIL ADDRESS", view: (row) => row?.recipent },
+                        { header: "EMAIL ADDRESS", view: (row) => row?.email },
                         {
                             header: "SONGS REVIEWED",
-                            view: (row) => row?.amount ? (row?.amount) : 0
+                            // view: (row) => row?.amount ? (row?.amount) : 0
+                            view: (row) => row?.role
                         },
-                        {
-                            header: "DATE ADDED",
-                            view: (row) => (row?.amount),
-                        },
+                        // {
+                        //     header: "DATE ADDED",
+                        //     view: (row) => (row?.amount),
+                        // },
                         {
                             header: "STATUS",
-                            view: (row) => (row?.amount),
+                            view: (row) => (row?.last_name),
                         },
                     ]}
-                    // data={[] ?? []}
                     // data={customerData?.data?.customers ?? []}
-                    data={dataTable ?? []}
+                    loading={isLoading}
+                    data={data ?? []}
                     pagination={{ page: 5, pageSize: 1, totalRows: 1 }}
                     rowActions={(row) => [
                         {
@@ -75,8 +78,8 @@ const ManageWorkers = () => {
                             name: "ACTION",
                         },
                     ]}
-                    title="No Transactions yet"
-                    subtitle="It looks like you haven't added any music to your sound page yet. To add a song to the sound page, click the button below"
+                    titleEmpty="No Worker on the platform at the moment"
+                    subtitleEmpty="It looks like you haven't added any music to your sound page yet. To add a song to the sound page, click the button below"
                     />
                 </div>
 

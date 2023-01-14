@@ -56,6 +56,18 @@ export const authApiSlice = apiSlice.injectEndpoints({
             providesTags: ["Auth"],
             transformResponse: (response: { data: any }, meta, arg) => response.data
         }),
+        // get all users
+        getAllUsers: builder.query({ // get advert admin
+            query: () => `/users?type=users`,
+            providesTags: ["Auth"],
+            transformResponse: (response: { data: any }, meta, arg) => response.data
+        }),
+        // get all workers
+        getAllWorkers: builder.query({ // get advert admin
+            query: () => `/users?type=workers`,
+            providesTags: ["Auth"],
+            transformResponse: (response: { data: any }, meta, arg) => response.data
+        }),
 
         updateProfile: builder.mutation({
             query: body => ({
@@ -63,7 +75,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
                 method: 'PUT',
                 body
             }),
-            transformResponse: (response: { data: AuthType }, meta, arg) => response.data,
+            transformResponse: (response: { data: any }, meta, arg) => response.data,
             invalidatesTags: ['Auth'],
         }),
 
@@ -84,8 +96,11 @@ export const {
     // get All Transaction
     useGetAllTransactionsQuery,
     // view all profile
-    useGetViewAllProfileQuery
-
+    useGetViewAllProfileQuery,
+    // get all users
+    useGetAllUsersQuery,
+    // workers
+    useGetAllWorkersQuery
 } = authApiSlice
 
 // __.gail__ full video from a tiktok i saw

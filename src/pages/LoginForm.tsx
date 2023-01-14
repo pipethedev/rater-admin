@@ -59,10 +59,13 @@ const LoginForm = () => {
         // call login trigger from rtk query
         await loginUser({ email, password }).unwrap();
 
-        const { admin, token }: any = await loginData
+        // const { admin, token }: any = await loginData
+        const { token }: any = await loginData
         // set user data and token in redux store
         // dispatch(setUser({ user: admin.firstName, token }))
-        dispatch(setUser({ user: admin, token }))
+        // dispatch(setUser({ user: admin, token }))
+        dispatch(setUser({ token }))
+        // dispatch(setUser({ user: admin, token }))
         if (isLoginSuccess) {
           navigate('/dashboard', { replace: true })
           toast.success("Login successful");
@@ -94,7 +97,8 @@ const LoginForm = () => {
   useEffect(() => {
     if (isLoginSuccess) {
       const { token, admin }: any = loginData
-      dispatch(setUser({ user: admin, token }))
+      // dispatch(setUser({ user: admin, token }))
+      dispatch(setUser({ token }))
       navigate('/dashboard', { replace: true })
       toast.success("User Login Successfully")
     }

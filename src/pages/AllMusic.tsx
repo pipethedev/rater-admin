@@ -7,9 +7,9 @@ import Input from '../components/Input'
 import { useAllSongsQuery } from '../features/auth/authApiSplice'
 
 const AllMusic = () => {
-    const { data: allSongs, isLoading, isFetching } = useAllSongsQuery({})
+    const { data, isLoading, isFetchingm, isError } = useAllSongsQuery({})
 
-    console.log(allSongs, 'allSongsallSongs')
+    console.log(data, 'allSongsallSongs')
 
     const [search, setSearch] = useState<string>("")
     return (
@@ -54,20 +54,27 @@ const AllMusic = () => {
             <div className="my-10">
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {/* {Array(20).fill('').map((item) => ( */}
-                    {allSongs.length === 0 ?
+                    {/* {data.length === 0 ?
                         (
-                            <div className='text-center'>No Songs</div>
+                            <div className='flex items-center justify-center text-center'>
+                                <p>No Songs</p>
+                            </div>
                         )
                         :
-                        allSongs.map((item) => (
-                            <CardPlatList title='Song Title' subtitle='Play Time — 2mins 45sec' rate='Good' />
+                        data.map((item) => (
+                            // Array(20).fill('').map((item) => (
+                            <CardPlatList title={item?.title} subtitle={item?.file_name} rate='Good' />
+                        ))} */}
+                    {data?.map((item) => (
+                            // Array(20).fill('').map((item) => (
+                            <CardPlatList title={item?.title} subtitle={item?.file_name} rate={item?.ratings[3]} />
                         ))}
                 </div>
             </div>
 
-            <div className="flex items-center justify-center my-20">
+            {/* <div className="flex items-center justify-center my-20">
                 <Button title='Upload your Music' />
-            </div>
+            </div> */}
         </section >
     )
 }
