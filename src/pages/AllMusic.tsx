@@ -10,7 +10,7 @@ const AllMusic = () => {
     const { data, isLoading, isFetching, isError, isSuccess } = useAllSongsQuery({})
 
     // console.log(data, 'allSongsallSongs')
-    const Loader = () => <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-[#3B71F7]"></div>
+    const Loader = () => <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-[#3B71F7]"></div>
 
 
     const [search, setSearch] = useState<string>("")
@@ -38,7 +38,7 @@ const AllMusic = () => {
 
             <div className="flex items-center justify-between">
                 <Input
-                    className="w-full lg:w-96 p-4 pl-10 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="w-full lg:w-96 p-4 pl-10 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
                     divStyle=''
                     placeholder="Search songs by title or Artiste’s name'"
                     searchIcon
@@ -48,8 +48,8 @@ const AllMusic = () => {
                 />
 
                 <div className="flex items-center space-x-4">
-                    <button type="submit" className="text-[#3B71F7] bg-[#F5F8FF]  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-[72px] text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Alphabetic Order</button>
-                    <button type="submit" className="text-[#3B71F7] bg-[#F5F8FF] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-[72px] text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Date Uploaded</button>
+                    <button type="submit" className="text-[#3B71F7] bg-[#F5F8FF]  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-[72px] text-sm px-4 py-2">Alphabetic Order</button>
+                    <button type="submit" className="text-[#3B71F7] bg-[#F5F8FF] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-[72px] text-sm px-4 py-2">Date Uploaded</button>
                 </div>
             </div>
 

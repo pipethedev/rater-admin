@@ -108,7 +108,7 @@ const LoginForm = () => {
   return (
     <div className="flex flex-col p-6 mx-auto my-auto rounded-md sm:p-10">
       <div className="mb-8">
-        <p className="text-sm dark:text-gray-400">Welcome Back Admin</p>
+        <p className="text-sm">Welcome Back Admin</p>
         <h1 className="my-3 text-4xl font-semibold">Administrator</h1>
       </div>
       <form className="space-y-12 ng-untouched ng-pristine ng-valid" onSubmit={handleLogin}>
@@ -117,7 +117,7 @@ const LoginForm = () => {
             <Input
               label='Email Address' placeholder='Enter Email Address'
               type="email" name="email"
-              className="w-full p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="w-full p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
               value={email}
               onChange={handleChange}
             // onChange={(e: Event) => setEmail((e.target as HTMLInputElement).value)}
@@ -126,7 +126,7 @@ const LoginForm = () => {
           <div>
             <Input
               label='Password'
-              className="w-full p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="w-full p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
               divStyle='w-full block'
               placeholder='Enter Password'
               // searchIcon

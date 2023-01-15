@@ -28,7 +28,7 @@ const ManageWorkers = () => {
             <div className="flex items-center justify-between my-10">
 
                 <Input
-                    className="w-full lg:w-96 p-4 pl-10 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="w-full lg:w-96 p-4 pl-10 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
                     divStyle=''
                     placeholder="Search through workers on the platform"
                     searchIcon
@@ -39,8 +39,8 @@ const ManageWorkers = () => {
 
 
                 <div className="flex items-center space-x-4">
-                    <button type="submit" className="text-[#3B71F7] bg-[#F5F8FF] whitespace-nowrap  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-[72px] text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Status : All</button>
-                    <button type="submit" className="text-[#3B71F7] bg-[#F5F8FF] whitespace-nowrap focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-[72px] text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Date : All</button>
+                    <button type="submit" className="text-[#3B71F7] bg-[#F5F8FF] whitespace-nowrap  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-[72px] text-sm px-4 py-2">Status : All</button>
+                    <button type="submit" className="text-[#3B71F7] bg-[#F5F8FF] whitespace-nowrap focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-[72px] text-sm px-4 py-2">Date : All</button>
                 </div>
             </div>
 

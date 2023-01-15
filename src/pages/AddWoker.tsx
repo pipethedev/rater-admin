@@ -49,13 +49,13 @@ const AddWoker = ({ setStateBool }: any) => {
                 <form className="space-y-12 ng-untouched ng-pristine ng-valid" onSubmit={HandleSubmit}>
                     <div className=" flex items-center justify-between gap-4">
                         <Input type="text" name="firstname" label='Firstname' placeholder='Enter Firstname'
-                            className="w-full p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            className="w-full p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
                             value={firstName}
                             onChange={(e: Event) => setFirstName((e.target as HTMLInputElement).value)}
                         />
 
                         <Input type="text" name="lastname" label='Lastname' placeholder='Enter Lastname'
-                            className="w-full p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            className="w-full p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
                             value={lastName}
                             onChange={(e: Event) => setLastName((e.target as HTMLInputElement).value)}
                         />
@@ -63,14 +63,14 @@ const AddWoker = ({ setStateBool }: any) => {
                     <div className="space-y-4">
                         <div>
                             <Input type="email" name="email" label='Email Address' placeholder='Enter Email Address'
-                                className="w-full p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                className="w-full p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
                                 value={email}
                                 onChange={(e: Event) => setEmail((e.target as HTMLInputElement).value)}
                             />
                         </div>
                         <div>
                             <Input type="number" name="phoneNumber" label='Phone Numbe' placeholder='Enter Phone Number'
-                                className="w-full p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                className="w-full p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
                                 value={phoneNumber}
                                 onChange={(e: Event) => setPhoneNumber((e.target as HTMLInputElement).value)}
                             />

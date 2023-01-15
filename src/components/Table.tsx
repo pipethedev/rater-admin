@@ -7,7 +7,7 @@ import { ReactNode, useEffect, useState } from "react";
 import Paginator from "./Paginator";
 
 
-const Loader = () => <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-[#3B71F7]"></div>
+const Loader = () => <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-[#3B71F7]"></div>
 
 export interface ITableProps<TRow> {
   id?: string;
