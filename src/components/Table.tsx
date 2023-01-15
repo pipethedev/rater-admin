@@ -113,19 +113,19 @@ export function Table<TRow extends {}>({
       {/* <!-- body --> */}
       <div className="flex-1 overflow-hidden relative">
         {props.loading && (
-          <div className="absolute top-0 w-full  z-10 text-center">
+          <div className="absolute top-0 w-full z-10 text-center flex items-center justify-center mt-10">
             <Loader />
           </div>
         )}
         <div className="h-full w-full overflow-auto  relative ">
-          <table className="table table-auto w-full border-collapse text-mid-night-80">
-            <thead className=" sticky top-0 bg-[#F5F8FF] text-[#0F1141] font-semibold">
-              <tr className="">
+          <table className="table table-auto w-full border-collapse">
+            <thead className=" sticky top-0 bg-[#F5F8FF] text-[#0F1141] ">
+              <tr className="text-base font-semibold">
                 {props.bulkAction && <th></th>}
                 {showCheckbox && (
                   <th
                     className=" px-6 py-3 whitespace-nowrap
-                  bg-pearl-2  first:rounded-tl-lg max-w-sm"
+                 first:rounded-tl-lg max-w-sm"
                   >
                     <input
                       type="checkbox"
@@ -160,7 +160,7 @@ export function Table<TRow extends {}>({
                   return (
                     <th
                       key={`${col.header}-head`}
-                      className={`text-mid-night-80 text-[15px] font-normal text-left px-5 py-3 whitespace-nowrap bg-pearl-2  last:rounded-tr-lg max-w-sm ${!showCheckbox && "first:rounded-tl-lg"
+                      className={`text-[14px] font-semibold text-left px-5 py-3 whitespace-nowrap last:rounded-tr-lg max-w-sm ${!showCheckbox && "first:rounded-tl-lg"
                         }`}
                     >
                       <span>{col.header}</span>
@@ -169,7 +169,7 @@ export function Table<TRow extends {}>({
                 })}
                 {props.rowActions &&
                   props.rowActions({} as any, 0).length > 0 && (
-                    <th className="text-mid-night-80 text-[15px] font-normal text-right px-6 py-3 whitespace-nowrap bg-pearl-2  first:rounded-tl-lg last:rounded-tr-lg max-w-sm">
+                    <th className="text-mid-night-80 text-[15px] font-normal text-right px-6 py-3 whitespace-nowrap first:rounded-tl-lg last:rounded-tr-lg max-w-sm">
                       {hideActionName ? "" : "ACTION"}
                     </th>
                   )}

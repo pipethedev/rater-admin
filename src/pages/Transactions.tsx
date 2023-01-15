@@ -14,7 +14,8 @@ const Transactions = () => {
 
     const [search, setSearch] = useState<string>("")
 
-    const { data, isLoading, isFetching } = useGetAllTransactionsQuery({})
+    const { data, isLoading } = useGetAllTransactionsQuery({})
+    console.log(data, 'transactions')
 
     return (
         <section>
@@ -73,12 +74,14 @@ const Transactions = () => {
                     columns={[
                         {
                             header: "FULLNAME",
-                            view: (row) => `${row?.payment_method} ${row?.payment_method}`,
+                            view: (row) => `${row?.user?.first_name} ${row?.user?.last_name}`,
+                            // view: (row) => `${row?.user?.first_name} ${row?.user?.first_name}`,
                         },
-                        { header: "EMAIL ADDRESS", view: (row) => row?.currency },
+                        { header: "EMAIL ADDRESS", view: (row) => row?.user?.email },
                         {
                             header: "AMOUNT",
-                            view: (row) => row?.amount ? (row?.amount) : 0
+                            view: (row) => row?.amount
+                            // view: (row) => row?.amount ? (row?.amount) : 0
                         },
                         {
                             header: "PAYMENT STATUS",
@@ -93,6 +96,7 @@ const Transactions = () => {
                     //         name: "DATE REGISTERED",
                     //     },
                     // ]}
+                    loading={isLoading}
                     titleEmpty="No Revenue at the moment"
                     subtitleEmpty="It looks like you haven't added any music to your sound page yet. To add a song to the sound page, click the button below"
                     emptyChild={<Button className='w-full mt-20 bg-[#516CF5] -p-10' type='' title="Invite a Worker" />}

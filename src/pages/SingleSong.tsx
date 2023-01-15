@@ -75,7 +75,7 @@ const SingleSong = () => {
             <div className="">
                 <div className=" flex gap-6 h-full items-center flex-row my-4 ml-4 border-b-4 border-[#F1F3FF] text-[#949AB1] cursor-pointer relative">
                     <p className={"tabIndex py-3 hover:border-b-4 hover:border-[#3B71F7] cursor-pointer hover:text-[#3B71F7]" + (tabIndex === "Workers Reviews" && "tabIndex text-[#3B71F7] border-b-4 border-b-[#3B71F7]")} onClick={() => setTabIndex("Workers Reviews")}>Workers Reviews{" "}</p>
-                    <p className={"tabIndex py-3 hover:border-b-4 hover:border-[#3B71F7] cursor-pointer hover:text-[#3B71F7]" + (tabIndex === "Voucher Details" && "text-[#3B71F7] border-b-4 border-b-[#3B71F7]")} onClick={() => setTabIndex("Your Feedbacks")}>Your Feedbacks</p>
+                    <p className={"tabIndex py-3 hover:border-b-4 hover:border-[#3B71F7] cursor-pointer hover:text-[#3B71F7]" + (tabIndex === "Your Feedbacks" && "text-[#3B71F7] border-b-4 border-b-[#3B71F7]")} onClick={() => setTabIndex("Your Feedbacks")}>Your Feedbacks</p>
                 </div>
             </div>
 

@@ -11,7 +11,7 @@ import { useGetAllWorkersQuery } from '../features/auth/authApiSplice'
 
 const ManageWorkers = () => {
     const { data, isLoading, isFetching } = useGetAllWorkersQuery({})
-    console.log(data, 'data list of workers')
+    // console.log(data, 'data list of workers')
     const [stateBool, setStateBool] = useState<boolean>(false)
     const [search, setSearch] = useState<string>("")
 
@@ -51,7 +51,7 @@ const ManageWorkers = () => {
                         {
                             header: "FULLNAME",
                             // view: (row) => `${row?.user.first_name} ${row?.user.last_name}`,
-                            view: (row) => `${row?.first_name} ${row?.first_name}`,
+                            view: (row) => `${row?.first_name} ${row?.last_name}`,
                         },
                         { header: "EMAIL ADDRESS", view: (row) => row?.email },
                         {
@@ -59,14 +59,14 @@ const ManageWorkers = () => {
                             // view: (row) => row?.amount ? (row?.amount) : 0
                             view: (row) => row?.role
                         },
-                        // {
-                        //     header: "DATE ADDED",
-                        //     view: (row) => (row?.amount),
-                        // },
                         {
-                            header: "STATUS",
-                            view: (row) => (row?.last_name),
+                            header: "DATE ADDED",
+                            view: (row) => (row?.updated_at),
                         },
+                        // {
+                        //     header: "STATUS",
+                        //     view: (row) => (row?.last_name),
+                        // },
                     ]}
                     // data={customerData?.data?.customers ?? []}
                     loading={isLoading}
