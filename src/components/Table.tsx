@@ -243,7 +243,8 @@ export function Table<TRow extends {}>({
                           {/* <Action
                               variant="horizontal"
                               options={props.rowActions(row, rowIndex)}
-                            /> */}
+                        /> */}
+                        Action
                         </div>
                       </td>
                     )}

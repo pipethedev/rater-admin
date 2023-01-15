@@ -1,18 +1,20 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { dataTable } from '../assets/data/sidebar-data'
 import Button from '../components/Button'
 import Header from '../components/Header'
 import Input from '../components/Input'
+import Modal from '../components/Modal'
 import { Table } from '../components/Table'
 import { useGetAllTransactionsQuery } from '../features/auth/authApiSplice'
+import MusicUpload from './MusicUpload'
 
 
 const Transactions = () => {
+    const [stateBool, setStateBool] = useState<boolean>(false)
+
     const [search, setSearch] = useState<string>("")
 
     const { data, isLoading, isFetching } = useGetAllTransactionsQuery({})
-    console.log(data, 'datadatadatadatadata transac')
 
     return (
         <section>
@@ -24,7 +26,7 @@ const Transactions = () => {
                         <span className='text-[888888] text-xs'>Current Price</span>
                         <span className='block text-base font-semibold'>₦25,000.00</span>
                     </div>
-                    <Button className='bg-[#FFC94C]' title='Review Price' />
+                    <Button className='bg-[#FFC94C] text-black' title='Review Price' onClick={() => setStateBool(true)}  />
                 </div>
             </div>
 
@@ -96,6 +98,9 @@ const Transactions = () => {
                     emptyChild={<Button className='w-full mt-20 bg-[#516CF5] -p-10' type='' title="Invite a Worker" />}
                 />
             </div>
+
+            <Modal title='Music Upload Price' show={stateBool} closeModal={setStateBool}> <MusicUpload {...{ setStateBool }} /> </Modal>
+
         </section>
     )
 }

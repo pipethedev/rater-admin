@@ -27,9 +27,9 @@ const Modal = (props: Props) => {
                 </div>
                 )}
                 <div className="mx-auto">
-                  {/* <h5 className="text-4xl text-700 mt-5 text- w-80">
-                    {title}
-                  </h5> */}
+                  <h5 className="text-4xl font-semibold mt-5 text- w-80">
+                    {title && title}
+                  </h5>
                   <p className="text-center container mt-2 text-grey-slate text-base w-80">
                     {subTitle}
                   </p>

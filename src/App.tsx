@@ -16,6 +16,7 @@ import Login from './pages/Login'
 import ResetPassword from './pages/ResetPassword'
 import ForgotPassword from './pages/ForgotPassword'
 import UserId from './pages/UserId'
+import SingleSong from './pages/SingleSong'
 
 function App() {
 
@@ -30,7 +31,8 @@ function App() {
       <Route element={<RequiredRoute />}>
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="allmusic" element={<AllMusic />} />
+          <Route path="songs" element={<AllMusic />} />
+          <Route path="songs/:id" element={<SingleSong />} />
           <Route path="users" element={<Users />} />
           <Route path="users/:id" element={<UserId />} />
           <Route path="manage-workers" element={<ManageWorkers />} />

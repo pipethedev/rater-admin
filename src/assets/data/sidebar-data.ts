@@ -1,6 +1,6 @@
 export const routeList = [
     { route: "/dashboard", title: "Dashboard" },
-    { route: "/allmusic", title: "All Music" },
+    { route: "/songs", title: "All Music" },
     { route: "/users", title: "Users" },
     { route: "/manage-workers", title: "Manage Workers" },
     { route: "/transactions", title: "Transactions" },

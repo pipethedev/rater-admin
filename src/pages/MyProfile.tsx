@@ -110,7 +110,7 @@ const MyProfile = () => {
                             view: (row) => (row?.amount),
                         },
                     ]}
-                    data={dataTable ?? []}
+                    data={[] ?? []}
                     pagination={{ page: 5, pageSize: 1, totalRows: 1 }}
                     rowActions={(row) => [
                         {
