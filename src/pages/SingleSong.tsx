@@ -1,16 +1,21 @@
 import React, { useState } from 'react'
+import { useParams } from 'react-router-dom'
 import PlayMusicIcon from '../assets/svg/PlayMusicIcon'
 import Button from '../components/Button'
 import Header from '../components/Header'
 import Modal from '../components/Modal'
+import { useSingleSongQuery } from '../features/auth/authApiSplice'
 import GiveaFeedback from './GiveaFeedback'
 import WorkersReviews from './WorkersReviews'
 import YourFeedbacks from './YourFeedbacks'
 
 const SingleSong = () => {
+    const { id } = useParams()
     const [tabIndex, setTabIndex] = useState<string>("Workers Reviews")
     const [stateBool, setStateBool] = useState<boolean>(false)
+    const { data } = useSingleSongQuery(id, { refetchOnMountOrArgChange: true })
 
+    console.log(data, 'single song')
 
     return (
         <div>

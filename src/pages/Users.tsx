@@ -59,7 +59,7 @@ const Users = () => {
                         },
                         {
                             header: "MOBILE NUMBER",
-                            view: (row) => (row?.description),
+                            view: (row) => (row?.phone_number),
                         },
                     ]}
                     data={data ?? []}

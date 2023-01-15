@@ -79,7 +79,7 @@ const AddWoker = ({ setStateBool }: any) => {
                     </div>
                     <div className="space-y-2">
                         <div>
-                            <Button loading={isLoading} className='w-full mt-20 bg-[#516CF5] -p-10' type='submit' title="Send Invitaion" />
+                            <Button loading={isLoading} disabled={isLoading} className='w-full mt-20 bg-[#516CF5] -p-10' type='submit' title="Send Invitaion" />
                         </div>
                     </div>
                 </form>

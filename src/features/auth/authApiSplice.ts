@@ -33,37 +33,43 @@ export const authApiSlice = apiSlice.injectEndpoints({
         }),
 
         // fetch songs all songs
-        allSongs: builder.query({ // get advert admin
+        allSongs: builder.query({
             query: () => `/song/all`,
             providesTags: ["Auth"],
             transformResponse: (response: { data: any }, meta, arg) => response.data
         }),
+        // fetch a single song
+        singleSong: builder.query({
+            query: () => `/song/:songId`,
+            providesTags: ["Auth"],
+            transformResponse: (response: { data: any }, meta, arg) => response.data
+        }),
         // dashboardState
-        dashboardStats: builder.query({ // get advert admin
+        dashboardStats: builder.query({
             query: () => `/dashboard/stats`,
             providesTags: ["Auth"],
             transformResponse: (response: { data: any }, meta, arg) => response.data
         }),
         // get All Transactions
-        getAllTransactions: builder.query({ // get advert admin
+        getAllTransactions: builder.query({
             query: () => `/transactions/all`,
             providesTags: ["Auth"],
             transformResponse: (response: { data: any }, meta, arg) => response.data
         }),
         // get All Transactions
-        getViewAllProfile: builder.query({ // get advert admin
+        getViewAllProfile: builder.query({
             query: () => `/user/profile`,
             providesTags: ["Auth"],
             transformResponse: (response: { data: any }, meta, arg) => response.data
         }),
         // get all users
-        getAllUsers: builder.query({ // get advert admin
+        getAllUsers: builder.query({
             query: () => `/users?type=users`,
             providesTags: ["Auth"],
             transformResponse: (response: { data: any }, meta, arg) => response.data
         }),
         // get all workers
-        getAllWorkers: builder.query({ // get advert admin
+        getAllWorkers: builder.query({
             query: () => `/users?type=workers`,
             providesTags: ["Auth"],
             transformResponse: (response: { data: any }, meta, arg) => response.data
@@ -108,6 +114,9 @@ export const {
 
     // fetch songs
     useAllSongsQuery,
+
+    // fetch a single song
+    useSingleSongQuery,
 
     // dashboardSTat
     useDashboardStatsQuery,

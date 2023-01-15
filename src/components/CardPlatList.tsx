@@ -6,13 +6,16 @@ interface CardPlatListProps {
     title: string
     subtitle: string
     rate: string
+    id: string
 }
-const CardPlatList = ({ title, subtitle, rate }: CardPlatListProps) => {
+const CardPlatList = ({ title, subtitle, rate, id }: CardPlatListProps) => {
+
+    console.log(id)
     const navigate = useNavigate()
 
     return (
         // <div className="my-3 cursor-pointer" onClick={() => navigate(`/users/:id`)}>
-        <div className="my-3 cursor-pointer" onClick={() => navigate(`/songs/:id`)}>
+        <div className="my-3 cursor-pointer" onClick={() => navigate(`/songs/${id}`)} key={title}>
             <div className="bg-[#F5F8FF] p-4 flex items-center justify-center my-2 rounded-xl py-10">
                 <PlayMusicIcon className='' />
             </div>

@@ -61,15 +61,13 @@ const AllMusic = () => {
                     {isFetching && <div className='text-3xl'>Fecthing all songs</div>}
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    {/* {Array(20).fill('').map((item) => ( */}
                     {data?.length === 0 ?
                         (<div className='flex items-center justify-center text-center'>
                             <p>No Songs</p>
                         </div>)
                         :
-                        data?.map((item) => (
-                            // Array(20).fill('').map((item) => (
-                            <CardPlatList title={item?.title} subtitle={item?.file_name} rate='Good' />
+                        data?.map((item: any) => (
+                            <CardPlatList title={item?.title} subtitle={item?.file_name} rate={item?.ratings?.[0]['rating']} id={item?.id} />
                         ))}
                 </div>
             </div>
