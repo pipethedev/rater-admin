@@ -14,7 +14,7 @@ const AddWoker = ({ setStateBool }: any) => {
 
     useEffect(() => {
         if (isSuccess) {
-            toast.success("Music Upload Price Updated Successfully");
+            toast.success("Worker had been Added Successfully");
             setStateBool(false)
         }
     }, [isSuccess]);

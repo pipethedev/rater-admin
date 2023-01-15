@@ -109,6 +109,16 @@ export const authApiSlice = apiSlice.injectEndpoints({
             transformResponse: (response: any , meta, arg) => response.data,
             invalidatesTags: ['Auth'],
         }),
+        createFeedback: builder.mutation({
+            query: body => ({
+                // url: `/admin-feedback/:songId`,
+                url: (id) => `/admin-feedback/${id}`,
+                method: 'POST',
+                body
+            }),
+            transformResponse: (response: any , meta, arg) => response.data,
+            invalidatesTags: ['Auth'],
+        }),
 
     })
 })

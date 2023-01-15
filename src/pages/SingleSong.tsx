@@ -52,13 +52,13 @@ const SingleSong = () => {
                     </div>
 
                     <div className="flex items-center my-5 gap-4">
-                        <div className="flex items-center gap-4">
+                        {/* <div className="flex items-center gap-4">
                             <SongRaterIcon />
                             <div className="">
                                 <p className='font-semibold text-lg'>2,304</p>
                                 <p>Total Plays</p>
                             </div>
-                        </div>
+                        </div> */}
 
                         <div className="flex items-center gap-4">
                             <UserRaterIcon />
