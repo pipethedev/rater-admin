@@ -5,7 +5,7 @@ interface Props {
   subTitle?: string;
   icon?: JSX.Element;
   children?: JSX.Element;
-  closeModal: (n: boolean) => void;
+  closeModal: (n?: boolean) => void;
 }
 
 const Modal = (props: Props) => {
@@ -14,7 +14,7 @@ const Modal = (props: Props) => {
     <>
       {show && (
         <>
-          <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none m-3">
+          <div onClick={() => closeModal()} className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none m-3">
             <div className="relative my-6 mx-auto">
               <div className="border-0 rounded-3xl p-5 sm:p-10 shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/* <AIclosecirclebol

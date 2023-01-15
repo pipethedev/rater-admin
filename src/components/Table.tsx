@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 // import Action, { ActionOptionProps } from "../components/Action";
 // import Loader from "../components/Loader";
 // import { ErrorBoundary } from "../shared_components/ErrorBoundary";
@@ -49,6 +49,7 @@ export interface ITableProps<TRow> {
   clearSelection?: boolean;
   titleEmpty?: string
   subtitleEmpty?: string
+  emptyChild?: ReactNode
 }
 
 export function Table<TRow extends {}>({
@@ -183,6 +184,7 @@ export function Table<TRow extends {}>({
                         <TableEmpty
                           title={props.titleEmpty}
                           subtitle={props.subtitleEmpty}
+                          emptyChild={props.emptyChild}
                         />
                       )}
                     </div>
@@ -385,6 +387,7 @@ export const TableEmpty = (props: {
   title?: string;
   subtitle?: string;
   image?: string;
+  emptyChild: ReactNode
 }) => {
   return (
     <div className="max-w-[564px]  text-center flex flex-col items-center">
@@ -392,6 +395,10 @@ export const TableEmpty = (props: {
         {props.title}
       </p>
       <p className="text-base text-mid-night-40 mt-2">{props.subtitle}</p>
+
+      <div className="mt-5">
+      {props.emptyChild}
+      </div>
     </div>
   );
 };

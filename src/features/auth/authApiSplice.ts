@@ -89,11 +89,12 @@ export const authApiSlice = apiSlice.injectEndpoints({
         }),
         createWorker: builder.mutation({
             query: body => ({
-                url: `/user/users/create-worker`,
+                // url: `/users?type=workers`,
+                url: `/users/create-worker`,
                 method: 'POST',
                 body
             }),
-            transformResponse: (response: { data: any }, meta, arg) => response.data,
+            transformResponse: (response: any , meta, arg) => response.data,
             invalidatesTags: ['Auth'],
         }),
 
@@ -120,7 +121,9 @@ export const {
     // workers
     useGetAllWorkersQuery,
     // chnage password
-    useChangePasswordMutation
+    useChangePasswordMutation,
+    // create workers
+    useCreateWorkerMutation
 } = authApiSlice
 
 // __.gail__ full video from a tiktok i saw

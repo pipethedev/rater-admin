@@ -40,8 +40,8 @@ const MyProfile = () => {
 
             <div className="my-5 flex items-center">
                 <div className="flex items-center justify-center rounded-full w-20 h-20 lg:w-[150px] lg:h-[150px] lg:p-10 bg-[#3B71F7] text-white text-center text-xl lg:text-[50px] font-extrabold">
-                    <span>{data ? data?.first_name[0] : '-- --'}</span>
-                    <span> {data ? data?.last_name[0] : '-- --'}</span>
+                    <span>{data ? data?.first_name[0] : '-'}</span>
+                    <span> {data ? data?.last_name[0] : '-'}</span>
                 </div>
 
                 <div className="ml-5">

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { dataTable } from '../assets/data/sidebar-data'
+import Button from '../components/Button'
 import Header from '../components/Header'
 import Input from '../components/Input'
 import { Table } from '../components/Table'
@@ -15,7 +16,17 @@ const Transactions = () => {
 
     return (
         <section>
+            <div className="flex items-center justify-between">
             <Header title='Transactions' subtitle='All workers added to the platform' />
+
+                <div className="flex items-center mt-10 gap-5">
+                    <div className="text-right">
+                        <span className='text-[888888] text-xs'>Current Price</span>
+                        <span className='block text-base font-semibold'>₦25,000.00</span>
+                    </div>
+                    <Button className='bg-[#FFC94C]' title='Review Price' />
+                </div>
+            </div>
 
 
             <nav aria-label="breadcrumb" className="w-full p-4 dark:bg-gray-800 dark:text-gray-100">
@@ -82,6 +93,7 @@ const Transactions = () => {
                     // ]}
                     titleEmpty="No Revenue at the moment"
                     subtitleEmpty="It looks like you haven't added any music to your sound page yet. To add a song to the sound page, click the button below"
+                    emptyChild={<Button className='w-full mt-20 bg-[#516CF5] -p-10' type='' title="Invite a Worker" />}
                 />
             </div>
         </section>
