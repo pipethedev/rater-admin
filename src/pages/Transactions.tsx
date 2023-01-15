@@ -19,14 +19,14 @@ const Transactions = () => {
     return (
         <section>
             <div className="flex items-center justify-between">
-            <Header title='Transactions' subtitle='All workers added to the platform' />
+                <Header title='Transactions' subtitle='All workers added to the platform' />
 
-                <div className="flex items-center mt-10 gap-5">
-                    <div className="text-right">
+                <div className="block sm:flex items-center mt-10 gap-5">
+                    <div className="text-right mb-2 sm:mb-0">
                         <span className='text-[888888] text-xs'>Current Price</span>
                         <span className='block text-base font-semibold'>₦25,000.00</span>
                     </div>
-                    <Button className='bg-[#FFC94C] text-black' title='Review Price' onClick={() => setStateBool(true)}  />
+                    <Button className='bg-[#FFC94C] text-black' title='Review Price' onClick={() => setStateBool(true)} />
                 </div>
             </div>
 
@@ -99,7 +99,9 @@ const Transactions = () => {
                 />
             </div>
 
-            <Modal title='Music Upload Price' show={stateBool} closeModal={setStateBool}> <MusicUpload {...{ setStateBool }} /> </Modal>
+                <Modal title='Music Upload Price' show={stateBool} closeModal={setStateBool}>
+                    <MusicUpload {...{ setStateBool }} />
+                </Modal>
 
         </section>
     )
