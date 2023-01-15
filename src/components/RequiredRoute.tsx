@@ -8,7 +8,7 @@ const RequiredRoute = () => {
   const  token  = useAppSelector(selectCurrentToken)
   const location = useLocation()
 
-  return token ? <Outlet /> : <Navigate to="/" state={{ from: location }} replace />
+  return !token ? <Outlet /> : <Navigate to="/" state={{ from: location }} replace />
 }
 
 export default RequiredRoute
