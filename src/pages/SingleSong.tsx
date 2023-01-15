@@ -52,7 +52,7 @@ const SingleSong = () => {
                     </div>
 
                     <div className="flex items-center my-5 gap-4">
-                        <div className="flex items-center gao-4">
+                        <div className="flex items-center gap-4">
                             <SongRaterIcon />
                             <div className="">
                                 <p className='font-semibold text-lg'>2,304</p>
@@ -60,7 +60,7 @@ const SingleSong = () => {
                             </div>
                         </div>
 
-                        <div className="flex items-center gao-4">
+                        <div className="flex items-center gap-4">
                             <UserRaterIcon />
                             <div className="">
                                 <p className='font-semibold text-lg'>150</p>
