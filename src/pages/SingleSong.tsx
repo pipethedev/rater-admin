@@ -15,7 +15,7 @@ const SingleSong = () => {
     const { id } = useParams()
     const [tabIndex, setTabIndex] = useState<string>("Workers Reviews")
     const [stateBool, setStateBool] = useState<boolean>(false)
-    const { data } = useSingleSongQuery(id, { refetchOnMountOrArgChange: true })
+    const { data, isLoading } = useSingleSongQuery(id, { refetchOnMountOrArgChange: true })
 
     console.log(data, 'single song')
 

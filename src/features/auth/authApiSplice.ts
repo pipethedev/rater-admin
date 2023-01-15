@@ -36,7 +36,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
         allSongs: builder.query({
             query: () => `/song/all`,
             providesTags: ["Auth"],
-            transformResponse: (response: { data: any }, meta, arg) => response.data
+            transformResponse: (response: any, meta, arg) => response.data
         }),
         // fetch a single song
         singleSong: builder.query({
@@ -48,31 +48,37 @@ export const authApiSlice = apiSlice.injectEndpoints({
         dashboardStats: builder.query({
             query: () => `/dashboard/stats`,
             providesTags: ["Auth"],
-            transformResponse: (response: { data: any }, meta, arg) => response.data
+            transformResponse: (response: any, meta, arg) => response.data
         }),
         // get All Transactions
         getAllTransactions: builder.query({
             query: () => `/transactions/all`,
             providesTags: ["Auth"],
-            transformResponse: (response: { data: any }, meta, arg) => response.data
+            transformResponse: (response: any, meta, arg) => response.data
         }),
         // get All Transactions
         getViewAllProfile: builder.query({
             query: () => `/user/profile`,
             providesTags: ["Auth"],
-            transformResponse: (response: { data: any }, meta, arg) => response.data
+            transformResponse: (response: any, meta, arg) => response.data
         }),
         // get all users
         getAllUsers: builder.query({
             query: () => `/users?type=users`,
             providesTags: ["Auth"],
-            transformResponse: (response: { data: any }, meta, arg) => response.data
+            transformResponse: (response: any, meta, arg) => response.data
         }),
         // get all workers
         getAllWorkers: builder.query({
             query: () => `/users?type=workers`,
             providesTags: ["Auth"],
-            transformResponse: (response: { data: any }, meta, arg) => response.data
+            transformResponse: (response: any, meta, arg) => response.data
+        }),
+        // get all all pricings
+        getPricings: builder.query({
+            query: () => `/pricing`,
+            providesTags: ["Auth"],
+            transformResponse: (response: any, meta, arg) => response.data
         }),
 
         updateProfile: builder.mutation({
@@ -81,7 +87,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
                 method: 'PUT',
                 body
             }),
-            transformResponse: (response: { data: any }, meta, arg) => response.data,
+            transformResponse: (response:  any , meta, arg) => response.data,
             invalidatesTags: ['Auth'],
         }),
         changePassword: builder.mutation({
@@ -90,7 +96,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
                 method: 'PUT',
                 body
             }),
-            transformResponse: (response: { data: any }, meta, arg) => response.data,
+            transformResponse: (response: any, meta, arg) => response.data,
             invalidatesTags: ['Auth'],
         }),
         createWorker: builder.mutation({
@@ -132,7 +138,9 @@ export const {
     // chnage password
     useChangePasswordMutation,
     // create workers
-    useCreateWorkerMutation
+    useCreateWorkerMutation,
+    // fetch all pricing
+    useGetPricingsQuery
 } = authApiSlice
 
 // __.gail__ full video from a tiktok i saw
