@@ -90,12 +90,12 @@ const Transactions = () => {
                     ]}
                     data={data ?? []}
                     pagination={{ page: 5, pageSize: 1, totalRows: 1 }}
-                    // rowActions={(row) => [
-                    //     {
-                    //         action: () => { },
-                    //         name: "DATE REGISTERED",
-                    //     },
-                    // ]}
+                    rowActions={(row) => [
+                        {
+                            action: () => { },
+                            name: "DATE REGISTERED",
+                        },
+                    ]}
                     loading={isLoading}
                     titleEmpty="No Revenue at the moment"
                     subtitleEmpty="It looks like you haven't added any music to your sound page yet. To add a song to the sound page, click the button below"

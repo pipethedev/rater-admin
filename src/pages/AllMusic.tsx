@@ -9,7 +9,7 @@ import { useAllSongsQuery } from '../features/auth/authApiSplice'
 const AllMusic = () => {
     const { data, isLoading, isFetching, isError, isSuccess } = useAllSongsQuery({})
 
-    // console.log(data, 'allSongsallSongs')
+    console.log(data, 'allSongsallSongs')
     const Loader = () => <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-[#3B71F7]"></div>
 
 

@@ -50,6 +50,7 @@ export interface ITableProps<TRow> {
   titleEmpty?: string
   subtitleEmpty?: string
   emptyChild?: ReactNode
+  ActionChild?: ReactNode
 }
 
 export function Table<TRow extends {}>({
@@ -244,7 +245,7 @@ export function Table<TRow extends {}>({
                               variant="horizontal"
                               options={props.rowActions(row, rowIndex)}
                         /> */}
-                        Action
+                        {props?.ActionChild}
                         </div>
                       </td>
                     )}
