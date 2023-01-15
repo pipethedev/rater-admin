@@ -44,8 +44,8 @@ const SingleSong = () => {
                 </div>
 
                 <div className='my-8 w-full'>
-                    <p className='font-semibold text-2xl sm:text-5xl'>Asiwaju Cover</p>
-                    <p className='text-lg my-2  border-b-4 border-[#E2EAFE] p-2'>Play Time — 2mins 45sec</p>
+                    <p className='font-semibold text-2xl sm:text-5xl'>{data ? data?.title : '-- --'}</p>
+                    <p className='text-lg my-2  border-b-4 border-[#E2EAFE] p-2'>Play Time — {data ? data?.updated_at : '-- --'}</p>
 
                     <div className="my-14">
                         <span className='my-5 bg-[#EBFFF9] px-4 py-4 text-[#00C288] font-semibold text-base rounded-full min-w-max'>Overall : Good</span>

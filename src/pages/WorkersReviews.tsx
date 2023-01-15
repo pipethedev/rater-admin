@@ -3,7 +3,7 @@ import React from 'react'
 const WorkersReviews = () => {
   return (
     <div>
-      <div className="grid sm:grid-cols-2 gap-5">
+      <div className="grid md:grid-cols-2 gap-5">
         {Array(8).fill('').map((item) => (
           <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md border border-[#E2EAFE]">
             <div className="flex space-x-4">

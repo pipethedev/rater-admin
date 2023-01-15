@@ -40,9 +40,9 @@ export const authApiSlice = apiSlice.injectEndpoints({
         }),
         // fetch a single song
         singleSong: builder.query({
-            query: () => `/song/:songId`,
+            query: (id) => `/song/${id}`,
             providesTags: ["Auth"],
-            transformResponse: (response: { data: any }, meta, arg) => response.data
+            transformResponse: (response: any , meta, arg) => response.data
         }),
         // dashboardState
         dashboardStats: builder.query({

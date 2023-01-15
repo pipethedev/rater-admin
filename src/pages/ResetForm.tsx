@@ -85,7 +85,7 @@ const ResetForm = () => {
 
 
     return (
-        <div className="flex flex-col p-6 mx-auto my-auto rounded-md sm:p-10 dark:bg-gray-900 dark:text-gray-100">
+        <div className="flex flex-col p-6 mx-auto my-auto rounded-md sm:p-10">
             <div className="mb-8">
                 <h1 className="my-3 text-4xl font-semibold">Reset Password</h1>
                 <p className="text-sm dark:text-gray-400">Hey there don’t fret. Kindly enter the email address used  in registering your account.</p>
@@ -96,7 +96,7 @@ const ResetForm = () => {
                         <Input
                             label='New Password' placeholder='New Password'
                             type="password" name="password"
-                            className="w-full p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            className="w-full p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             value={password}
                             onChange={handleChange}
                         // onChange={(e: Event) => setEmail((e.target as HTMLInputElement).value)}
@@ -107,7 +107,7 @@ const ResetForm = () => {
                             label='Confirm Password' placeholder='Confirm Password'
                             type="password"
                             name='confirmPassword'
-                            className="w-full p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            className="w-full p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             value={confirmPassword}
                             onChange={handleChange}
                         // onChange={(e: Event) => setEmail((e.target as HTMLInputElement).value)}

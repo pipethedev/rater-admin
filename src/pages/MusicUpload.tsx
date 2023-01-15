@@ -5,7 +5,7 @@ const MusicUpload = ({ setStateBool }: any) => {
   return (
       <>
            <div>
-            <div className="flex flex-col max-w-md mx-auto my-auto rounded-md  dark:bg-gray-900 dark:text-gray-100">
+            <div className="flex flex-col max-w-md mx-auto my-auto rounded-md">
                 <div className="mb-8">
                     <h1 className="my-3 text-4xl font-semibold"></h1>
                 </div>

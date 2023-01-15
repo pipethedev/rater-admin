@@ -28,7 +28,7 @@ const dataDummy = [
 const TableMam = () => {
     return (
         <div>
-            <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100">
+            <div className="container p-2 mx-auto sm:p-4">
                 {/* <h2 className="mb-4 text-2xl font-semibold leading-tight">Invoices</h2> */}
                 <div className="overflow-x-auto">
                     <table className="min-w-full text-xs">
@@ -40,7 +40,7 @@ const TableMam = () => {
 				<col>
 				<col className="w-24">
 			</colgroup> */}
-                        <thead className="dark:bg-gray-700 bg-[#F5F8FF]">
+                        <thead className="bg-[#F5F8FF]">
                             <tr className="text-left">
                                 <th className="p-3">DATE</th>
                                 <th className="p-3">RECIPENT</th>
@@ -51,7 +51,7 @@ const TableMam = () => {
                         </thead>
                         <tbody>
                             {dataDummy.map(item => (
-                                <tr className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900">
+                                <tr className="border-b border-opacity-20">
                                     <td className="p-3 text-sm">
                                         <p>{item.date}</p>
                                     </td>

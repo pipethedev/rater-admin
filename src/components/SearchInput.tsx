@@ -17,7 +17,7 @@ const SearchInput = ({ placeholder, label }: SearchInputProps) => {
                         <path d="M20.9999 20.9999L16.6499 16.6499" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </div>
-                <input type="search" id="default-search" className="w-full outline-none lg:w-96 p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" {...{ placeholder }} required />
+                <input type="search" id="default-search" className="w-full outline-none lg:w-96 p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" {...{ placeholder }} required />
             </div>
         </>
     )

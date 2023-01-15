@@ -20,7 +20,7 @@ const MyProfile = () => {
             <Header title='My Profile' subtitle='feedback from admin on your songs' />
 
             <nav aria-label="breadcrumb" className="w-full p-4 dark:bg-gray-800 dark:text-gray-100">
-                <ol className="space-x-2  flex items-center py-5 border-b border-t border-opacity-20 dark:border-gray-700 dark:bg-gray-900">
+                <ol className="space-x-2  flex items-center py-5 border-b border-t border-opacity-20">
                     {/* <div className=""> */}
                     <li className="flex items-center space-x-2">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" fill="currentColor" className="w-2 h-2 mt-1 transform rotate-90 fill-current dark:text-gray-600">
