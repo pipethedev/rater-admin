@@ -55,10 +55,10 @@ const AllMusic = () => {
 
             <div className="my-10">
                 <div className="flex items-center justify-center">
-                    {isLoading && <div className='text-3xl'>
+                    {isLoading && <div className='text-3xl my-5'>
                         <Loader />
                     </div>}
-                    {isFetching && <div className='text-3xl'>Fecthing all songs</div>}
+                    {/* {isFetching && <div className='text-3xl'>Fecthing all songs</div>} */}
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {data?.length === 0 ?
