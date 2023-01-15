@@ -28,7 +28,7 @@ const SingleSong = () => {
             </div>
 
             {/* cards */}
-            <div className="h-40 w-72 mb-48">
+            <div className="w-52 h-40 sm:w-72 mb-48">
                 <div className="my-3 cursor-pointer bg-[#F5F8FF] p-4 rounded-lg">
                     <div className="bg-[#F5F8FF] p-4 flex items-center justify-center my-2 rounded-xl py-10">
                         <PlayMusicIcon className='' />
