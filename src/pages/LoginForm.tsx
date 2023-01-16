@@ -147,7 +147,7 @@ const LoginForm = () => {
         </div>
         <div className="space-y-2">
           <div>
-            <Button loading={isLoading} className='w-full mt-20 bg-[#516CF5] -p-10' title='Log in to Dashboard' type='submit' />
+            <Button disabled={isLoading} loading={isLoading} className='w-full mt-20 bg-[#516CF5] -p-10' title='Log in to Dashboard' type='submit' />
           </div>
         </div>
       </form>
