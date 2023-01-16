@@ -41,14 +41,15 @@ const GiveaFeedback = ({ setStateBool, id }: any) => {
                         <div className='rounded-2xl border-dotted border-2 p-4'>Feedbacks must contain what is liked about the song,  what is disliked and how it can be improved</div>
                     </div>
 
-                            <div className="mb-8">
-                                <p>What are your thoughts on the song?</p>
-                            </div>
+                    <div className="mb-8">
+                        <p>What are your thoughts on the song?</p>
+                    </div>
                     <form className="space-y-12 ng-untouched ng-pristine ng-valid" onSubmit={HandleSubmit}>
 
-                    <textarea value={comment} onChange={(e: Event) => setComment((e.target as HTMLInputElement).value)}
-                        className='outline-none focus:ring-blue-500 focus:border-blue-500 w-full rounded-2xl border-dotted border-2 p-4' style={{height: '200px'}}  placeholder="Write your song review here..."></textarea>
+                    <textarea value={comment} name="comment" type="text" onChange={(e: Event) => setComment((e.target as HTMLInputElement).value)}
+                        className='outline-none focus:ring-blue-500 focus:border-blue-500 w-full rounded-2xl border-dotted border-2 p-4' style={{height: '200px'}}  placeholder="Write your song review here...">
 
+                        </textarea>
                         <div className="space-y-2">
                             <div>
                                 <Button
