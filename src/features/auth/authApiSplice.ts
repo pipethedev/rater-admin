@@ -112,7 +112,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
         createFeedback: builder.mutation({
             query: body => ({
                 // url: `/admin-feedback/:songId`,
-                url: (id) => `/admin-feedback/${id}`,
+                url: (id) => `/rating/admin-feedback/${id}`,
                 method: 'POST',
                 body
             }),

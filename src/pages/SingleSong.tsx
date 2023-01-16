@@ -89,7 +89,7 @@ const SingleSong = () => {
 
 
             <Modal show={stateBool} closeModal={setStateBool}>
-                <GiveaFeedback {...{ setStateBool }} />
+                <GiveaFeedback {...{ setStateBool }} {...{id}} />
             </Modal>
         </div>
     )

@@ -4,9 +4,11 @@ import { useCreateFeedbackMutation } from '../features/auth/authApiSplice'
 import { toast } from 'react-toastify'
 
 
-const GiveaFeedback = ({ setStateBool }: any) => {
+const GiveaFeedback = ({ setStateBool, id }: any) => {
+
+    console.log(id, 'wuidfuviusdh')
     const [comment, setComment] = useState()
-    const [createFeedback, { isLoading, isSuccess }] = useCreateFeedbackMutation()
+    const [createFeedback, { isLoading, isSuccess }] = useCreateFeedbackMutation(id)
     useEffect(() => {
         if (isSuccess) {
             toast.success("Feedback Created Successfully");
@@ -38,6 +40,7 @@ const GiveaFeedback = ({ setStateBool }: any) => {
 
                         <div className='rounded-2xl border-dotted border-2 p-4'>Feedbacks must contain what is liked about the song,  what is disliked and how it can be improved</div>
                     </div>
+
                             <div className="mb-8">
                                 <p>What are your thoughts on the song?</p>
                             </div>
