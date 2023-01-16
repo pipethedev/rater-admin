@@ -1,8 +1,8 @@
 import React, { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
 
 const Spinner = () =>
-    <div className=" flex items-center justify-center ">
-        <div className="w-5 h-5 border-4 border-dashed rounded-full animate-spin border-[#3B71F7]" />
+    <div className=" flex items-center justify-center">
+        <div className="w-5 h-5 border-4 border-dashed rounded-full animate-spin border-[#ffffff]" />
     </div>
 
 type Props = DetailedHTMLProps<
