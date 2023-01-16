@@ -150,7 +150,9 @@ export const {
     // create workers
     useCreateWorkerMutation,
     // fetch all pricing
-    useGetPricingsQuery
+    useGetPricingsQuery,
+    // create a feedback
+    useCreateFeedbackMutation
 } = authApiSlice
 
 // __.gail__ full video from a tiktok i saw
