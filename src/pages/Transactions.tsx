@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import DownloadIcon from '../assets/svg/DownloadIcon'
 import Button from '../components/Button'
 import Header from '../components/Header'
 import Input from '../components/Input'
@@ -106,6 +107,7 @@ const Transactions = () => {
                     titleEmpty="No Revenue at the moment"
                     subtitleEmpty="It looks like you haven't added any music to your sound page yet. To add a song to the sound page, click the button below"
                     emptyChild={<Button className='w-full mt-20 bg-[#516CF5] -p-10' type='' title="Invite a Worker" />}
+                    ActionChild={<DownloadIcon  />}
                 />
             </div>
 
