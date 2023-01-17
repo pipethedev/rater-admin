@@ -6,6 +6,7 @@ import Input from '../components/Input'
 import Modal from '../components/Modal'
 import { Table } from '../components/Table'
 import { useGetAllTransactionsQuery, useGetPricingsQuery } from '../features/auth/authApiSplice'
+import { formatKoboAmountForDisplay } from '../utils/currency'
 import MusicUpload from './MusicUpload'
 
 
@@ -20,6 +21,8 @@ const Transactions = () => {
     // console.log(data, 'transactions')
     // console.log(price, 'price')
 
+
+
     return (
         <section>
             <div className="flex items-center justify-between">
@@ -28,7 +31,7 @@ const Transactions = () => {
                 <div className="block sm:flex items-center mt-10 gap-5">
                     <div className="text-right mb-2 sm:mb-0">
                         <span className='text-[888888] text-xs'>Current Price</span>
-                        <span className='block text-base font-semibold'>₦25,000.00</span>
+                        <span className='block text-base font-semibold'>{formatKoboAmountForDisplay(price?.price)}</span>
                     </div>
                     <Button className='bg-[#FFC94C] text-black' title='Review Price' onClick={() => setStateBool(true)} />
                 </div>
@@ -83,7 +86,7 @@ const Transactions = () => {
                         { header: "EMAIL ADDRESS", view: (row) => row?.user?.email },
                         {
                             header: "AMOUNT",
-                            view: (row) => row?.amount
+                            view: (row) => formatKoboAmountForDisplay(row?.amount)
                             // view: (row) => row?.amount ? (row?.amount) : 0
                         },
                         {

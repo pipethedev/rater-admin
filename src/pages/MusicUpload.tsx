@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Button from '../components/Button'
+import Input from '../components/Input';
 import { useUploadMusicMutation } from '../features/auth/authApiSplice';
+import { formatKoboAmountForDisplay } from '../utils/currency';
 
 const MusicUpload = ({ setStateBool, price, loading }: any) => {
+  // const { id } = useParams()
+  // console.log(price, 'idsss')
   const [audio, setAudio] = useState()
   const [postPrice, setPostPrice] = useState(price?.price)
 
-  const [uploadMusic, { isLoading, isSuccess, }] = useUploadMusicMutation()
+  const [uploadMusic, { isLoading, isSuccess, }] = useUploadMusicMutation(price?.id)
   useEffect(() => {
     if (isSuccess) {
       toast.success("Uploaded Music Successfully");
@@ -42,7 +47,7 @@ const MusicUpload = ({ setStateBool, price, loading }: any) => {
 
           <div className="my-10 bg-[#F5F8FF] p-4 rounded-2xl text-center">
             <p className='text-lg my-2'>Current Price</p>
-            <p className="font-semibold text-5xl">₦{price?.price}</p>
+            <p className="font-semibold text-5xl">{formatKoboAmountForDisplay(price?.price)}</p>
           </div>
           <div className="my-2 p-4 rounded-2xl text-center bg-[#FFF9F0]">
             {/* <p className='text-[#FF9900] text-base font-semibold'>This Payment only covers for the audio uploaded</p> */}
@@ -50,7 +55,9 @@ const MusicUpload = ({ setStateBool, price, loading }: any) => {
           </div>
 
 
+
           <form className="space-y-12 ng-untouched ng-pristine ng-valid" onSubmit={HandleSubmit}>
+          <Input type="number" value={price?.price}  />
             <div className=" flex items-center justify-between gap-4">
 
 
@@ -58,7 +65,7 @@ const MusicUpload = ({ setStateBool, price, loading }: any) => {
             <div className="space-y-2">
               <div>
                 <Button
-                  {...{ loading }}
+                  loading={isLoading}
                   className='w-full mt-20 bg-[#516CF5] -p-10' type='submit' title="Update Price" />
               </div>
             </div>
