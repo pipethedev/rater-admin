@@ -107,12 +107,12 @@ const Transactions = () => {
                     titleEmpty="No Revenue at the moment"
                     subtitleEmpty="It looks like you haven't added any music to your sound page yet. To add a song to the sound page, click the button below"
                     emptyChild={<Button className='w-full mt-20 bg-[#516CF5] -p-10' type='' title="Invite a Worker" />}
-                    ActionChild={<DownloadIcon  />}
+                    ActionChild={<DownloadIcon onClick={() => null}  />}
                 />
             </div>
 
                 <Modal title='Music Upload Price' show={stateBool} closeModal={setStateBool}>
-                    <MusicUpload {...{ setStateBool }} {...{price}} loading={priceLoading} />
+                    <MusicUpload {...{ setStateBool }} {...{price}} />
                 </Modal>
 
         </section>

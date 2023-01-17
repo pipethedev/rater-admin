@@ -6,7 +6,7 @@ import Input from '../components/Input';
 import { useUploadMusicMutation } from '../features/auth/authApiSplice';
 import { formatKoboAmountForDisplay } from '../utils/currency';
 
-const MusicUpload = ({ setStateBool, price, loading }: any) => {
+const MusicUpload = ({ setStateBool, price }: any) => {
   // const { id } = useParams()
   // console.log(price, 'idsss')
   const [audio, setAudio] = useState()
@@ -57,7 +57,7 @@ const MusicUpload = ({ setStateBool, price, loading }: any) => {
 
 
           <form className="space-y-12 ng-untouched ng-pristine ng-valid" onSubmit={HandleSubmit}>
-          <Input type="number" value={price?.price}  />
+          {/* <Input type="number" value={price?.price} onChange={(e: Event) => setComment((e.target as HTMLInputElement).value)}  /> */}
             <div className=" flex items-center justify-between gap-4">
 
 

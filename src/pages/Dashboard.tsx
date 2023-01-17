@@ -13,6 +13,7 @@ import TableMam from '../components/TableMam'
 import { dataTable } from '../assets/data/sidebar-data'
 import DownloadIcon from '../assets/svg/DownloadIcon'
 import { useDashboardStatsQuery } from '../features/auth/authApiSplice'
+import { formatKoboAmountForDisplay } from '../utils/currency'
 
 
 const Dashboard = () => {
@@ -47,7 +48,7 @@ const Dashboard = () => {
                     <RevenueIcon className='space-x-10' />
 
                     <div className="items-center ml-5">
-                        <div className='text-4xl font-semibold'>₦{data ? data?.revenue : '-'}</div>
+                        <div className='text-4xl font-semibold'>{data ? formatKoboAmountForDisplay(data?.revenue ): '-'}</div>
                         <div className='text-[#888888] mt-3 font-medium'>Revenue</div>
                     </div>
                 </div>
@@ -89,7 +90,7 @@ const Dashboard = () => {
                             { header: "RECIPENT", view: (row) => row?.recipent },
                             {
                                 header: "DESCRIPTION",
-                                view: (row) => row?.description ? (row?.amount) : 0
+                                view: (row) => row?.description ? formatKoboAmountForDisplay(row?.amount) : 0
                                 // view: (row) => row?.amount ? currencyFormat(row?.amount) : 0
                             },
                             {
@@ -110,7 +111,7 @@ const Dashboard = () => {
                             },
                         ]}
                         titleEmpty="No Transactions yet"
-                        subtitleEmpty="It looks like you haven't added any music to your sound page yet. To add a song to the sound page, click the button below"
+                        subtitleEmpty="It looks like you haven't added any music to your sound page yet.To add a song to the sound page, click the button below"
                     />
 
                 </div>
