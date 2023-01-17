@@ -112,7 +112,7 @@ export function Table<TRow extends {}>({
         {props.topSlot && <div className="px-3  py-1">{props.topSlot}</div>}
       </div>
       {/* <!-- body --> */}
-      <div className="flex-1 overflow-hidden relative">
+      <div className="flex  my-12 flex-1 overflow-hidden relative">
         {props.loading && (
           <div className="absolute top-0 w-full z-10 text-center flex items-center justify-center mt-10">
             <Loader />
