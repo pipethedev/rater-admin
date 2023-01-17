@@ -8,6 +8,7 @@ import Modal from '../components/Modal'
 import Input from '../components/Input'
 import AddWoker from './AddWoker'
 import { useGetAllWorkersQuery } from '../features/auth/authApiSplice'
+import ThreeDotsWorker from '../assets/svg/THreeDotsWork'
 
 const ManageWorkers = () => {
     const { data, isLoading, isFetching } = useGetAllWorkersQuery({})
@@ -81,6 +82,7 @@ const ManageWorkers = () => {
                     titleEmpty="No Worker on the platform at the moment"
                     subtitleEmpty="It looks like you haven't added any music to your sound page yet. To add a song to the sound page, click the button below"
                     emptyChild={<Button className='w-full mt-20 bg-[#516CF5] -p-10' type='' title="Invite a Worker" />}
+                    ActionChild={<><ThreeDotsWorker /></>}
                     />
                 </div>
 
