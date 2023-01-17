@@ -23,7 +23,6 @@ const Dashboard = () => {
 
     const { data: transac, isLoading: loadingTrasac } = useGetAllTransactionsQuery({})
 
-    // console.log(data, 'datadatadata dashboard state')
 
     return (
         <section>
