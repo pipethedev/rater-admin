@@ -87,7 +87,7 @@ const MyProfile = () => {
                 <p className="text-sm sm:text-base text-[#3B71F7] font-bold"><Link to="#" className='flex items-center'><p>View More</p> <span className='ml-3'><Arrowlong /></span></Link></p>
             </div>
 
-            <div className="my-10">
+            {/* <div className="my-10">
                 <Table
                     // loading={customerData.isLoading}
                     columns={[
@@ -122,7 +122,7 @@ const MyProfile = () => {
                     titleEmpty="No Worker on the platform"
                     subtitleEmpty="A password reset link has been sent to the email address you used in registering on the platform. do check your mail to continue"
                 />
-            </div>
+            </div> */}
 
         </section>
     )

@@ -3,10 +3,11 @@ import { toast } from 'react-toastify';
 import Button from '../components/Button'
 import { useUploadMusicMutation } from '../features/auth/authApiSplice';
 
-const MusicUpload = ({ setStateBool }: any) => {
+const MusicUpload = ({ setStateBool, price, loading }: any) => {
   const [audio, setAudio] = useState()
+  const [postPrice, setPostPrice] = useState(price?.price)
 
-  const [uploadMusic, {isLoading, isSuccess}] = useUploadMusicMutation()
+  const [uploadMusic, { isLoading, isSuccess, }] = useUploadMusicMutation()
   useEffect(() => {
     if (isSuccess) {
       toast.success("Uploaded Music Successfully");
@@ -20,9 +21,11 @@ const MusicUpload = ({ setStateBool }: any) => {
     try {
       if (audio) {
         await uploadMusic({
-          audio
+          // audio,
+          price: postPrice
         }).unwrap()
-        setAudio('')
+        // setAudio('')
+        setPostPrice('')
       }
     } catch {
       toast.error("Failed Upload Music Please Try again")
@@ -39,10 +42,11 @@ const MusicUpload = ({ setStateBool }: any) => {
 
           <div className="my-10 bg-[#F5F8FF] p-4 rounded-2xl text-center">
             <p className='text-lg my-2'>Current Price</p>
-            <p className="font-semibold text-5xl">₦25,000.00</p>
+            <p className="font-semibold text-5xl">₦{price?.price}</p>
           </div>
           <div className="my-2 p-4 rounded-2xl text-center bg-[#FFF9F0]">
-            <p className='text-[#FF9900] text-base font-semibold'>This Payment only covers for the audio uploaded</p>
+            {/* <p className='text-[#FF9900] text-base font-semibold'>This Payment only covers for the audio uploaded</p> */}
+            <p className='text-[#FF9900] text-base font-semibold'>{price?.description}</p>
           </div>
 
 
@@ -54,7 +58,7 @@ const MusicUpload = ({ setStateBool }: any) => {
             <div className="space-y-2">
               <div>
                 <Button
-                    loading={isLoading}
+                  {...{ loading }}
                   className='w-full mt-20 bg-[#516CF5] -p-10' type='submit' title="Update Price" />
               </div>
             </div>

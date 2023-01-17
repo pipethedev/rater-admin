@@ -5,17 +5,20 @@ import Header from '../components/Header'
 import Input from '../components/Input'
 import Modal from '../components/Modal'
 import { Table } from '../components/Table'
-import { useGetAllTransactionsQuery } from '../features/auth/authApiSplice'
+import { useGetAllTransactionsQuery, useGetPricingsQuery } from '../features/auth/authApiSplice'
 import MusicUpload from './MusicUpload'
 
 
 const Transactions = () => {
     const [stateBool, setStateBool] = useState<boolean>(false)
 
+    const {data: price, isLoading:priceLoading } = useGetPricingsQuery({})
+
     const [search, setSearch] = useState<string>("")
 
     const { data, isLoading } = useGetAllTransactionsQuery({})
-    console.log(data, 'transactions')
+    // console.log(data, 'transactions')
+    // console.log(price, 'price')
 
     return (
         <section>
@@ -104,7 +107,7 @@ const Transactions = () => {
             </div>
 
                 <Modal title='Music Upload Price' show={stateBool} closeModal={setStateBool}>
-                    <MusicUpload {...{ setStateBool }} />
+                    <MusicUpload {...{ setStateBool }} {...{price}} loading={priceLoading} />
                 </Modal>
 
         </section>
