@@ -60,9 +60,9 @@ const AllMusic = () => {
                     {/* {isFetching && <div className='text-3xl'>Fecthing all songs</div>} */}
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    {data?.length === 0 ?
-                        (<div className='flex items-center justify-center text-center font-semibold'>
-                            <p>No Songs</p>
+                    {data?.length == 0 ?
+                        (<div className='grid items-center justify-center place-content-center place-items-center  text-center text-2xl font-semibold'>
+                            No Songs
                         </div>)
                         :
                         data?.filter((item: any) => item.title.toLowerCase().indexOf(search.toLowerCase()) > -1)?.map((item: any) => (
