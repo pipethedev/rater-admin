@@ -57,14 +57,12 @@ const MusicUpload = ({ setStateBool, price, setStep }: any) => {
             <p className="font-semibold text-5xl">{formatKoboAmountForDisplay(price?.price)}</p>
           </div>
           <div className="my-2 p-4 rounded-2xl text-center bg-[#FFF9F0]">
-            {/* <p className='text-[#FF9900] text-base font-semibold'>This Payment only covers for the audio uploaded</p> */}
             <p className='text-[#FF9900] text-base font-semibold'>{price?.description}</p>
           </div>
 
 
 
           <div className="space-y-12 ng-untouched ng-pristine ng-valid" >
-          {/* <Input type="number" value={price?.price} onChange={(e: Event) => setComment((e.target as HTMLInputElement).value)}  /> */}
             <div className=" flex items-center justify-between gap-4">
 
 
