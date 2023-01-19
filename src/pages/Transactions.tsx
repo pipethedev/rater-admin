@@ -83,10 +83,7 @@ const Transactions = () => {
                             // view: (row) => `${row?.user?.first_name} ${row?.user?.first_name}`,
                         },
                         { header: "EMAIL ADDRESS", view: (row) => row?.user?.email },
-                        {
-                            header: "AMOUNT",
-                            view: (row) => formatKoboAmountForDisplay(row?.amount)
-                            // view: (row) => row?.amount ? (row?.amount) : 0
+                        {data?.filter((item: any) => item.title.toLowerCase().indexOf(search.toLowerCase()) > -1)?.
                         },
                         {
                             header: "PAYMENT STATUS",
@@ -107,6 +104,7 @@ const Transactions = () => {
                     emptyChild={<Button className='w-full mt-20 bg-[#516CF5] -p-10' type='button' title="Invite a Worker" />}
                     ActionChild={<DownloadIcon className="cursor-pointer" onClick={() => null} />}
                 />
+                {/* data?.filter((item: any) => item.title.toLowerCase().indexOf(search.toLowerCase()) > -1)?. */}
             </div>
 
             <Modal title='Music Upload Price' show={stateBool} closeModal={setStateBool}>

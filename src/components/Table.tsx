@@ -258,7 +258,7 @@ export function Table<TRow extends {}>({
 
       {/* footer */}
       {props.pagination && (
-        <div className="border-t my-10 h-14 border-mid-night-40 relative z-0 bg-white">
+        <div className="border-t mt-10 h-14 border-mid-night-40 relative z-0 bg-white">
           {/* pagination */}
           <Pagination
             {...props.pagination}
