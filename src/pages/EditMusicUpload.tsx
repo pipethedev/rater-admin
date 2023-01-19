@@ -60,7 +60,6 @@ const EditMusicUpload = ({ price, setStep }: any) => {
 
 
                         <div className="space-y-12 ng-untouched ng-pristine ng-valid">
-                            {/* <Input type="number" value={price?.price} onChange={(e: Event) => setComment((e.target as HTMLInputElement).value)}  /> */}
                             <div className=" flex items-center justify-between gap-4">
 
 

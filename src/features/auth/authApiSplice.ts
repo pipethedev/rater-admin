@@ -130,7 +130,6 @@ export const authApiSlice = apiSlice.injectEndpoints({
         // Update pricing
         updatePricing: builder.mutation({
             query: ({body, id}) => ({
-                // url: `/pricing/update/10920a2c-4014-4763-acca-8c436b8465a7`,
                 url: `/pricing/update/${id}`,
                 method: 'PUT',
                 body

@@ -14,39 +14,13 @@ const MusicUpload = ({ setStateBool, price, setStep }: any) => {
 
   const [uploadMusic, { isLoading, isSuccess, }] = useUploadMusicMutation(price?.id)
 
-  // useEffect(() => {
-  //   if (isSuccess) {
-  //     toast.success("Uploaded Music Successfully");
-  //     setStateBool(false)
-  //   }
-  // }, [isSuccess]);
-
-
-
   const HandleSubmit = () => {
     setStateBool(false)
     setStep(true)
   }
-  // const HandleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
 
-  //   try {
-  //     if (audio) {
-  //       await uploadMusic({
-  //         // audio,
-  //         price: postPrice
-  //       }).unwrap()
-  //       // setAudio('')
-  //       setPostPrice('')
-  //     }
-  //   } catch {
-  //     toast.error("Failed Upload Music Please Try again")
-  //   }
-
-  // }
   return (
     <>
-      <div>
         <div className="flex flex-col max-w-md mx-auto my-auto rounded-md">
           <div className="mb-8">
             <h1 className="my-3 text-4xl font-semibold"></h1>
@@ -77,7 +51,6 @@ const MusicUpload = ({ setStateBool, price, setStep }: any) => {
             </div>
           </div>
         </div>
-      </div>
     </>
   )
 }

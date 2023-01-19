@@ -4,7 +4,7 @@ import { useCreateFeedbackMutation } from '../features/auth/authApiSplice'
 import { toast } from 'react-toastify'
 
 
-const GiveaFeedback = ({ setStateBool, id }: any) => {
+const GiveaFeedback = ({ setStateBool, id, data }: any) => {
 
     console.log(id, 'wuidfuviusdh')
     const [comment, setComment] = useState()
@@ -46,7 +46,7 @@ const GiveaFeedback = ({ setStateBool, id }: any) => {
                     </div>
                     <form className="space-y-12 ng-untouched ng-pristine ng-valid" onSubmit={HandleSubmit}>
 
-                    <textarea value={comment} name="comment" type="text" onChange={(e: Event) => setComment((e.target as HTMLInputElement).value)}
+                    <textarea value={comment} name="comment" type="text" onChange={(e: Event) => setComment((e.target as HTMLTextAreaElement).value)}
                         className='outline-none focus:ring-blue-500 focus:border-blue-500 w-full rounded-2xl border-dotted border-2 p-4' style={{height: '200px'}}  placeholder="Write your song review here...">
 
                         </textarea>

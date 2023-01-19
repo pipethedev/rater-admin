@@ -13,20 +13,14 @@ import MusicUpload from './MusicUpload'
 
 
 const Transactions = () => {
-    // const [step, setStep] = useState<number>(0);
     const [step, setStep] = useState<boolean>(false);
     const [stateBool, setStateBool] = useState<boolean>(false)
 
-    const { data: price, isLoading: priceLoading } = useGetPricingsQuery({})
+    const { data: price } = useGetPricingsQuery({})
 
     const [search, setSearch] = useState<string>("")
 
     const { data, isLoading } = useGetAllTransactionsQuery({})
-    // console.log(data, 'transactions')
-    // console.log(price, 'price')
-
-
-
 
     return (
         <section>

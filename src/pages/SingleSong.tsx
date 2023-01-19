@@ -17,9 +17,11 @@ const SingleSong = () => {
     const [stateBool, setStateBool] = useState<boolean>(false)
     const { data, isLoading } = useSingleSongQuery(id, { refetchOnMountOrArgChange: true })
 
-    console.log(data?.ratings[0]?.worker, 'single song')
-    const worker = data?.ratings[0]?.worker
+    console.log(data, 'single song')
+    const worker = data?.ratings[0]
+    const adminFeed = data?.admin_feedback
 
+    console.log('worker', worker)
     return (
         <div>
             <div className="flex items-center justify-between">
@@ -64,7 +66,8 @@ const SingleSong = () => {
                         <div className="flex items-center gap-4">
                             <UserRaterIcon />
                             <div className="">
-                                <p className='font-semibold text-lg'>150</p>
+                                {/* <p className='font-semibold text-lg'>150</p> */}
+                                <p className='font-semibold text-lg'>- -</p>
                                 <p>Total Reviews</p>
                             </div>
                         </div>
@@ -75,19 +78,27 @@ const SingleSong = () => {
             {/* Tabs */}
             <div className="">
                 <div className="flex gap-6 h-full items-center flex-row my-4 ml-4 border-b-4 border-[#F1F3FF cursor-pointer relative">
-                    <p style={{color: tabIndex === 'Workers Reviews' && '#3B71F7'}} className={"py-3 hover:border-b-4 p-4 hover:border-[#3B71F7] -mb-1 cursor-pointer hover:text-[#3B71F7] text-[#777777]" + (tabIndex === "Workers Reviews" && "text-[#3B71F7] border-b-4 border-b-[#3B71F7] bg-[#F5F8FF] p-4 -mb-1 font-semibold")} onClick={() => setTabIndex("Workers Reviews")}>Workers Reviews{" "}</p>
-                    <p style={{color: tabIndex === 'Your Feedbacks' && '#3B71F7'}} className={"py-3 hover:border-b-4 p-4 hover:border-[#3B71F7] -mb-1 cursor-pointer hover:text-[#3B71F7] text-[#777777]" + (tabIndex === "Your Feedbacks" && "text-[#3B71F7] border-b-4 border-b-[#3B71F7] bg-[#F5F8FF] p-4 -mb-1 font-semibold")} onClick={() => setTabIndex("Your Feedbacks")}>Your Feedbacks</p>
+                    <p style={{ color: tabIndex === 'Workers Reviews' && '#3B71F7' }} className={"py-3 hover:border-b-4 p-4 hover:border-[#3B71F7] -mb-1 cursor-pointer hover:text-[#3B71F7] text-[#777777]" + (tabIndex === "Workers Reviews" && "text-[#3B71F7] border-b-4 border-b-[#3B71F7] bg-[#F5F8FF] p-4 -mb-1 font-semibold")} onClick={() => setTabIndex("Workers Reviews")}>Workers Reviews{" "}</p>
+                    <p style={{ color: tabIndex === 'Your Feedbacks' && '#3B71F7' }} className={"py-3 hover:border-b-4 p-4 hover:border-[#3B71F7] -mb-1 cursor-pointer hover:text-[#3B71F7] text-[#777777]" + (tabIndex === "Your Feedbacks" && "text-[#3B71F7] border-b-4 border-b-[#3B71F7] bg-[#F5F8FF] p-4 -mb-1 font-semibold")} onClick={() => setTabIndex("Your Feedbacks")}>Your Feedbacks</p>
                 </div>
             </div>
 
-
-            {tabIndex === "Workers Reviews" && (<>
-                <WorkersReviews {...{ worker }} />
-            </>)}
-            {tabIndex !== "Workers Reviews" && (<>
-                <YourFeedbacks />
-            </>)}
-
+            <div className="mb-20">
+                {tabIndex === "Workers Reviews" && (<>
+                    {worker ? (
+                    <WorkersReviews {...{ worker }} />
+                    ) : (
+                        <div className="flex items-center justify-center font-semibold text-black">No Data</div>
+                    )}
+                </>)}
+                {tabIndex !== "Workers Reviews" && (<>
+                    {adminFeed ? (
+                        <YourFeedbacks {... { data }} feed={adminFeed} />
+                    ) : (
+                        <div className="flex items-center justify-center font-semibold text-black">No Data</div>
+                    )}
+                </>)}
+            </div>
 
             <Modal show={stateBool} closeModal={setStateBool}>
                 <GiveaFeedback {...{ setStateBool }} {...{ id }} />

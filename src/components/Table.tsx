@@ -7,7 +7,7 @@ import { ReactNode, useEffect, useState } from "react";
 import Paginator from "./Paginator";
 
 
-const Loader = () => <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-[#3B71F7]"></div>
+const Loader = () => <div className="w-10 h-10 sm:w-16 sm:h-16 border-4 border-dashed rounded-full animate-spin border-[#3B71F7]"></div>
 
 export interface ITableProps<TRow> {
   id?: string;
@@ -112,12 +112,12 @@ export function Table<TRow extends {}>({
         {props.topSlot && <div className="px-3  py-1">{props.topSlot}</div>}
       </div>
       {/* <!-- body --> */}
-      <div className="flex  my-12 flex-1 overflow-hidden relative">
         {props.loading && (
-          <div className="absolute top-0 w-full z-10 text-center flex items-center justify-center mt-10">
+          <div className="absolute top-0 w-full z-10 text-center flex items-center justify-center mt-20">
             <Loader />
           </div>
         )}
+      <div className="flex  my-2 flex-1 overflow-hidden relative">
         <div className="h-full w-full overflow-auto  relative ">
           <table className="table table-auto w-full border-collapse">
             <thead className=" sticky top-0 bg-[#F5F8FF] text-[#0F1141] ">
@@ -258,7 +258,7 @@ export function Table<TRow extends {}>({
 
       {/* footer */}
       {props.pagination && (
-        <div className="border-t h-14 border-mid-night-40 relative z-0 bg-white">
+        <div className="border-t my-10 h-14 border-mid-night-40 relative z-0 bg-white">
           {/* pagination */}
           <Pagination
             {...props.pagination}

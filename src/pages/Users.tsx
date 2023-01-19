@@ -64,6 +64,7 @@ const Users = () => {
                     ]}
                     data={data ?? []}
                     pagination={{ page: 5, pageSize: 1, totalRows: 1 }}
+                    loading={isLoading}
                     // rowActions={(row) => [
                     //     {
                     //         action: () => { },
