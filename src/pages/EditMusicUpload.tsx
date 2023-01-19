@@ -52,7 +52,7 @@ const EditMusicUpload = ({ price, setStep }: any) => {
                     <form onSubmit={HandleSubmit}>
 
                         <div className="my-10  p-4 rounded-2xl">
-                            <Input label='Current Price (₦)' type='number'
+                            <Input label='Current Price (₦)' labelStyle='text-sm font-semibold' type='number'
                                 className='w-full p-4 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500'
                                 value={postPrice} onChange={(e: Event) => setPostPrice((e.target as HTMLInputElement).value)} />
                         </div>

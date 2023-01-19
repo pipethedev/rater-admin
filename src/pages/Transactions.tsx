@@ -8,6 +8,7 @@ import Modal from '../components/Modal'
 import { Table } from '../components/Table'
 import { useGetAllTransactionsQuery, useGetPricingsQuery } from '../features/auth/authApiSplice'
 import { formatKoboAmountForDisplay } from '../utils/currency'
+import AddWoker from './AddWoker'
 import EditMusicUpload from './EditMusicUpload'
 import MusicUpload from './MusicUpload'
 
@@ -108,7 +109,7 @@ const Transactions = () => {
                     loading={isLoading}
                     titleEmpty="No Revenue at the moment"
                     subtitleEmpty="It looks like you haven't added any music to your sound page yet.To add a song to the sound page, click the button below"
-                    emptyChild={<Button className='w-full mt-20 bg-[#516CF5] -p-10' type='button' title="Invite a Worker" />}
+                    emptyChild={<Button className='w-full mt-20 bg-[#516CF5] -p-10' type='button' title="Invite a Worker" onClick={() => setStateBool(true)} />}
                     ActionChild={<DownloadIcon className="cursor-pointer" onClick={() => null} />}
                 />
             </div>
@@ -121,6 +122,9 @@ const Transactions = () => {
                 <EditMusicUpload {...{ setStep }} {...{ price }} />
             </Modal>
 
+            <Modal show={stateBool} closeModal={setStateBool}>
+                <AddWoker {...{ setStateBool }} />
+            </Modal>
 
         </section>
     )

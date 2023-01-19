@@ -5,7 +5,7 @@ import Input from '../components/Input'
 import { useCreateWorkerMutation } from '../features/auth/authApiSplice'
 
 const AddWoker = ({ setStateBool }: any) => {
-    const [createWorker, { isSuccess, isLoading }] = useCreateWorkerMutation()
+    const [createWorker, { isSuccess, isLoading, error }] = useCreateWorkerMutation()
 
     const [phoneNumber, setPhoneNumber] = useState<string>()
     const [email, setEmail] = useState<string>()
@@ -36,7 +36,8 @@ const AddWoker = ({ setStateBool }: any) => {
                 setPhoneNumber('')
             }
         } catch {
-            toast.error("Failed to Add Worker Please Try again")
+            // toast.error("Failed to Add Worker Please Try again", )
+            toast.error(error?.data?.message)
         }
 
     }

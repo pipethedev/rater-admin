@@ -137,6 +137,16 @@ export const authApiSlice = apiSlice.injectEndpoints({
             transformResponse: (response: any , meta, arg) => response.data,
             invalidatesTags: ['Auth'],
         }),
+        // Ban a User
+        banAUser: builder.mutation({
+            query: ({body, id}) => ({
+                url: `/users/${id}`,
+                method: 'PUT',
+                body
+            }),
+            transformResponse: (response: any , meta, arg) => response.data,
+            invalidatesTags: ['Auth'],
+        }),
 
     })
 })
@@ -174,7 +184,9 @@ export const {
     // upload music
     useUploadMusicMutation,
     // update pricing
-    useUpdatePricingMutation
+    useUpdatePricingMutation,
+    // ban a user
+    useBanAUserMutation
 } = authApiSlice
 
 // __.gail__ full video from a tiktok i saw
