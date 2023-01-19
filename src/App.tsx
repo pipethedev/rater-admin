@@ -24,7 +24,6 @@ function App() {
         <Route path='reset-password' element={<ResetPassword />} />
         <Route path='forgot-password' element={<ForgotPassword />} />
 
-        {/* Private routes */}
         <Route element={<RequiredRoute />}>
           <Route element={<Layout />}>
             <Route path="/dashboard" element={<Dashboard />} />
@@ -38,7 +37,7 @@ function App() {
             <Route path="settings" element={<Settings />} />
           </Route>
         </Route>
-        {/* 404 page */}
+
         <Route path="*" element={<Navigate to="/dashboard" replace />} />
       </Routes>
     </Suspense>

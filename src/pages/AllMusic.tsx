@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../components/Button'
 import CardPlatList from '../components/CardPlatList'
@@ -7,13 +7,12 @@ import Input from '../components/Input'
 import { useAllSongsQuery } from '../features/auth/authApiSplice'
 
 const AllMusic = () => {
-    const { data, isLoading, isFetching, isError, isSuccess } = useAllSongsQuery({})
+    const [search, setSearch] = useState<string>("")
+    const { data, isLoading} = useAllSongsQuery({})
 
-    console.log(data, 'allSongsallSongs')
     const Loader = () => <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-[#3B71F7]"></div>
 
 
-    const [search, setSearch] = useState<string>("")
     return (
         <section>
             <Header title='Music' subtitle='All Songs uploaded on this platform' />
@@ -62,11 +61,11 @@ const AllMusic = () => {
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {data?.length === 0 ?
-                        (<div className='flex items-center justify-center text-center'>
+                        (<div className='flex items-center justify-center text-center font-semibold'>
                             <p>No Songs</p>
                         </div>)
                         :
-                        data?.map((item: any) => (
+                        data?.filter((item: any) => item.title.toLowerCase().indexOf(search.toLowerCase()) > -1)?.map((item: any) => (
                             <CardPlatList title={item?.title} subtitle={item?.file_name} rate={item?.ratings?.[0]['rating']} id={item?.id} />
                         ))}
                 </div>
