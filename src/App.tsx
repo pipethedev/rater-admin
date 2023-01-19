@@ -1,8 +1,5 @@
-import { Suspense, useState } from 'react'
-import reactLogo from './assets/react.svg'
-// import './App.css'
-import { Navigate, Route, Router, Routes } from 'react-router-dom'
-import Home from './components/Home'
+import { Suspense } from 'react'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import RequiredRoute from './components/RequiredRoute'
 import Layout from './components/layout/Layout'
 import Dashboard from './pages/Dashboard'
@@ -21,30 +18,30 @@ import SingleSong from './pages/SingleSong'
 function App() {
 
   return (
-    // <Suspense fallback={<p>Loading Components</p>}>
-    <Routes>
-      <Route path='/'  element={<Login />} />
-      <Route path='reset-password' element={<ResetPassword />} />
-      <Route path='forgot-password' element={<ForgotPassword />} />
+    <Suspense fallback={<p>Loading Components</p>}>
+      <Routes>
+        <Route path='/' element={<Login />} />
+        <Route path='reset-password' element={<ResetPassword />} />
+        <Route path='forgot-password' element={<ForgotPassword />} />
 
-      {/* Private routes */}
-      <Route element={<RequiredRoute />}>
-        <Route element={<Layout />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="songs" element={<AllMusic />} />
-          <Route path="songs/:id" element={<SingleSong />} />
-          <Route path="users" element={<Users />} />
-          <Route path="users/:id" element={<UserId />} />
-          <Route path="manage-workers" element={<ManageWorkers />} />
-          <Route path="transactions" element={<Transactions />} />
-          <Route path="my-profile" element={<MyProfile />} />
-          <Route path="settings" element={<Settings />} />
+        {/* Private routes */}
+        <Route element={<RequiredRoute />}>
+          <Route element={<Layout />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="songs" element={<AllMusic />} />
+            <Route path="songs/:id" element={<SingleSong />} />
+            <Route path="users" element={<Users />} />
+            <Route path="users/:id" element={<UserId />} />
+            <Route path="manage-workers" element={<ManageWorkers />} />
+            <Route path="transactions" element={<Transactions />} />
+            <Route path="my-profile" element={<MyProfile />} />
+            <Route path="settings" element={<Settings />} />
+          </Route>
         </Route>
-      </Route>
-      {/* 404 page */}
-      <Route path="*" element={<Navigate to="/dashboard" replace />} />
-    </Routes>
-    // </Suspense>
+        {/* 404 page */}
+        <Route path="*" element={<Navigate to="/dashboard" replace />} />
+      </Routes>
+    </Suspense>
   )
 }
 

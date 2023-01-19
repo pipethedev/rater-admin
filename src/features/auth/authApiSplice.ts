@@ -131,9 +131,8 @@ export const authApiSlice = apiSlice.injectEndpoints({
         // Update pricing
         updatePricing: builder.mutation({
             query: ({body, id}) => ({
-                // url: `/admin-feedback/:songId`,
                 url: `/pricing/update/${id}`,
-                method: 'POST',
+                method: 'PUT',
                 body
             }),
             transformResponse: (response: any , meta, arg) => response.data,
@@ -174,8 +173,9 @@ export const {
     // create a feedback
     useCreateFeedbackMutation,
     // upload music
-    useUploadMusicMutation
+    useUploadMusicMutation,
     // update pricing
+    useUpdatePricingMutation
 } = authApiSlice
 
 // __.gail__ full video from a tiktok i saw

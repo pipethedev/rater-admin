@@ -6,37 +6,44 @@ import Input from '../components/Input';
 import { useUploadMusicMutation } from '../features/auth/authApiSplice';
 import { formatKoboAmountForDisplay } from '../utils/currency';
 
-const MusicUpload = ({ setStateBool, price }: any) => {
+const MusicUpload = ({ setStateBool, price, setStep }: any) => {
   // const { id } = useParams()
   // console.log(price, 'idsss')
   const [audio, setAudio] = useState()
   const [postPrice, setPostPrice] = useState(price?.price)
 
   const [uploadMusic, { isLoading, isSuccess, }] = useUploadMusicMutation(price?.id)
-  useEffect(() => {
-    if (isSuccess) {
-      toast.success("Uploaded Music Successfully");
-      setStateBool(false)
-    }
-  }, [isSuccess]);
 
-  const HandleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  // useEffect(() => {
+  //   if (isSuccess) {
+  //     toast.success("Uploaded Music Successfully");
+  //     setStateBool(false)
+  //   }
+  // }, [isSuccess]);
 
-    try {
-      if (audio) {
-        await uploadMusic({
-          // audio,
-          price: postPrice
-        }).unwrap()
-        // setAudio('')
-        setPostPrice('')
-      }
-    } catch {
-      toast.error("Failed Upload Music Please Try again")
-    }
 
+
+  const HandleSubmit = () => {
+    setStateBool(false)
+    setStep(true)
   }
+  // const HandleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     if (audio) {
+  //       await uploadMusic({
+  //         // audio,
+  //         price: postPrice
+  //       }).unwrap()
+  //       // setAudio('')
+  //       setPostPrice('')
+  //     }
+  //   } catch {
+  //     toast.error("Failed Upload Music Please Try again")
+  //   }
+
+  // }
   return (
     <>
       <div>
@@ -56,7 +63,7 @@ const MusicUpload = ({ setStateBool, price }: any) => {
 
 
 
-          <form className="space-y-12 ng-untouched ng-pristine ng-valid" onSubmit={HandleSubmit}>
+          <div className="space-y-12 ng-untouched ng-pristine ng-valid" >
           {/* <Input type="number" value={price?.price} onChange={(e: Event) => setComment((e.target as HTMLInputElement).value)}  /> */}
             <div className=" flex items-center justify-between gap-4">
 
@@ -66,10 +73,11 @@ const MusicUpload = ({ setStateBool, price }: any) => {
               <div>
                 <Button
                   loading={isLoading}
+                  onClick={HandleSubmit}
                   className='w-full mt-20 bg-[#516CF5] -p-10' type='submit' title="Update Price" />
               </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </>

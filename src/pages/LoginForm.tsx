@@ -61,6 +61,7 @@ const LoginForm = () => {
 
         // const { admin, token }: any = await loginData
         const { token }: any = await loginData
+        console.log(token, 'token')
         // set user data and token in redux store
         // dispatch(setUser({ user: admin.firstName, token }))
         // dispatch(setUser({ user: admin, token }))

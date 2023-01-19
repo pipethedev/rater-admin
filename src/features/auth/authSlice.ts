@@ -13,27 +13,29 @@ export const authSlice = createSlice({
     name: "auth",
     initialState,
     reducers: {
-        setUserDetail: (state, { payload }) => {
-            state.user = {
-                first_name: payload.first_name,
-                last_name: payload.last_name,
-                phone: payload.phone,
-                email: payload.email,
-                id: payload._id,
-            };
-        },
-        setUserDetails: (state, { payload: { user } }) => {
-            state.user = user;
-        },
-        setUserToken: (state, { payload: { token } }) => {
-            state.token = token;
-        },
+        // setUserDetail: (state, { payload }) => {
+        //     state.user = {
+        //         first_name: payload.first_name,
+        //         last_name: payload.last_name,
+        //         phone: payload.phone,
+        //         email: payload.email,
+        //         id: payload._id,
+        //     };
+        // },
+        // setUserDetails: (state, { payload: { user } }) => {
+        //     state.user = user;
+        // },
+        // setUserToken: (state, { payload }) => {
+        //     state.token = payload?.token;
+        //     console.log(state, 'state payload')
+        // },
         // setUser: (state, action: PayloadAction<{ user: {}, token: string }>) => {
         setUser: (state, action: PayloadAction<{ token: string }>) => {
+            // console.log(action, 'payload')
             const { token } = action.payload
-            localStorage.setItem(
-                "user", JSON.stringify({ token })
-            )
+            // console.log(token, 'payloaded token')
+            // localStorage.setItem("token", JSON.stringify({ token }))
+            localStorage.setItem("token", token)
             // localStorage.setItem(
             //     "user", JSON.stringify({
             //         user: action.payload.user,
@@ -63,7 +65,7 @@ export const authSlice = createSlice({
     }
 })
 
-export const { setUser, logout, setCredentials, setUserDetails, setUserToken } = authSlice.actions;
+export const { setUser, logout, setCredentials } = authSlice.actions;
 
 export const selectAuth = (state: RootState) => state.auth
 

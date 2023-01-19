@@ -14,13 +14,11 @@ const AuthWrapper = ({ children }: Props) => {
         <div className="bg-[url('assets/svg/loginbgdot.svg')">
           <div className=" bg-[url('assets/svg/authbg.svg')]  half-bg bg-[#02123B] fixed top-[40%] bottom-0 left-0 right-0 w-full bg-repeat-x bg-cover bg-no-repeat mix-blend-multiply">
             <div className="flex justify-center items-center">
-            <div className="flex items-center justify-center gap-4 text-center my-auto mx-auto fixed bottom-32 sm:bottom-16 text-white">
+            <div className="flex items-center justify-center gap-4 text-center my-auto mx-auto fixed bottom-32 lg:bottom-20 text-white">
               <p>FAQs</p>
               <p>Terms & Conditions</p>
               <p>Privacy Policy</p>
             </div>
-
-
 
             <img src={MicAuth} alt="" className='fixed bottom-0 items-center' />
             </div>

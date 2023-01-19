@@ -8,19 +8,23 @@ import Modal from '../components/Modal'
 import { Table } from '../components/Table'
 import { useGetAllTransactionsQuery, useGetPricingsQuery } from '../features/auth/authApiSplice'
 import { formatKoboAmountForDisplay } from '../utils/currency'
+import EditMusicUpload from './EditMusicUpload'
 import MusicUpload from './MusicUpload'
 
 
 const Transactions = () => {
+    // const [step, setStep] = useState<number>(0);
+    const [step, setStep] = useState<boolean>(false);
     const [stateBool, setStateBool] = useState<boolean>(false)
 
-    const {data: price, isLoading:priceLoading } = useGetPricingsQuery({})
+    const { data: price, isLoading: priceLoading } = useGetPricingsQuery({})
 
     const [search, setSearch] = useState<string>("")
 
     const { data, isLoading } = useGetAllTransactionsQuery({})
     // console.log(data, 'transactions')
     // console.log(price, 'price')
+
 
 
 
@@ -105,15 +109,20 @@ const Transactions = () => {
                     ]}
                     loading={isLoading}
                     titleEmpty="No Revenue at the moment"
-                    subtitleEmpty="It looks like you haven't added any music to your sound page yet. To add a song to the sound page, click the button below"
-                    emptyChild={<Button className='w-full mt-20 bg-[#516CF5] -p-10' type='' title="Invite a Worker" />}
-                    ActionChild={<DownloadIcon className="cursor-pointer" onClick={() => null}  />}
+                    subtitleEmpty="It looks like you haven't added any music to your sound page yet.To add a song to the sound page, click the button below"
+                    emptyChild={<Button className='w-full mt-20 bg-[#516CF5] -p-10' type='button' title="Invite a Worker" />}
+                    ActionChild={<DownloadIcon className="cursor-pointer" onClick={() => null} />}
                 />
             </div>
 
-                <Modal title='Music Upload Price' show={stateBool} closeModal={setStateBool}>
-                    <MusicUpload {...{ setStateBool }} {...{price}} />
-                </Modal>
+            <Modal title='Music Upload Price' show={stateBool} closeModal={setStateBool}>
+                <MusicUpload {...{ setStateBool }} {...{ price }} {... { setStep }} />
+            </Modal>
+
+            <Modal title='Edit Price' show={step} closeModal={setStep}>
+                <EditMusicUpload {...{ setStep }} {...{ price }} />
+            </Modal>
+
 
         </section>
     )

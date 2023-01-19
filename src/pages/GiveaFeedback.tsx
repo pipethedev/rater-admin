@@ -38,7 +38,7 @@ const GiveaFeedback = ({ setStateBool, id }: any) => {
                     <div className="mb-8">
                         <h1 className="my-3 text-2xl font-semibold text-[#02123B]">Give a Feedback on the Music</h1>
 
-                        <div className='rounded-2xl border-dotted border-2 p-4'>Feedbacks must contain what is liked about the song,  what is disliked and how it can be improved</div>
+                        <div className='rounded-2xl border-dotted border-2 p-4'>Feedbacks must contain what is liked about the song, what is disliked and how it can be improved</div>
                     </div>
 
                     <div className="mb-8">

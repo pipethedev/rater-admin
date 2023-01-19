@@ -5,7 +5,7 @@ const YourFeedbacks = () => {
         <div>
             <div className="grid sm:grid-cols-2 gap-5">
                 {Array(8).fill('').map((item) => (
-                    <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md border border-[#E2EAFE]">
+                    <div className="flex flex-col p-6 space-y-6 overflow-hidden rounded-lg shadow-md border border-[#E2EAFE]">
                         <div className="flex space-x-4">
                             <img alt="" src="https://source.unsplash.com/100x100/?portrait" className="object-cover w-12 h-12 rounded-full shadow" />
                             <div className="flex flex-col space-y-1">
