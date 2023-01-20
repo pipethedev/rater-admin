@@ -11,36 +11,30 @@ import ThreeDotsWorker from '../assets/svg/THreeDotsWork'
 import { toast } from 'react-toastify'
 
 const ManageWorkers = () => {
-    const [banAUser, { isLoading: loadingBan, isSuccess }] = useBanAUserMutation()
+    const [banAUser, { isLoading: loadingBan, isSuccess, error, success }] = useBanAUserMutation()
     const { data, isLoading } = useGetAllWorkersQuery({})
     const [stateBool, setStateBool] = useState<boolean>(false)
-    const [banned, setBanned] = useState<boolean>(false)
     const [search, setSearch] = useState<string>("")
 
     console.log(data, 'workers')
 
     useEffect(() => {
         if (isSuccess) {
+            toast.success(success?.data?.message);
             toast.success("Banned Successfully");
-            // setStep(false)
         }
     }, [isSuccess]);
 
-    const UnBanAUser = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-
+    const UnBanAUser = async (banned: boolean, id: string) => {
         try {
-            if (banned) {
                 await banAUser({
                     body: {
-                        banned
+                        banned: !banned
                     },
-                    id: data?.id
+                    id
                 }).unwrap()
-                setBanned(banned)
-            }
         } catch {
-            toast.error("Failed Edit Price Please Try again")
+            toast.error(error?.data?.message)
         }
 
     }
@@ -93,27 +87,32 @@ const ManageWorkers = () => {
                             header: "DATE ADDED",
                             view: (row) => (row?.updated_at),
                         },
-                        // {
-                        //     header: "STATUS",
-                        //     view: (row) => (row?.last_name),
-                        // },
-                    ]}
-                    loading={isLoading}
-                    data={data ?? []}
-                    pagination={{ page: 5, pageSize: 1, totalRows: 1 }}
-                    rowActions={(row) => [
                         {
-                            action: () => { },
-                            name: "ACTION",
+                            header: "ACTION",
+                            view: (row) => (row?.action),
                         },
                     ]}
+                    loading={isLoading}
+                    data={data?.map(item => ({
+                        first_name: item?.first_name,
+                        last_name: item?.last_name,
+                        email: item?.email,
+                        role: item?.role,
+                        updated_at: item?.updated_at,
+                        action: (
+                            <span className={`cursor-pointer ${item?.banned ? 'text-green-600' : 'text-red-600'}`} onClick={() => UnBanAUser(item?.banned, item?.id)}>{item?.banned ? 'Activate' : 'Deactivate'}</span>
+                        ),
+                    })) ?? []}
+                    pagination={{ page: 5, pageSize: 1, totalRows: 1 }}
+                    // rowActions={(row) => [
+                    //     {
+                    //         action: () => { },
+                    //         name: "ACTION",
+                    //     },
+                    // ]}
                     titleEmpty="No Worker on the platform at the moment"
                     subtitleEmpty="It looks like you haven't added any music to your sound page yet.To add a song to the sound page, click the button below"
                     emptyChild={<Button className='w-full mt-20 bg-[#516CF5] -p-10' type='button' title="Invite a Worker" onClick={() => setStateBool(true)} />}
-                    ActionChild={<>
-                        {/* {data?.map((item) => ())} */}
-                        activate
-                    </>}
                 />
             </div>
 
