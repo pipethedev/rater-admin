@@ -40,6 +40,15 @@ const ManageWorkers = () => {
 
     }
 
+    const filterTable = (data: any) => {
+        return (
+            data?.filter((item: any) => item?.first_name.toLowerCase().includes(search.toLowerCase())
+            || item?.last_name.toLowerCase().includes(search.toLowerCase())
+            || item?.role?.toLowerCase().includes(search.toLowerCase())
+            )
+        )
+    }
+
     return (
         <section>
             <div className="flex items-center justify-between">
@@ -94,7 +103,7 @@ const ManageWorkers = () => {
                         },
                     ]}
                     loading={isLoading}
-                    data={data?.map(item => ({
+                    data={filterTable(data?.map(item => ({
                         first_name: item?.first_name,
                         last_name: item?.last_name,
                         email: item?.email,
@@ -103,7 +112,7 @@ const ManageWorkers = () => {
                         action: (
                             <span className={`cursor-pointer ${item?.banned ? 'text-green-600' : 'text-red-600'}`} onClick={() => UnBanAUser(item?.banned, item?.id)}>{item?.banned ? 'Activate' : 'Deactivate'}</span>
                         ),
-                    })) ?? []}
+                    }))) ?? []}
                     pagination={{ page: 5, pageSize: 1, totalRows: 1 }}
                     // rowActions={(row) => [
                     //     {
