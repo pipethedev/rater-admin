@@ -16,6 +16,7 @@ import MusicUpload from './MusicUpload'
 const Transactions = () => {
     const [step, setStep] = useState<boolean>(false);
     const [stateBool, setStateBool] = useState<boolean>(false)
+    const [stateAdd, setStateAdd] = useState<boolean>(false)
 
     const { data: price } = useGetPricingsQuery({})
 
@@ -118,8 +119,8 @@ const Transactions = () => {
                 <EditMusicUpload {...{ setStep }} {...{ price }} />
             </Modal>
 
-            <Modal show={stateBool} closeModal={setStateBool}>
-                <AddWoker {...{ setStateBool }} />
+            <Modal show={stateAdd} closeModal={setStateAdd}>
+                <AddWoker setStateBool={setStateAdd}  />
             </Modal>
 
         </section>
