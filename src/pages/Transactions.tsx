@@ -24,6 +24,17 @@ const Transactions = () => {
 
     const { data, isLoading } = useGetAllTransactionsQuery({})
 
+    // data?.filter((item: any) => item.title.toLowerCase().indexOf(search.toLowerCase()) > -1)?.
+
+    const filterTable = (data: any) => {
+        return (
+            data?.filter((item: any) => item?.user?.first_name.toLowerCase().includes(search.toLowerCase())
+            || item?.user?.last_name.toLowerCase().includes(search.toLowerCase())
+            || item?.user?.email?.toLowerCase().includes(search.toLowerCase())
+            )
+        )
+    }
+
     return (
         <section>
             <div className="flex items-center justify-between">
@@ -93,7 +104,7 @@ const Transactions = () => {
                             view: (row) => (row?.payment_status),
                         },
                     ]}
-                    data={data ?? []}
+                    data={filterTable(data) ?? []}
                     pagination={{ page: 5, pageSize: 1, totalRows: 1 }}
                     rowActions={(row) => [
                         {

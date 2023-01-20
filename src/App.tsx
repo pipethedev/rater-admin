@@ -21,11 +21,11 @@ function App() {
   return (
     <Suspense fallback={<p>Loading Components</p>}>
       <Routes>
-        <Route element={<UnProtected />}>
+        {/* <Route element={<UnProtected />}> */}
           <Route path='/' element={<Login />} />
           <Route path='reset-password' element={<ResetPassword />} />
           <Route path='forgot-password' element={<ForgotPassword />} />
-        </Route>
+        {/* </Route> */}
 
         <Route element={<RequiredRoute />}>
           <Route element={<Layout />}>
