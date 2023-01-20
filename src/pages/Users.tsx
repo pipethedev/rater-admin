@@ -1,14 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { dataTable } from '../assets/data/sidebar-data'
 import Header from '../components/Header'
+import Input from '../components/Input'
 import SearchInput from '../components/SearchInput'
 import { Table } from '../components/Table'
 import { useGetAllUsersQuery } from '../features/auth/authApiSplice'
 
 const Users = () => {
-    const { data, isLoading, isFetching } = useGetAllUsersQuery({})
-    console.log(data, 'datadatadata uiser')
+    const { data, isLoading } = useGetAllUsersQuery({})
+    const [search, setSearch] = useState<string>("")
+
+
+    const filterTable = (data: any) => {
+        return (
+            data?.filter((item: any) => item?.first_name.toLowerCase().includes(search.toLowerCase())
+            || item?.last_name.toLowerCase().includes(search.toLowerCase())
+            || item?.role?.toLowerCase().includes(search.toLowerCase())
+            || item?.phone_number?.toLowerCase().includes(search.toLowerCase())
+            )
+        )
+    }
+
+
     return (
         <section>
             <Header title='Users' subtitle='All registered users on the platform' />
@@ -34,7 +48,21 @@ const Users = () => {
 
 
             <div className="flex items-center justify-between">
-                <SearchInput placeholder="Search through users on the platform" />
+                {/* <SearchInput placeholder="Search through users on the platform"
+                     searchIcon
+                     type="search"
+                     value={search}
+                     onChange={(e: Event) => setSearch((e.target as HTMLInputElement).value)}
+                /> */}
+                 <Input
+                    className="w-full lg:w-96 p-4 pl-10 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+                    divStyle=''
+                    placeholder="Search through users on the platform"
+                    searchIcon
+                    type="search"
+                    value={search}
+                    onChange={(e: Event) => setSearch((e.target as HTMLInputElement).value)}
+                />
 
                 <div className="flex items-center space-x-4">
                     <button type="submit" className="text-[#3B71F7] bg-[#F5F8FF] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-[72px] text-sm px-4 py-2">Date : All</button>
@@ -62,7 +90,7 @@ const Users = () => {
                             view: (row) => (row?.phone_number),
                         },
                     ]}
-                    data={data ?? []}
+                    data={filterTable(data) ?? []}
                     pagination={{ page: 5, pageSize: 1, totalRows: 1 }}
                     loading={isLoading}
                     // rowActions={(row) => [
