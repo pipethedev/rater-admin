@@ -110,7 +110,7 @@ const ManageWorkers = () => {
                         role: item?.role,
                         updated_at: item?.updated_at,
                         action: (
-                            <span className={`cursor-pointer ${item?.banned ? 'text-green-600' : 'text-red-600'}`} onClick={() => UnBanAUser(item?.banned, item?.id)}>{item?.banned ? 'Activate' : 'Deactivate'}</span>
+                            <span className={`cursor-pointer ${item?.banned ? 'text-green-600 p-3 rounded-full bg-green-200' : 'text-red-600 p-3 rounded-full bg-red-200'}`} onClick={() => UnBanAUser(item?.banned, item?.id)}>{item?.banned ? 'Activate' : 'Deactivate'}</span>
                         ),
                     }))) ?? []}
                     pagination={{ page: 5, pageSize: 1, totalRows: 1 }}
