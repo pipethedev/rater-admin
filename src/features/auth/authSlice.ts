@@ -44,6 +44,7 @@ export const authSlice = createSlice({
             // )
             // state.user = action.payload.user;
             state.token = action.payload.token;
+            console.log( state.token, ' state.token')
         },
 
         // Dave authentication
@@ -51,6 +52,7 @@ export const authSlice = createSlice({
             const { user, accessToken } = action.payload
             state.user = user
             state.token = accessToken
+            localStorage.setItem("token", accessToken)
         },
         logout: (state) => {
             localStorage.clear();

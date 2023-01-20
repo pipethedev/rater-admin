@@ -11,17 +11,18 @@ import ThreeDotsWorker from '../assets/svg/THreeDotsWork'
 import { toast } from 'react-toastify'
 
 const ManageWorkers = () => {
-    const [banAUser, { isLoading: loadingBan, isSuccess, error, success }] = useBanAUserMutation()
+    const [banAUser, { isLoading: loadingBan, isSuccess, error, status,data: bannn }] = useBanAUserMutation()
     const { data, isLoading } = useGetAllWorkersQuery({})
     const [stateBool, setStateBool] = useState<boolean>(false)
     const [search, setSearch] = useState<string>("")
 
-    console.log(data, 'workers')
+    console.log(status, 'workers')
+    console.log(bannn, 'data')
 
     useEffect(() => {
         if (isSuccess) {
-            toast.success(success?.data?.message);
-            toast.success("Banned Successfully");
+            toast.success(status?.message);
+            // toast.success("Banned Successfully");
         }
     }, [isSuccess]);
 

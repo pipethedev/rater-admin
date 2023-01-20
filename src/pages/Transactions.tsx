@@ -82,13 +82,11 @@ const Transactions = () => {
                         {
                             header: "FULLNAME",
                             view: (row) => `${row?.user?.first_name} ${row?.user?.last_name}`,
-                            // view: (row) => `${row?.user?.first_name} ${row?.user?.first_name}`,
                         },
                         { header: "EMAIL ADDRESS", view: (row) => row?.user?.email },
                         {
                             header: "AMOUNT",
                             view: (row) => formatKoboAmountForDisplay(row?.amount)
-                            // view: (row) => row?.amount ? (row?.amount) : 0
                         },
                         {
                             header: "PAYMENT STATUS",

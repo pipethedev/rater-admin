@@ -14,15 +14,18 @@ import ResetPassword from './pages/ResetPassword'
 import ForgotPassword from './pages/ForgotPassword'
 import UserId from './pages/UserId'
 import SingleSong from './pages/SingleSong'
+import UnProtected from './components/UnProtected'
 
 function App() {
 
   return (
     <Suspense fallback={<p>Loading Components</p>}>
       <Routes>
-        <Route path='/' element={<Login />} />
-        <Route path='reset-password' element={<ResetPassword />} />
-        <Route path='forgot-password' element={<ForgotPassword />} />
+        <Route element={<UnProtected />}>
+          <Route path='/' element={<Login />} />
+          <Route path='reset-password' element={<ResetPassword />} />
+          <Route path='forgot-password' element={<ForgotPassword />} />
+        </Route>
 
         <Route element={<RequiredRoute />}>
           <Route element={<Layout />}>
