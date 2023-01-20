@@ -56,7 +56,7 @@ const SingleSong = () => {
                                 <div className="flex items-center justify-center">
                                     {/* <Link to={{ pathnam: data?.file_url }}>
                                     </Link> */}
-                                    <Button title='Play Song' className='w-full' onClick={() => window.location.href= data?.file_url} />
+                                    <Button title='Play Song' className='w-full' onClick={() => window.open(data?.file_url, '_blank')} />
                                 </div>
                             </div>
                         </div>
