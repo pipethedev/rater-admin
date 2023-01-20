@@ -13,8 +13,8 @@ const WorkersReviews = ({ worker }: any) => {
           </div>
 
           <div>
-            <span className={`${worker?.rating === 'Good' || 'AlmostGood' ? 'text-[#00C288]' : "text-red-600"} bg-[#EBFFF9] px-4 py-2 font-semibold text-base rounded-full min-w-max`}>{worker?.rating}</span>
-            <p className='text-lg mt-5'>{worker?.comment}</p>
+            <span className={`${worker?.rating === 'Good' || 'AlmostGood' ? 'text-[#00C288]' : "text-red-600"} bg-[#EBFFF9] px-4 py-2 my-5 font-semibold text-base rounded-full min-w-max`}>{worker?.rating}</span>
+            <p className='text-lg my-5'>{worker?.comment}</p>
           </div>
         </div>
       </div>

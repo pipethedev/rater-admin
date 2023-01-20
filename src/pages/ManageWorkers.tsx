@@ -85,7 +85,7 @@ const ManageWorkers = () => {
                         },
                         { header: "EMAIL ADDRESS", view: (row) => row?.email },
                         {
-                            header: "SONGS REVIEWED",
+                            header: "ROLES",
                             // view: (row) => row?.amount ? (row?.amount) : 0
                             view: (row) => row?.role
                         },
@@ -111,7 +111,8 @@ const ManageWorkers = () => {
                     subtitleEmpty="It looks like you haven't added any music to your sound page yet.To add a song to the sound page, click the button below"
                     emptyChild={<Button className='w-full mt-20 bg-[#516CF5] -p-10' type='button' title="Invite a Worker" onClick={() => setStateBool(true)} />}
                     ActionChild={<>
-                        {}
+                        {/* {data?.map((item) => ())} */}
+                        activate
                     </>}
                 />
             </div>
