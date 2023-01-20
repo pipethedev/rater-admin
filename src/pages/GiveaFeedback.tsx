@@ -8,13 +8,14 @@ const GiveaFeedback = ({ setStateBool, id, data }: any) => {
 
     console.log(id, 'wuidfuviusdh')
     const [comment, setComment] = useState()
-    const [createFeedback, { isLoading, isSuccess }] = useCreateFeedbackMutation(id)
+    const [createFeedback, { isLoading, isSuccess, error }] = useCreateFeedbackMutation(id)
     useEffect(() => {
         if (isSuccess) {
             toast.success("Feedback Created Successfully");
             setStateBool(false)
         }
     }, [isSuccess]);
+    console.log(error, 'error')
 
     const HandleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -22,12 +23,16 @@ const GiveaFeedback = ({ setStateBool, id, data }: any) => {
         try {
             if (comment) {
                 await createFeedback({
-                    comment
-                }).unwrap()
+                    body: {
+                        comment
+                    },
+                    id
+                }
+                ).unwrap()
                 setComment('')
             }
         } catch {
-            toast.error("Failed Create Feedback Please Try again")
+            toast.error(error?.data?.message)
         }
 
     }

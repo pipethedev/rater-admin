@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { dataTable } from '../assets/data/sidebar-data'
+import React, { useState, useEffect } from 'react'
 import Button from '../components/Button'
 import Header from '../components/Header'
 import SearchInput from '../components/SearchInput'
@@ -7,14 +6,44 @@ import { Table } from '../components/Table'
 import Modal from '../components/Modal'
 import Input from '../components/Input'
 import AddWoker from './AddWoker'
-import { useGetAllWorkersQuery } from '../features/auth/authApiSplice'
+import { useGetAllWorkersQuery, useBanAUserMutation } from '../features/auth/authApiSplice'
 import ThreeDotsWorker from '../assets/svg/THreeDotsWork'
+import { toast } from 'react-toastify'
 
 const ManageWorkers = () => {
-    const { data, isLoading, isFetching } = useGetAllWorkersQuery({})
-    // console.log(data, 'data list of workers')
+    const [banAUser, { isLoading: loadingBan, isSuccess }] = useBanAUserMutation()
+    const { data, isLoading } = useGetAllWorkersQuery({})
     const [stateBool, setStateBool] = useState<boolean>(false)
+    const [banned, setBanned] = useState<boolean>(false)
     const [search, setSearch] = useState<string>("")
+
+    console.log(data, 'workers')
+
+    useEffect(() => {
+        if (isSuccess) {
+            toast.success("Banned Successfully");
+            // setStep(false)
+        }
+    }, [isSuccess]);
+
+    const UnBanAUser = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        try {
+            if (banned) {
+                await banAUser({
+                    body: {
+                        banned
+                    },
+                    id: data?.id
+                }).unwrap()
+                setBanned(banned)
+            }
+        } catch {
+            toast.error("Failed Edit Price Please Try again")
+        }
+
+    }
 
     return (
         <section>
@@ -69,7 +98,6 @@ const ManageWorkers = () => {
                         //     view: (row) => (row?.last_name),
                         // },
                     ]}
-                    // data={customerData?.data?.customers ?? []}
                     loading={isLoading}
                     data={data ?? []}
                     pagination={{ page: 5, pageSize: 1, totalRows: 1 }}
@@ -81,14 +109,17 @@ const ManageWorkers = () => {
                     ]}
                     titleEmpty="No Worker on the platform at the moment"
                     subtitleEmpty="It looks like you haven't added any music to your sound page yet.To add a song to the sound page, click the button below"
-                    emptyChild={<Button className='w-full mt-20 bg-[#516CF5] -p-10' type='' title="Invite a Worker" onClick={() => setStateBool(true)} />}
-                    ActionChild={<><ThreeDotsWorker className="cursor-pointer" /></>}
-                    />
-                </div>
+                    emptyChild={<Button className='w-full mt-20 bg-[#516CF5] -p-10' type='button' title="Invite a Worker" onClick={() => setStateBool(true)} />}
+                    ActionChild={<>
+                        {}
+                    </>}
+                />
+            </div>
 
 
-
-                <Modal show={stateBool} closeModal={setStateBool}> <AddWoker {...{ setStateBool }} /> </Modal>
+            <Modal show={stateBool} closeModal={setStateBool}>
+                <AddWoker {...{ setStateBool }} />
+            </Modal>
         </section>
     )
 }

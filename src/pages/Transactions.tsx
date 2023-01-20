@@ -23,10 +23,6 @@ const Transactions = () => {
 
     const { data, isLoading } = useGetAllTransactionsQuery({})
 
-
-
-
-
     return (
         <section>
             <div className="flex items-center justify-between">

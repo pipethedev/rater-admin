@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { routeList } from '../../assets/data/sidebar-data';
 import DashboardIcon from '../../assets/svg/DashboardIcon';
 import MusicIcon from '../../assets/svg/MusicIcon';
@@ -8,20 +9,27 @@ import NotificationIcon from '../../assets/svg/NotificationIcon';
 import SettingsIcon from '../../assets/svg/SettingsIcon';
 import TransactionIcon from '../../assets/svg/TransactionIcon';
 import UserIcon from '../../assets/svg/UserIcon';
+import { useLogoutAUserMutation } from '../../features/auth/authApiSplice';
+import { useAppDispatch } from '../../hocks/hocks';
+import { logout } from '../../features/auth/authSlice'
+
 
 const Sidebar = () => {
+   const [ {}] = useLogoutAUserMutation()
     const location = useLocation()
     const navigate = useNavigate();
+    const dispatch = useAppDispatch()
 
-
-    const logout = useCallback(() => {
+    const logoutUser = useCallback(() => {
+        dispatch(logout());
+        toast.success("User Logged Out Successfully")
+        navigate("/");
         // useAuth.setState({
         //     isAuthenticated: false,
         //     email: null,
         //     token: null,
         // });
         // Cookies.remove('@Authenticated')
-        navigate("/");
     }, [])
 
     return (
@@ -31,7 +39,7 @@ const Sidebar = () => {
                 <div className={`pt-3`}>
                     <div className="flex items-center justify-between pb-10 px-5">
                         <p className='text-[#3B71F7] text-xl font-bold'>M.Rater</p>
-                        <NotificationIcon className={`cursor-pointer ${!'open' && "scale-0 hidden"}`} />
+                        <NotificationIcon className={`cursor-pointer ${!'open' && "scale-0 hidden"}`} onClick={() => logoutUser()} />
                     </div>
 
                     {routeList.map((item, index) => {
