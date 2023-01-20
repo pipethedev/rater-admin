@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 
 const GiveaFeedback = ({ setStateBool, id, data }: any) => {
 
-    console.log(id, 'wuidfuviusdh')
+    // console.log(id, 'wuidfuviusdh')
     const [comment, setComment] = useState()
     const [createFeedback, { isLoading, isSuccess, error }] = useCreateFeedbackMutation(id)
     useEffect(() => {
@@ -15,7 +15,7 @@ const GiveaFeedback = ({ setStateBool, id, data }: any) => {
             setStateBool(false)
         }
     }, [isSuccess]);
-    console.log(error, 'error')
+    // console.log(error, 'error')
 
     const HandleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
