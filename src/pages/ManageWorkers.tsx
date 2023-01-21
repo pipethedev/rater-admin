@@ -11,18 +11,17 @@ import ThreeDotsWorker from '../assets/svg/THreeDotsWork'
 import { toast } from 'react-toastify'
 
 const ManageWorkers = () => {
-    const [banAUser, { isLoading: loadingBan, isSuccess, error, status,data: bannn }] = useBanAUserMutation()
+    const [banAUser, { isLoading: loadingBan, isSuccess, error, isError }] = useBanAUserMutation()
     const { data, isLoading } = useGetAllWorkersQuery({})
     const [stateBool, setStateBool] = useState<boolean>(false)
     const [search, setSearch] = useState<string>("")
 
-    console.log(status, 'workers')
-    console.log(bannn, 'data')
+
+    console.log(error, 'error')
 
     useEffect(() => {
         if (isSuccess) {
-            toast.success(status?.message);
-            // toast.success("Banned Successfully");
+            toast.success(isSuccess === false ? "Banned is Deactivated" : 'Banned is Activated');
         }
     }, [isSuccess]);
 
@@ -35,7 +34,7 @@ const ManageWorkers = () => {
                     id
                 }).unwrap()
         } catch {
-            toast.error(error?.data?.message)
+            toast.error(error?.error)
         }
 
     }
@@ -110,7 +109,7 @@ const ManageWorkers = () => {
                         role: item?.role,
                         updated_at: item?.updated_at,
                         action: (
-                            <span className={`cursor-pointer ${item?.banned ? 'text-green-600 p-3 rounded-full bg-green-200' : 'text-red-600 p-3 rounded-full bg-red-200'}`} onClick={() => UnBanAUser(item?.banned, item?.id)}>{item?.banned ? 'Activate' : 'Deactivate'}</span>
+                            <span className={`cursor-pointer ${item?.banned ? 'text-green-600 p-3 rounded-full bg-green-200' : 'text-red-600 p-3 rounded-full bg-red-200'}`} onClick={() => UnBanAUser(item?.banned, item?.id)}>{loadingBan ? "loading" : (item?.banned ? 'Activate' : 'Deactivate')}</span>
                         ),
                     }))) ?? []}
                     pagination={{ page: 5, pageSize: 1, totalRows: 1 }}
