@@ -61,7 +61,7 @@ const AllMusic = () => {
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {data?.length == 0 ?
-                        (<div className='grid items-center justify-center place-content-center place-items-center  text-center text-2xl font-semibold'>
+                        (<div className='grid grid-cols-1 place-items-center w-screen text-center text-2xl font-semibold'>
                             No Songs
                         </div>)
                         :

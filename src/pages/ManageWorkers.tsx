@@ -11,7 +11,7 @@ import { toast } from 'react-toastify'
 import { format } from "date-fns"
 
 const ManageWorkers = () => {
-    const [banAUser, { isLoading: loadingBan, isSuccess, error, isError }] = useBanAUserMutation()
+    const [banAUser, { isLoading: loadingBan, isSuccess, data: banData, }] = useBanAUserMutation()
     const { data, isLoading } = useGetAllWorkersQuery({})
     const [stateBool, setStateBool] = useState<boolean>(false)
     const [search, setSearch] = useState<string>("")
@@ -20,7 +20,7 @@ const ManageWorkers = () => {
     // format(parseISO(date), "dd-MM-yyyy");
 
 
-    console.log(error, 'error')
+    console.log(banData , 'banData')
 
     useEffect(() => {
         if (isSuccess) {

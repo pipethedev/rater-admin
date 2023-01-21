@@ -23,13 +23,14 @@ const AddWoker = ({ setStateBool }: any) => {
         e.preventDefault();
 
         try {
-            if (firstName && lastName && email) {
-                await createWorker({
+            if (firstName && lastName && email && phoneNumber) {
+                const result  = await createWorker({
                     first_name: firstName,
                     last_name: lastName,
                     phone_number: phoneNumber,
                     email
-                }).unwrap()
+                },).unwrap()
+                console.log(result)
                 setEmail('')
                 setFirstName('')
                 setLastName('')

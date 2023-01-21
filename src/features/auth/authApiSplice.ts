@@ -144,7 +144,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
                 method: 'PUT',
                 body
             }),
-            transformResponse: (response: any , meta, arg) => response.data,
+            transformResponse: (response: any , meta, arg) => response,
             invalidatesTags: ['Auth'],
         }),
         // Ban a User
