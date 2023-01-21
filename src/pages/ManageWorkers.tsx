@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import  { useState, useEffect } from 'react'
 import Button from '../components/Button'
 import Header from '../components/Header'
-import SearchInput from '../components/SearchInput'
 import { Table } from '../components/Table'
 import Modal from '../components/Modal'
 import Input from '../components/Input'
@@ -9,12 +8,16 @@ import AddWoker from './AddWoker'
 import { useGetAllWorkersQuery, useBanAUserMutation } from '../features/auth/authApiSplice'
 import ThreeDotsWorker from '../assets/svg/THreeDotsWork'
 import { toast } from 'react-toastify'
+import { format } from "date-fns"
 
 const ManageWorkers = () => {
     const [banAUser, { isLoading: loadingBan, isSuccess, error, isError }] = useBanAUserMutation()
     const { data, isLoading } = useGetAllWorkersQuery({})
     const [stateBool, setStateBool] = useState<boolean>(false)
     const [search, setSearch] = useState<string>("")
+
+    // const date = item.created_at;
+    // format(parseISO(date), "dd-MM-yyyy");
 
 
     console.log(error, 'error')
@@ -107,7 +110,7 @@ const ManageWorkers = () => {
                         last_name: item?.last_name,
                         email: item?.email,
                         role: item?.role,
-                        updated_at: item?.updated_at,
+                        updated_at: format(new Date(item?.updated_at), "dd-MM-yyyy"),
                         action: (
                             <span className={`cursor-pointer ${item?.banned ? 'text-green-600 p-3 rounded-full bg-green-200' : 'text-red-600 p-3 rounded-full bg-red-200'}`} onClick={() => UnBanAUser(item?.banned, item?.id)}>{loadingBan ? "loading" : (item?.banned ? 'Activate' : 'Deactivate')}</span>
                         ),

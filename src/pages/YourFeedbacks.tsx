@@ -1,4 +1,3 @@
-import React from 'react'
 import { format } from 'date-fns'
 
 const YourFeedbacks = ({ data, feed }: any) => {
@@ -10,8 +9,8 @@ const YourFeedbacks = ({ data, feed }: any) => {
                         <img alt="" src="https://source.unsplash.com/100x100/?portrait" className="object-cover w-12 h-12 rounded-full shadow" />
                         <div className="flex flex-col space-y-1">
                             <a rel="noopener noreferrer" href="#" className="text-base font-semibold">{data?.file_name}</a>
-                            {/* <span className="text-sm">Today — {`- ${format(feed?.created_at , "MM/dd/yyyy")}`}</span> */}
-                            <span className="text-sm">Today — {feed?.created_at}</span>
+                            <span className="text-sm">Today — {`${format(new Date(feed?.created_at ), "MM/dd/yyyy")}`}</span>
+                            {/* <span className="text-sm">Today — {feed?.created_at}</span> */}
                         </div>
                     </div>
                     <div>

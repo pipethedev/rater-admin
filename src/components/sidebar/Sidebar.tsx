@@ -5,7 +5,7 @@ import { routeList } from '../../assets/data/sidebar-data';
 import DashboardIcon from '../../assets/svg/DashboardIcon';
 import MusicIcon from '../../assets/svg/MusicIcon';
 import MyProfileIcon from '../../assets/svg/MyProfileIcon';
-import NotificationIcon from '../../assets/svg/NotificationIcon';
+import LogOutIcon from '../../assets/svg/LogOutIcon';
 import SettingsIcon from '../../assets/svg/SettingsIcon';
 import TransactionIcon from '../../assets/svg/TransactionIcon';
 import UserIcon from '../../assets/svg/UserIcon';
@@ -39,7 +39,8 @@ const Sidebar = () => {
                 <div className={`pt-3`}>
                     <div className="flex items-center justify-between pb-10 px-5">
                         <p className='text-[#3B71F7] text-xl font-bold'>M.Rater</p>
-                        <NotificationIcon className={`cursor-pointer ${!'open' && "scale-0 hidden"}`} onClick={() => logoutUser()} />
+                        {/* <NotificationIcon className={`cursor-pointer ${!'open' && "scale-0 hidden"}`} onClick={() => logoutUser()} /> */}
+                        <LogOutIcon className={`cursor-pointer w-10 h-10 ${!'open' && "scale-0 hidden"}`} onClick={() => logoutUser()} />
                     </div>
 
                     {routeList.map((item, index) => {

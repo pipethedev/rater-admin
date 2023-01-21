@@ -1,4 +1,4 @@
-import React from 'react'
+import { format } from "date-fns"
 
 const WorkersReviews = ({ worker }: any) => {
   return (
@@ -8,7 +8,7 @@ const WorkersReviews = ({ worker }: any) => {
             <img alt="" src="https://source.unsplash.com/100x100/?portrait" className="object-cover w-12 h-12 rounded-full shadow" />
             <div className="flex flex-col space-y-1">
               <a rel="noopener noreferrer" href="#" className="text-base font-semibold">{worker?.worker?.first_name} {worker?.worker?.last_name}</a>
-              <span className="text-sm">Today — {worker?.worker?.created_at}</span>
+              <span className="text-sm">Today — {format(new Date(worker?.worker?.created_at), "dd-MM-yyyy")}</span>
             </div>
           </div>
 
