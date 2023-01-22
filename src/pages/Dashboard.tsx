@@ -73,15 +73,16 @@ const Dashboard = () => {
                             </div>
                         }
                     </div>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                        {allsongs?.length === 0 ?
-                            (<div className='flex items-center justify-center text-center'>
+                    <div className="flex items-center justify-center">
+                        {allsongs?.length === 0 &&
+                            (<div className='flex items-center justify-center text-center text-2xl font-semibold'>
                                 <p>No Songs</p>
-                            </div>)
-                            :
-                            allsongs?.slice(0, 5).map((item: any) => (
-                                <CardPlatList title={item?.title} subtitle={item?.file_name} rate={item?.ratings?.[0]['rating']} id={item?.id} />
-                            ))}
+                            </div>)}
+                    </div>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        {allsongs?.slice(0, 5).map((item: any) => (
+                            <CardPlatList title={item?.title} subtitle={item?.file_name} rate={item?.ratings?.[0]['rating']} id={item?.id} />
+                        ))}
                     </div>
                 </div>
 

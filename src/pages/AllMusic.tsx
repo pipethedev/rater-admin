@@ -8,7 +8,7 @@ import { useAllSongsQuery } from '../features/auth/authApiSplice'
 
 const AllMusic = () => {
     const [search, setSearch] = useState<string>("")
-    const { data, isLoading} = useAllSongsQuery({})
+    const { data, isLoading } = useAllSongsQuery({})
 
     const Loader = () => <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-[#3B71F7]"></div>
 
@@ -59,15 +59,16 @@ const AllMusic = () => {
                     </div>}
                     {/* {isFetching && <div className='text-3xl'>Fecthing all songs</div>} */}
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    {data?.length == 0 ?
+                <div className="flex items-center justify-center">
+                    {data?.length == 0 &&
                         (<div className='grid grid-cols-1 place-items-center w-screen text-center text-2xl font-semibold'>
                             No Songs
-                        </div>)
-                        :
-                        data?.filter((item: any) => item.title.toLowerCase().indexOf(search.toLowerCase()) > -1)?.map((item: any) => (
-                            <CardPlatList title={item?.title} subtitle={item?.file_name} rate={item?.ratings?.[0]['rating']} id={item?.id} />
-                        ))}
+                        </div>)}
+                </div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {data?.filter((item: any) => item.title.toLowerCase().indexOf(search.toLowerCase()) > -1)?.map((item: any) => (
+                        <CardPlatList title={item?.title} subtitle={item?.file_name} rate={item?.ratings?.[0]['rating']} id={item?.id} />
+                    ))}
                 </div>
             </div>
 
