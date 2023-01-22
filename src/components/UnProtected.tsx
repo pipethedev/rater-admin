@@ -6,9 +6,6 @@ const UnProtected = () => {
 
     const token = useAppSelector(selectCurrentToken)
     const location = useLocation()
-    // const token = localStorage.getItem('token')
-
-    // console.log(localStorage.getItem('tken'), 'token')
 
     return !token ? <Outlet /> : <Navigate to="/dashboard" state={{ from: location }} replace />
 }
