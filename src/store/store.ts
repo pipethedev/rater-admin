@@ -4,21 +4,23 @@ import authReducer from '../features/auth/authSlice';
 import { apiSlice } from '../services/authApis';
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import rootReducer from './reducer';
 
 
 
 const persistConfig = {
-  key: "root",
-  version: 1,
+  key: "auth",
+  // version: 1,
   storage,
-  whitelist: ["auth"],
+  // whitelist: ["auth"],
+
 };
-// const persistedReducer = persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
     reducer: {
-      auth: authReducer,
-      // auth:  persistReducer(persistConfig, authReducer),
+      auth: persistedReducer,
+      // auth: authReducer,
       [apiSlice.reducerPath]: apiSlice.reducer, // auth
     },
     middleware: getDefaultMiddleware => getDefaultMiddleware({serializableCheck: false}).concat(apiSlice.middleware),
@@ -36,7 +38,7 @@ export type AppThunk<ReturnType = void> = ThunkAction<
 
 setupListeners(store.dispatch)
 
-// export const persistor = persistStore(store);
+export const persistor = persistStore(store);
 
 
 

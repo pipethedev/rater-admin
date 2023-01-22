@@ -4,9 +4,9 @@ import { useAppSelector } from '../hocks/hocks'
 
 const UnProtected = () => {
 
-    // const token = useAppSelector(selectCurrentToken)
+    const token = useAppSelector(selectCurrentToken)
     const location = useLocation()
-    const token = localStorage.getItem('token')
+    // const token = localStorage.getItem('token')
 
     // console.log(localStorage.getItem('tken'), 'token')
 

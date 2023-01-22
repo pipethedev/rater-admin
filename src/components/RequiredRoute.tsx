@@ -3,13 +3,11 @@ import { selectCurrentToken, setUser } from '../features/auth/authSlice'
 import { useAppSelector } from '../hocks/hocks'
 
 const RequiredRoute = () => {
-  // const token = useAppSelector(selectCurrentToken)
-  const token = localStorage.getItem('token')
+  const token = useAppSelector(selectCurrentToken)
+  // const token = localStorage.getItem('token')
   const location = useLocation()
 
-  // console.log(!!token, 'token')
-
-  // console.log(token?.payload?.auth?.token, 'setUser')
+  // console.log(token?.auth?.token, 'setUser token')
 
   return token ? <Outlet /> : <Navigate to="/" state={{ from: location }} replace />
 }
