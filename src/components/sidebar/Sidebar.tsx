@@ -24,12 +24,6 @@ const Sidebar = () => {
         dispatch(logout());
         toast.success("User Logged Out Successfully")
         navigate("/");
-        // useAuth.setState({
-        //     isAuthenticated: false,
-        //     email: null,
-        //     token: null,
-        // });
-        // Cookies.remove('@Authenticated')
     }, [])
 
     return (
@@ -69,7 +63,7 @@ const Sidebar = () => {
                     )}
                 </div>
 
-                <div className="flex items-center justify-center" onClick={logout}>
+                <div className="flex items-center justify-center" onClick={logoutUser}>
                     {/* <div className="flex items-center  gap-5 cursor-pointer" >
                         icon
                         <div className={`${!'open' && "hidden"} text-white text-sm`}> Logout</div>

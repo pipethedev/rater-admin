@@ -35,7 +35,7 @@ function App() {
             <Route path="users" element={<Users />} />
             <Route path="users/:id" element={<UserId />} />
             <Route path="manage-workers" element={<ManageWorkers />} />
-            <Route path="transactions" element={<Transactions />} />
+            <Route path="transactions" element={<Transactions />} />``
             <Route path="my-profile" element={<MyProfile />} />
             <Route path="settings" element={<Settings />} />
           </Route>
