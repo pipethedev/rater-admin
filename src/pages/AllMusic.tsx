@@ -4,11 +4,15 @@ import Button from '../components/Button'
 import CardPlatList from '../components/CardPlatList'
 import Header from '../components/Header'
 import Input from '../components/Input'
+import Modal from '../components/Modal'
 import { useAllSongsQuery } from '../features/auth/authApiSplice'
+import SelectAssignWorker from './SelectAssignWorker'
 
 const AllMusic = () => {
     const [search, setSearch] = useState<string>("")
     const { data, isLoading } = useAllSongsQuery({})
+    const [stateBool, setStateBool] = useState<boolean>(false)
+
 
     const Loader = () => <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-[#3B71F7]"></div>
 
@@ -67,7 +71,7 @@ const AllMusic = () => {
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {data?.filter((item: any) => item.title.toLowerCase().indexOf(search.toLowerCase()) > -1)?.map((item: any) => (
-                        <CardPlatList title={item?.title} subtitle={item?.file_name} rate={item?.ratings?.[0]['rating']} id={item?.id} />
+                        <CardPlatList title={item?.title} subtitle={item?.file_name} rate={item?.ratings?.[0]['rating']} id={item?.id} key={item.id} />
                     ))}
                 </div>
             </div>
@@ -75,6 +79,10 @@ const AllMusic = () => {
             {/* <div className="flex items-center justify-center my-20">
                 <Button title='Upload your Music' />
             </div> */}
+
+            <Modal show={stateBool} closeModal={setStateBool}>
+                <SelectAssignWorker {...{ setStateBool }} />
+            </Modal>
         </section >
     )
 }

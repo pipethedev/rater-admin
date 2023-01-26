@@ -24,7 +24,7 @@ const ManageWorkers = () => {
 
     useEffect(() => {
         if (isSuccess) {
-            toast.success(isSuccess === false ? "Banned is Deactivated" : 'Banned is Activated');
+            toast.success(isSuccess === true ? 'Banned is Activated' : "Banned is Deactivated" );
         }
     }, [isSuccess]);
 
@@ -87,13 +87,13 @@ const ManageWorkers = () => {
                         {
                             header: "FULLNAME",
                             // view: (row) => `${row?.user.first_name} ${row?.user.last_name}`,
-                            view: (row) => `${row?.first_name} ${row?.last_name}`,
+                            view: (row: any) => `${row?.first_name} ${row?.last_name}`,
                         },
                         { header: "EMAIL ADDRESS", view: (row) => row?.email },
                         {
                             header: "ROLES",
                             // view: (row) => row?.amount ? (row?.amount) : 0
-                            view: (row) => row?.role
+                            view: (row: any) => row?.role
                         },
                         {
                             header: "DATE ADDED",
@@ -105,7 +105,7 @@ const ManageWorkers = () => {
                         },
                     ]}
                     loading={isLoading}
-                    data={filterTable(data?.map(item => ({
+                    data={filterTable(data?.map((item): any => ({
                         first_name: item?.first_name,
                         last_name: item?.last_name,
                         email: item?.email,

@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import CircleDots from '../assets/svg/CircleDots'
 import PlayMusicIcon from '../assets/svg/PlayMusicIcon'
 
 interface CardPlatListProps {
@@ -7,14 +8,18 @@ interface CardPlatListProps {
     subtitle: string
     rate: string
     id?: string
+    key?: string | number
 }
-const CardPlatList = ({ title, subtitle, rate, id }: CardPlatListProps) => {
+const CardPlatList = ({ title, subtitle, rate, id, key }: CardPlatListProps) => {
+
+    const [hover, setHover] = useState<boolean>(true)
 
     // console.log(id)
     const navigate = useNavigate()
 
     return (
-        <div className="my-3 cursor-pointer" onClick={() => navigate(`/songs/${id}`)} key={title}>
+        <div className="my-3 cursor-pointer relative" onClick={() => navigate(`/songs/${id}`)} {...{ key }} onMouseEnter={() => setHover(prev => !prev)} onMouseLeave={() =>setHover(prev => !prev)}>
+            <CircleDots className={`${hover && 'hidden'} block z-50 absolute right-3 top-5`} onClick={() => navigate('/dashboard')} />
             <div className="bg-[#F5F8FF] p-4 flex items-center justify-center my-2 rounded-xl py-10">
                 <PlayMusicIcon className='' />
             </div>
