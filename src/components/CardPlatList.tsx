@@ -23,12 +23,14 @@ const CardPlatList = ({ title, subtitle, rate, id, key, setStateBool }: CardPlat
 
     return (
         <div className={`my-3 cursor-pointer relative`}
+            onMouseEnter={() => setHover(prev => !prev)}
+            onMouseLeave={() => setHover(next => !next)}
             // onClick={() => navigate(`/songs/${id}`)}
             {...{ key }} >
             {/* <CircleDots className={`${hover && 'hidden'} block z-50 absolute right-3 top-5`} onClick={() => null} /> */}
-            <div className='block z-50 absolute right-3 top-5'>
+            <div className={`${hover && 'hidden'} block z-50 absolute right-3 top-5`}>
                 <Menu
-                    iconJsx={false}
+                    // iconJsx={false}
                     items={[
                         { name: 'View Song', icon: <SelectArrow />, id: 1, onclick: () => navigate(`/songs/${id}`) },
                         { name: 'Assign to Worker', icon: <AssignPerson />, id: 1, onclick: () => setStateBool(true) },
@@ -49,3 +51,6 @@ const CardPlatList = ({ title, subtitle, rate, id, key, setStateBool }: CardPlat
 }
 
 export default CardPlatList
+{/* <svg width="29" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="15" cy="15" r="14.3" stroke="#CEDBFD" stroke-width="0.6"/>
+</svg> */}
