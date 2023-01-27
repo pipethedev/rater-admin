@@ -30,6 +30,7 @@ const CardPlatList = ({ title, subtitle, rate, id, key, setStateBool }: CardPlat
             <div className={`${hover && 'hidden'} block z-50 absolute right-3 top-5`}>
                 <Menu
                     // iconJsx={false}
+                    className=''
                     items={[
                         { name: 'View Song', icon: <SelectArrow />, id: 1, onclick: () => navigate(`/songs/${id}`) },
                         { name: 'Assign to Worker', icon: <AssignPerson />, id: 1, onclick: () => setStateBool(true) },
