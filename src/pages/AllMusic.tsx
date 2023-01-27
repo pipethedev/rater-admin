@@ -71,13 +71,13 @@ const AllMusic = () => {
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {data?.filter((item: any) => item.title.toLowerCase().indexOf(search.toLowerCase()) > -1)?.map((item: any) => (
-                        <CardPlatList title={item?.title} subtitle={item?.file_name} rate={item?.ratings?.[0]['rating']} id={item?.id} key={item.id} />
+                        <CardPlatList {...{ setStateBool }} title={item?.title} subtitle={item?.file_name} rate={item?.ratings?.[0]['rating']} id={item?.id} key={item.id} />
                     ))}
                 </div>
             </div>
 
             {/* <div className="flex items-center justify-center my-20">
-                <Button title='Upload your Music' />
+                <Button title='Upload your Music' onClick={() => setStateBool(true)} />
             </div> */}
 
             <Modal show={stateBool} closeModal={setStateBool}>

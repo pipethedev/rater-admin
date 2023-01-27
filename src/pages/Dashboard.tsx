@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Arrowlong from '../assets/svg/Arrowlong'
 import PlayMusicIcon from '../assets/svg/PlayMusicIcon'
@@ -14,6 +14,8 @@ import { dataTable } from '../assets/data/sidebar-data'
 import DownloadIcon from '../assets/svg/DownloadIcon'
 import { useAllSongsQuery, useDashboardStatsQuery, useGetAllTransactionsQuery } from '../features/auth/authApiSplice'
 import { formatKoboAmountForDisplay } from '../utils/currency'
+import Modal from '../components/Modal'
+import SelectAssignWorker from './SelectAssignWorker'
 
 const Loader = () => <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-[#3B71F7]"></div>
 
@@ -22,6 +24,8 @@ const Dashboard = () => {
     const { data: allsongs, isLoading: isLoadingAllsongs, isError, isSuccess } = useAllSongsQuery({})
 
     const { data: transac, isLoading: loadingTrasac } = useGetAllTransactionsQuery({})
+    const [stateBool, setStateBool] = useState<boolean>(false)
+
 
 
     return (
@@ -132,6 +136,10 @@ const Dashboard = () => {
 
                 </div>
             </div>
+
+            <Modal show={stateBool} closeModal={setStateBool}>
+                <SelectAssignWorker {...{ setStateBool }} />
+            </Modal>
         </section>
     )
 }

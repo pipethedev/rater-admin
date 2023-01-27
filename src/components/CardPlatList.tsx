@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { Dispatch, SetStateAction, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import CircleDots from '../assets/svg/CircleDots'
+import AssignPerson from '../assets/svg/AssignPerson'
 import PlayMusicIcon from '../assets/svg/PlayMusicIcon'
+import SelectArrow from '../assets/svg/SelectArrow'
+import Menu from './Menu'
 
 interface CardPlatListProps {
     title: string
@@ -9,8 +11,10 @@ interface CardPlatListProps {
     rate: string
     id?: string
     key?: string | number
+    setStateBool?: any
+    // setStateBool?: Dispatch<SetStateAction<boolean>>
 }
-const CardPlatList = ({ title, subtitle, rate, id, key }: CardPlatListProps) => {
+const CardPlatList = ({ title, subtitle, rate, id, key, setStateBool }: CardPlatListProps) => {
 
     const [hover, setHover] = useState<boolean>(true)
 
@@ -18,8 +22,21 @@ const CardPlatList = ({ title, subtitle, rate, id, key }: CardPlatListProps) => 
     const navigate = useNavigate()
 
     return (
-        <div className="my-3 cursor-pointer relative" onClick={() => navigate(`/songs/${id}`)} {...{ key }} onMouseEnter={() => setHover(prev => !prev)} onMouseLeave={() =>setHover(prev => !prev)}>
-            <CircleDots className={`${hover && 'hidden'} block z-50 absolute right-3 top-5`} onClick={() => navigate('/dashboard')} />
+        <div className={`my-3 cursor-pointer relative`}
+            // onClick={() => navigate(`/songs/${id}`)}
+            {...{ key }} onMouseEnter={() => setHover(prev => !prev)} onMouseLeave={() => setHover(prev => !prev)}>
+            {/* <CircleDots className={`${hover && 'hidden'} block z-50 absolute right-3 top-5`} onClick={() => null} /> */}
+            <div className='block z-50 absolute right-3 top-5 rotate-90'>
+                <Menu
+                    iconJsx={false}
+                    items={[
+                        { name: 'View Song', icon: <SelectArrow />, id: 1, onclick: () => navigate(`/songs/${id}`) },
+                        { name: 'Assign to Worker', icon: <AssignPerson />, id: 1, onclick: () => setStateBool(true) },
+                    ]}
+                />
+            </div>
+
+
             <div className="bg-[#F5F8FF] p-4 flex items-center justify-center my-2 rounded-xl py-10">
                 <PlayMusicIcon className='' />
             </div>
