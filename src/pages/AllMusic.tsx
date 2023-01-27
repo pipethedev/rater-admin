@@ -9,8 +9,8 @@ import { useAllSongsQuery } from '../features/auth/authApiSplice'
 import SelectAssignWorker from './SelectAssignWorker'
 
 const AllMusic = () => {
-    const [search, setSearch] = useState<string>("")
     const { data, isLoading } = useAllSongsQuery({})
+    const [search, setSearch] = useState<string>("")
     const [stateBool, setStateBool] = useState<boolean>(false)
 
 
