@@ -39,7 +39,8 @@ export const authSlice = createSlice({
             // window.location.href = `/login?redirectTo=${redirectTo}`;
         },
         selectCurrentBoolsetState: (state: AuthState, action: PayloadAction<{  statebool: boolean}>) => {
-            state.statebool = !state.statebool
+            state.statebool = !action.payload.statebool
+            console.log(state.statebool, 'state.statebool state.statebool ' )
         }
 
     }
@@ -52,6 +53,6 @@ export const selectAuth = (state: RootState) => state.auth
 // selector to select use and token details from the store
 // export const selectCurrentUser = (state: RootState) => state.auth.user
 export const selectCurrentToken = (state: RootState) => state.auth?.auth?.token
-export const selectCurrentBool = (state: RootState) => state.auth?.auth?.statebool
+export const selectCurrentBool = (state: RootState) => state.auth?.auth
 
 export default authSlice.reducer;

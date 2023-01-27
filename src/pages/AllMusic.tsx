@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Dispatch, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../components/Button'
 import CardPlatList from '../components/CardPlatList'
@@ -8,11 +8,10 @@ import Modal from '../components/Modal'
 import { useAllSongsQuery } from '../features/auth/authApiSplice'
 import SelectAssignWorker from './SelectAssignWorker'
 
-const AllMusic = ({stateBool, setStateBool}: any) => {
+const AllMusic = () => {
     const { data, isLoading } = useAllSongsQuery({})
     const [search, setSearch] = useState<string>("")
-    // const [stateBool, setStateBool] = useState<boolean>(false)
-
+    const [stateBool, setStateBool] = useState<boolean>(false)
 
     const Loader = () => <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-[#3B71F7]"></div>
 
@@ -71,7 +70,7 @@ const AllMusic = ({stateBool, setStateBool}: any) => {
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {data?.filter((item: any) => item.title.toLowerCase().indexOf(search.toLowerCase()) > -1)?.map((item: any) => (
-                        <CardPlatList {...{ setStateBool }} title={item?.title} subtitle={item?.file_name} rate={item?.ratings?.[0]['rating']} id={item?.id} key={item.id} />
+                        <CardPlatList {...{ stateBool }} {...{ setStateBool }} title={item?.title} subtitle={item?.file_name} rate={item?.ratings?.[0]['rating']} id={item?.id} key={item.id} />
                     ))}
                 </div>
             </div>

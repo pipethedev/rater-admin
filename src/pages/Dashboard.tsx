@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { Dispatch, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Arrowlong from '../assets/svg/Arrowlong'
 import PlayMusicIcon from '../assets/svg/PlayMusicIcon'
@@ -20,18 +20,18 @@ import { selectCurrentBool } from '../features/auth/authSlice'
 import { useAppDispatch, useAppSelector } from '../hocks/hocks'
 
 const Loader = () => <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-[#3B71F7]"></div>
-
-const Dashboard = ({stateBool, setStateBool}: any) => {
+interface Props {
+    setStateBool: Dispatch<React.SetStateAction<boolean>>
+    stateBool: boolean
+}
+const Dashboard = () => {
     const { data, isLoading, isFetching } = useDashboardStatsQuery({})
     const { data: allsongs, isLoading: isLoadingAllsongs, isError, isSuccess } = useAllSongsQuery({})
 
     const { data: transac, isLoading: loadingTrasac } = useGetAllTransactionsQuery({})
-    // const [stateBool, setStateBool] = useState<boolean>(false)
+    const [stateBool, setStateBool] = useState<boolean>(false)
 
-    // selectCurrentBoolsetState
 
-    // const statebool = useAppSelector(selectCurrentBool)
-    // console.log(statebool, 'statebool')
 
 
     return (
@@ -91,7 +91,7 @@ const Dashboard = ({stateBool, setStateBool}: any) => {
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                         {allsongs?.slice(0, 5).map((item: any) => (
-                            <CardPlatList title={item?.title} subtitle={item?.file_name} rate={item?.ratings?.[0]['rating']} id={item?.id} />
+                            <CardPlatList {...{ setStateBool }}  title={item?.title} subtitle={item?.file_name} rate={item?.ratings?.[0]['rating']} id={item?.id} />
                         ))}
                     </div>
                 </div>

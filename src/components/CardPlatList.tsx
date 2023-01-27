@@ -11,14 +11,12 @@ interface CardPlatListProps {
     rate: string
     id?: string
     key?: string | number
-    // setStateBool?: any
-    setStateBool?: () => Dispatch<SetStateAction<boolean>>
+    setStateBool?: Dispatch<SetStateAction<boolean>>
 }
 const CardPlatList = ({ title, subtitle, rate, id, key, setStateBool }: CardPlatListProps) => {
 
     const [hover, setHover] = useState<boolean>(true)
 
-    // console.log(id)
     const navigate = useNavigate()
 
     return (
@@ -33,7 +31,7 @@ const CardPlatList = ({ title, subtitle, rate, id, key, setStateBool }: CardPlat
                     className=''
                     items={[
                         { name: 'View Song', icon: <SelectArrow />, id: 1, onclick: () => navigate(`/songs/${id}`) },
-                        { name: 'Assign to Worker', icon: <AssignPerson />, id: 1, onclick: () => setStateBool(true)},
+                        { name: 'Assign to Worker', icon: <AssignPerson />, id: 1, onclick: () => setStateBool(true) },
                     ]}
                 />
             </div>
