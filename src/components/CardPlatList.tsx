@@ -23,8 +23,8 @@ const CardPlatList = ({ title, subtitle, rate, id, key, setStateBool }: CardPlat
 
     return (
         <div className={`my-3 cursor-pointer relative`}
-            // onMouseEnter={() => setHover(prev => !prev)}
-            // onMouseLeave={() => setHover(next => !next)}
+            onMouseEnter={() => setHover(false)}
+            onMouseLeave={() => setHover(true)}
             {...{ key }} >
             {/* <CircleDots className={`${hover && 'hidden'} block z-50 absolute right-3 top-5`} onClick={() => null} /> */}
             <div className={`${hover && 'hidden'} block z-50 absolute right-3 top-5`}>
