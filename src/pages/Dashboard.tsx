@@ -16,6 +16,7 @@ import { useAllSongsQuery, useDashboardStatsQuery, useGetAllTransactionsQuery } 
 import { formatKoboAmountForDisplay } from '../utils/currency'
 import Modal from '../components/Modal'
 import SelectAssignWorker from './SelectAssignWorker'
+import { selectCurrentBool } from '../features/auth/authSlice'
 
 const Loader = () => <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-[#3B71F7]"></div>
 
@@ -25,6 +26,8 @@ const Dashboard = () => {
 
     const { data: transac, isLoading: loadingTrasac } = useGetAllTransactionsQuery({})
     const [stateBool, setStateBool] = useState<boolean>(false)
+
+    // selectCurrentBoolsetState
 
 
 

@@ -24,7 +24,7 @@ const baseQuery = fetchBaseQuery({
 const baseQueryWithReauth = async (args: any, api: any, extraOptions: any) => {
     let result = await baseQuery(args, api, extraOptions)
 
-    console.log(result,'result')
+    // console.log(result,'result')
     // 401 (Unauthorized) and 403 (Forbidden) status codes
     // if (result?.error?.originalStatus === 403 || result.error && result.error.status === 401) {
     if ((result?.meta?.response?.status === 403 || result?.error?.data?.status) && result?.meta?.response?.status === 401) {
