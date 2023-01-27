@@ -12,7 +12,6 @@ const SelectAssignWorker = ({ setStateBool }: any) => {
     const [checker, setChecker] = useState<boolean>(false)
     const { data, isLoading } = useGetAllWorkersQuery({})
 
-    console.log(data, 'man')
     const filterTable = (data: any) => {
         return (
             data?.filter((item: any) => item?.first_name.toLowerCase().includes(search.toLowerCase())
@@ -63,7 +62,6 @@ const SelectAssignWorker = ({ setStateBool }: any) => {
                                         <svg width="29" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <circle cx="15" cy="15" r="14.3" stroke="#CEDBFD" stroke-width="0.6" />
                                         </svg>
-
                                     }
                                 </div>
                             </>
