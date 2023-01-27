@@ -110,7 +110,7 @@ const ManageWorkers = () => {
                         last_name: item?.last_name,
                         email: item?.email,
                         role: item?.role,
-                        updated_at: format(new Date(item?.updated_at), "dd-MM-yyyy"),
+                        updated_at: format(new Date(item?.updated_at), "dd-MM-yyyy, hh:mm a"),
                         action: (
                             <span className={`cursor-pointer ${item?.banned ? 'text-green-600 p-3 rounded-full bg-green-200' : 'text-red-600 p-3 rounded-full bg-red-200'}`} onClick={() => UnBanAUser(item?.banned, item?.id)}>{loadingBan ? "loading" : (item?.banned ? 'Activate' : 'Deactivate')}</span>
                         ),
