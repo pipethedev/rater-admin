@@ -22,12 +22,9 @@ const SingleSong = () => {
     const { data, isLoading } = useSingleSongQuery(id, { refetchOnMountOrArgChange: true })
     const navigate = useNavigate()
 
-    // console.log(data, 'single song')
-    // console.log(data?.file_url, 'file song')
     const worker = data?.ratings[0]
     const adminFeed = data?.admin_feedback
 
-    console.log('worker', worker)
     return (
         <>{isLoading ? (
             <div className="flex items-center justify-center h-screen">
