@@ -17,18 +17,21 @@ import { formatKoboAmountForDisplay } from '../utils/currency'
 import Modal from '../components/Modal'
 import SelectAssignWorker from './SelectAssignWorker'
 import { selectCurrentBool } from '../features/auth/authSlice'
+import { useAppDispatch, useAppSelector } from '../hocks/hocks'
 
 const Loader = () => <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-[#3B71F7]"></div>
 
-const Dashboard = () => {
+const Dashboard = ({stateBool, setStateBool}: any) => {
     const { data, isLoading, isFetching } = useDashboardStatsQuery({})
     const { data: allsongs, isLoading: isLoadingAllsongs, isError, isSuccess } = useAllSongsQuery({})
 
     const { data: transac, isLoading: loadingTrasac } = useGetAllTransactionsQuery({})
-    const [stateBool, setStateBool] = useState<boolean>(false)
+    // const [stateBool, setStateBool] = useState<boolean>(false)
 
     // selectCurrentBoolsetState
 
+    // const statebool = useAppSelector(selectCurrentBool)
+    // console.log(statebool, 'statebool')
 
 
     return (

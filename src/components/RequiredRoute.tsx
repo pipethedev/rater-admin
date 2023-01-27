@@ -1,5 +1,5 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
-import { selectCurrentToken, setUser } from '../features/auth/authSlice'
+import { selectCurrentToken } from '../features/auth/authSlice'
 import { useAppSelector } from '../hocks/hocks'
 
 const RequiredRoute = () => {

@@ -11,8 +11,8 @@ interface CardPlatListProps {
     rate: string
     id?: string
     key?: string | number
-    setStateBool?: any
-    // setStateBool?: Dispatch<SetStateAction<boolean>>
+    // setStateBool?: any
+    setStateBool?: () => Dispatch<SetStateAction<boolean>>
 }
 const CardPlatList = ({ title, subtitle, rate, id, key, setStateBool }: CardPlatListProps) => {
 
@@ -33,7 +33,7 @@ const CardPlatList = ({ title, subtitle, rate, id, key, setStateBool }: CardPlat
                     className=''
                     items={[
                         { name: 'View Song', icon: <SelectArrow />, id: 1, onclick: () => navigate(`/songs/${id}`) },
-                        { name: 'Assign to Worker', icon: <AssignPerson />, id: 1, onclick: () => setStateBool(true) },
+                        { name: 'Assign to Worker', icon: <AssignPerson />, id: 1, onclick: () => setStateBool(true)},
                     ]}
                 />
             </div>
@@ -51,6 +51,3 @@ const CardPlatList = ({ title, subtitle, rate, id, key, setStateBool }: CardPlat
 }
 
 export default CardPlatList
-{/* <svg width="29" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="15" cy="15" r="14.3" stroke="#CEDBFD" stroke-width="0.6"/>
-</svg> */}

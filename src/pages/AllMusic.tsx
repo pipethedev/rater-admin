@@ -8,10 +8,10 @@ import Modal from '../components/Modal'
 import { useAllSongsQuery } from '../features/auth/authApiSplice'
 import SelectAssignWorker from './SelectAssignWorker'
 
-const AllMusic = () => {
+const AllMusic = ({stateBool, setStateBool}: any) => {
     const { data, isLoading } = useAllSongsQuery({})
     const [search, setSearch] = useState<string>("")
-    const [stateBool, setStateBool] = useState<boolean>(false)
+    // const [stateBool, setStateBool] = useState<boolean>(false)
 
 
     const Loader = () => <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-[#3B71F7]"></div>
