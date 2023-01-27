@@ -35,7 +35,7 @@ const Menu = ({
   return (
     <>
       <ClickOutside onclickoutside={() => setMenuShow(false)}>
-        <div className="relative">
+        <div className="relative whitespace-nowrap">
           {type === "icon" && (
             <>
               {iconJsx ? (
@@ -43,7 +43,7 @@ const Menu = ({
               ) : (
                 <CircleDots
                   type="button"
-                  className="mr-3 rotate-90 cursor-pointer"
+                  className="mr-3 cursor-pointer"
                   onClick={() => setMenuShow(!menuShow)}
                 />
               )}

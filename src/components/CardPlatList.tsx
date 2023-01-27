@@ -24,9 +24,9 @@ const CardPlatList = ({ title, subtitle, rate, id, key, setStateBool }: CardPlat
     return (
         <div className={`my-3 cursor-pointer relative`}
             // onClick={() => navigate(`/songs/${id}`)}
-            {...{ key }} onMouseEnter={() => setHover(prev => !prev)} onMouseLeave={() => setHover(prev => !prev)}>
+            {...{ key }} >
             {/* <CircleDots className={`${hover && 'hidden'} block z-50 absolute right-3 top-5`} onClick={() => null} /> */}
-            <div className='block z-50 absolute right-3 top-5 rotate-90'>
+            <div className='block z-50 absolute right-3 top-5'>
                 <Menu
                     iconJsx={false}
                     items={[
