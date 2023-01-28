@@ -64,15 +64,16 @@ const SelectAssignWorker = ({ setStateBool }: any) => {
 
                                         <div className="ml-4 text-base rounded-full text-[18px] font-semibold">{data?.first_name} {data?.last_name}</div>
                                     </div>
-                                    {checker ?
-                                        (data?.ratings[i]?.song_id &&
-                                            <CheckSelecIcon className='right-0' />
-                                        )
-                                        :
+                                    <div className='relative'>
+                                        {checker &&
+                                            (data?.ratings[i]?.song_id &&
+                                                <CheckSelecIcon className='absolute right-0 -top-0' />
+                                            )
+                                        }
                                         <svg width="29" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <circle cx="15" cy="15" r="14.3" stroke="#CEDBFD" stroke-width="0.6" />
                                         </svg>
-                                    }
+                                    </div>
                                 </div>
                             </>
                         ))}
