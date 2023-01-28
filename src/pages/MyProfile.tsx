@@ -12,8 +12,7 @@ import { useGetAllSongsAllocationsQuery, useGetViewAllProfileQuery } from '../fe
 const MyProfile = () => {
     const { data, isLoading, isFetching } = useGetViewAllProfileQuery({})
 
-    const { data: allocationData, isLoading: loading, } = useGetAllSongsAllocationsQuery({})
-    console.log(allocationData, 'allocationData')
+    const { data: allocationData, isLoading: loading, } = useGetAllSongsAllocationsQuery({ refetchOnMountOrArgChange: true})
     const navigate = useNavigate()
 
 
@@ -86,31 +85,16 @@ const MyProfile = () => {
 
             <div className="my-10">
                 <Table
-                    // loading={customerData.isLoading}
                     columns={[
                         {
                             header: "WORKER",
                             view: (row) => (row?.worker),
                         },
-                        // { header: "EMAIL ADDRESS", view: (row) => row?.song },
                         { header: "SONGS", view: (row) => row?.song },
                         {
                             header: "ID",
-                            // view: (row) => `${row?.user.first_name} ${row?.user.last_name}`,
                             view: (row) => `${row?.song_id}`,
                         },
-                        // {
-                        //     header: "Woker",
-                        //     view: (row) => row?.amount ? (row?.amount) : 0
-                        // },
-                        // {
-                        //     header: "DATE ADDED",
-                        //     view: (row) => (row?.amount),
-                        // },
-                        // {
-                        //     header: "STATUS",
-                        //     view: (row) => (row?.amount),
-                        // },
                     ]}
                     data={allocationData ?? []}
                     pagination={{ page: 5, pageSize: 1, totalRows: 1 }}
@@ -121,7 +105,7 @@ const MyProfile = () => {
                     //     },
                     // ]}
                     loading={loading}
-                    titleEmpty="No Worker on the platform"
+                    titleEmpty="No Allocated Worker on the platform"
                     subtitleEmpty="A password reset link has been sent to the email address you used in registering on the platform. do check your mail to continue"
                 />
             </div>
