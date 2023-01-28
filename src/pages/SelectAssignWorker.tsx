@@ -48,7 +48,7 @@ const SelectAssignWorker = ({ setStateBool }: any) => {
 
                         {filterTable(data)?.map((data: any) => (
                             <>
-                                <div className='flex items-center justify-between cursor-pointer' onClick={() => setChecker(!checker)}>
+                                <div key={data?.id} className='flex items-center justify-between cursor-pointer mb-2' onClick={() => setChecker(!checker)}>
                                     <div className='flex items-center'>
                                         <div className='flex items-center justify-center h-8 w-8 bg-[#3B71F7] rounded-full text-xl text-white text-center font-semibold p-7 sm:p-8'>
                                             <span className='whitespace-nowrap'>{data?.first_name[0]} {data?.last_name[0]}</span>
