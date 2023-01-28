@@ -13,18 +13,12 @@ const SelectAssignWorker = ({ setStateBool }: any) => {
     const { data, isLoading } = useGetAllWorkersQuery({})
     const [AssignASong, { isLoading: isloadingAssign }] = useAssignASongMutation({})
 
-    // console.log(data[0]?.ratings[0]?.song_id, 'datadatadatadata')
-
     const filterTable = (data: any) => {
         return (
             data?.filter((item: any) => item?.first_name.toLowerCase().includes(search.toLowerCase())
                 || item?.last_name.toLowerCase().includes(search.toLowerCase())
             )
         )
-    }
-
-    const AssignClick = () => {
-
     }
 
     return (
@@ -57,20 +51,23 @@ const SelectAssignWorker = ({ setStateBool }: any) => {
                                 <div key={data?.id} className='flex items-center justify-between cursor-pointer mb-2'
                                     onClick={() => {
                                         AssignASong({
-                                                songId: data?.ratings[0]?.song_id,
-                                                workerId: data?.ratings[0]?.worker_id
+                                            songId: data?.ratings[i]?.song_id,
+                                            workerId: data?.ratings[i]?.worker_id
                                         })
-                                    setChecker(!checker)
-                                }}>
+                                        setChecker(!checker)
+                                        console.log(data?.ratings[i], 'id')
+                                    }}>
                                     <div className='flex items-center'>
                                         <div className='flex items-center justify-center h-8 w-8 bg-[#3B71F7] rounded-full text-xl text-white text-center font-semibold p-7 sm:p-8'>
                                             <span className='whitespace-nowrap'>{data?.first_name[0]} {data?.last_name[0]}</span>
                                         </div>
 
-                                        <div className="ml-4 text-base rounded-full text-[18px] font-semibold">{data?.first_name} {data?.last_name} {data?.ratings[0]?.song_id}</div>
+                                        <div className="ml-4 text-base rounded-full text-[18px] font-semibold">{data?.first_name} {data?.last_name}</div>
                                     </div>
                                     {checker ?
-                                        <CheckSelecIcon className='right-0' />
+                                        (data?.ratings[i]?.song_id &&
+                                            <CheckSelecIcon className='right-0' />
+                                        )
                                         :
                                         <svg width="29" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <circle cx="15" cy="15" r="14.3" stroke="#CEDBFD" stroke-width="0.6" />
