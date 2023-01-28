@@ -11,7 +11,7 @@ const SelectAssignWorker = ({ setStateBool }: any) => {
     const [search, setSearch] = useState<string>("")
     const [checker, setChecker] = useState<boolean>(false)
     const { data, isLoading } = useGetAllWorkersQuery({})
-    const [{ isLoading: isloadingAssign }] = useAssignASongMutation({})
+    const [AssignASong, { isLoading: isloadingAssign }] = useAssignASongMutation({})
 
     const filterTable = (data: any) => {
         return (
