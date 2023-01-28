@@ -6,14 +6,14 @@ import { useUpdatePricingMutation, useUploadMusicMutation } from '../features/au
 
 const EditMusicUpload = ({ price, setStep }: any) => {
 
-    console.log(price?.id)
-
     const [postPrice, setPostPrice] = useState<string>('')
 
-    const [uploadMusic, { isLoading, isSuccess, isError }] = useUpdatePricingMutation(price?.id)
+    const [uploadMusic, { data, isLoading, isSuccess, isError }] = useUpdatePricingMutation(price?.id)
+
     useEffect(() => {
         if (isSuccess) {
-            toast.success("Price Edited Successfully");
+            // toast.success(data?.message);
+            toast.success("Price Edited Successfully" || data?.message);
             setStep(false)
         }
     }, [isSuccess]);
@@ -33,8 +33,9 @@ const EditMusicUpload = ({ price, setStep }: any) => {
                 ).unwrap()
                 setPostPrice('')
             }
-        } catch {
-            toast.error("Failed Edit Price Please Try again")
+        } catch (error) {
+            console.log(error, 'errrro')
+            toast.error("Failed Edit Price Please Try again" || error)
         }
 
     }

@@ -13,13 +13,18 @@ const SelectAssignWorker = ({ setStateBool }: any) => {
     const { data, isLoading } = useGetAllWorkersQuery({})
     const [AssignASong, { isLoading: isloadingAssign }] = useAssignASongMutation({})
 
+    // console.log(data[0]?.ratings[0]?.song_id, 'datadatadatadata')
+
     const filterTable = (data: any) => {
         return (
             data?.filter((item: any) => item?.first_name.toLowerCase().includes(search.toLowerCase())
                 || item?.last_name.toLowerCase().includes(search.toLowerCase())
-                // || item?.role?.toLowerCase().includes(search.toLowerCase())
             )
         )
+    }
+
+    const AssignClick = () => {
+
     }
 
     return (
@@ -47,15 +52,22 @@ const SelectAssignWorker = ({ setStateBool }: any) => {
                             <Loader />
                         </div>}
 
-                        {filterTable(data)?.map((data: any) => (
+                        {filterTable(data)?.map((data: any, i: number) => (
                             <>
-                                <div key={data?.id} className='flex items-center justify-between cursor-pointer mb-2' onClick={() => setChecker(!checker)}>
+                                <div key={data?.id} className='flex items-center justify-between cursor-pointer mb-2'
+                                    onClick={() => {
+                                        AssignASong({
+                                                songId: data?.ratings[0]?.song_id,
+                                                workerId: data?.ratings[0]?.worker_id
+                                        })
+                                    setChecker(!checker)
+                                }}>
                                     <div className='flex items-center'>
                                         <div className='flex items-center justify-center h-8 w-8 bg-[#3B71F7] rounded-full text-xl text-white text-center font-semibold p-7 sm:p-8'>
                                             <span className='whitespace-nowrap'>{data?.first_name[0]} {data?.last_name[0]}</span>
                                         </div>
 
-                                        <div className="ml-4 text-base rounded-full text-[18px] font-semibold">{data?.first_name} {data?.last_name}</div>
+                                        <div className="ml-4 text-base rounded-full text-[18px] font-semibold">{data?.first_name} {data?.last_name} {data?.ratings[0]?.song_id}</div>
                                     </div>
                                     {checker ?
                                         <CheckSelecIcon className='right-0' />

@@ -38,14 +38,12 @@ const LoginForm = () => {
   const dispatch = useAppDispatch()
 
   const [loginUser,
-    // response,
     {
       data: loginData,
       isSuccess: isLoginSuccess,
       isError: isLoginError,
       isLoading,
     }] = useLoginMutation()
-  // console.log(response, 'responseresponseresponse')
 
   const handleChange = (e: any) => setFormValue({ ...formValue, [e.target.name]: e.target.value })
 
@@ -79,15 +77,15 @@ const LoginForm = () => {
         toast.error("Please fill all Input field")
       }
     } catch (err: any) {
-      if (!err?.response) {
-        toast.error(!err?.response_message);
+      console.log(err, 'errerr')
+      if (!err?.data?.message) {
+        toast.error(!err?.data?.message);
         setErrMsg("No Server Response")
-      } else if (err.response?.status === 400) {
-        toast.error(err.response?.status);
+      } else if (err?.status === 400) {
+        toast.error(err?.status);
         setErrMsg("Missing Email or Password")
-      } else if (err?.response?.status === 401) {
-        toast.error(err?.response?.message);
-        // toast.error(err.data._meta.error.message);
+      } else if (err?.status === 401) {
+        toast.error(err?.data?.message);
         setErrMsg("Unauthorized")
       } else {
         setErrMsg("Login Failed")

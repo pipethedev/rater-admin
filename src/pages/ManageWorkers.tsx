@@ -19,12 +19,9 @@ const ManageWorkers = () => {
     // const date = item.created_at;
     // format(parseISO(date), "dd-MM-yyyy");
 
-
-    console.log(banData , 'banData')
-
     useEffect(() => {
         if (isSuccess) {
-            toast.success(isSuccess === true ? 'Banned is Activated' : "Banned is Deactivated" );
+            toast.success(banData?.message);
         }
     }, [isSuccess]);
 
@@ -36,7 +33,8 @@ const ManageWorkers = () => {
                     },
                     id
                 }).unwrap()
-        } catch {
+        } catch (error) {
+            console.error(error)
             toast.error(error?.error)
         }
 
