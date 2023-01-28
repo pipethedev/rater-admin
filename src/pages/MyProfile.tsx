@@ -7,11 +7,13 @@ import SongRaterIcon from '../assets/svg/SongRaterIcon'
 import UserRaterIcon from '../assets/svg/UserRater.Icon'
 import Header from '../components/Header'
 import { Table } from '../components/Table'
-import { useGetViewAllProfileQuery } from '../features/auth/authApiSplice'
+import { useGetAllSongsAllocationsQuery, useGetViewAllProfileQuery } from '../features/auth/authApiSplice'
 
 const MyProfile = () => {
     const { data, isLoading, isFetching } = useGetViewAllProfileQuery({})
 
+    const { data: allocationData, isLoading: loading, } = useGetAllSongsAllocationsQuery({})
+    console.log(allocationData, 'allocationData')
     const navigate = useNavigate()
 
 
@@ -35,7 +37,7 @@ const MyProfile = () => {
 
             <div className="my-5 flex items-center">
                 <div className="flex items-center justify-center rounded-full w-20 h-20 lg:w-[150px] lg:h-[150px] lg:p-10 bg-[#3B71F7] text-white text-center text-xl lg:text-[50px] font-extrabold">
-                    <span>{data ? data?.first_name[0] : '-'}</span>
+                    <span>{isLoading ? "--" : (data ? data?.first_name[0] : '-')}</span>
                     <span> {data ? data?.last_name[0] : '-'}</span>
                 </div>
 
@@ -77,47 +79,52 @@ const MyProfile = () => {
 
 
             <div className="flex items-center justify-between my-20">
-                <p className="text-sm sm:text-lg font-extrabold">Recently Added Workers</p>
+                <p className="text-sm sm:text-lg font-extrabold">Recently Added Allocations</p>
 
                 <p className="text-sm sm:text-base text-[#3B71F7] font-bold"><Link to="#" className='flex items-center'><p>View More</p> <span className='ml-3'><Arrowlong /></span></Link></p>
             </div>
 
-            {/* <div className="my-10">
+            <div className="my-10">
                 <Table
                     // loading={customerData.isLoading}
                     columns={[
                         {
-                            header: "FULLNAME",
+                            header: "WORKER",
+                            view: (row) => (row?.worker),
+                        },
+                        // { header: "EMAIL ADDRESS", view: (row) => row?.song },
+                        { header: "SONGS", view: (row) => row?.song },
+                        {
+                            header: "ID",
                             // view: (row) => `${row?.user.first_name} ${row?.user.last_name}`,
-                            view: (row) => `${row?.date} ${row?.date}`,
+                            view: (row) => `${row?.song_id}`,
                         },
-                        { header: "EMAIL ADDRESS", view: (row) => row?.recipent },
-                        {
-                            header: "SONGS REVIEWED",
-                            view: (row) => row?.amount ? (row?.amount) : 0
-                        },
-                        {
-                            header: "DATE ADDED",
-                            view: (row) => (row?.amount),
-                        },
-                        {
-                            header: "STATUS",
-                            view: (row) => (row?.amount),
-                        },
+                        // {
+                        //     header: "Woker",
+                        //     view: (row) => row?.amount ? (row?.amount) : 0
+                        // },
+                        // {
+                        //     header: "DATE ADDED",
+                        //     view: (row) => (row?.amount),
+                        // },
+                        // {
+                        //     header: "STATUS",
+                        //     view: (row) => (row?.amount),
+                        // },
                     ]}
-                    data={[] ?? []}
+                    data={allocationData ?? []}
                     pagination={{ page: 5, pageSize: 1, totalRows: 1 }}
-                    rowActions={(row) => [
-                        {
-                            action: () => <div className="bg-red-600" onClick={()=> navigate(`/users/:id`)}>View More</div>,
-                            name: "View Detail",
-                        },
-                    ]}
-                    loading={isLoading}
+                    // rowActions={(row) => [
+                    //     {
+                    //         action: () => <div className="bg-red-600" onClick={()=> navigate(`/users/:id`)}>View More</div>,
+                    //         name: "View Detail",
+                    //     },
+                    // ]}
+                    loading={loading}
                     titleEmpty="No Worker on the platform"
                     subtitleEmpty="A password reset link has been sent to the email address you used in registering on the platform. do check your mail to continue"
                 />
-            </div> */}
+            </div>
 
         </section>
     )

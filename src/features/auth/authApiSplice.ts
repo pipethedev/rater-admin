@@ -157,6 +157,21 @@ export const authApiSlice = apiSlice.injectEndpoints({
             transformResponse: (response: any , meta, arg) => response.data,
             invalidatesTags: ['Auth'],
         }),
+        // Assign a Song to a Singer Worker
+        AssignASong: builder.mutation({
+            query: body => ({
+                url: `song/allocate-song`,
+                method: 'POST',
+                body
+            }),
+            transformResponse: (response: any , meta, arg) => response.data,
+            invalidatesTags: ['Auth'],
+        }),
+        getAllSongsAllocations: builder.query({
+            query: () => `song/allocations`,
+            providesTags: ["Auth"],
+            transformResponse: (response: any, meta, arg) => response.data
+        }),
 
     })
 })
@@ -198,7 +213,11 @@ export const {
     // ban a user
     useBanAUserMutation,
     // logout out a user
-    useLogoutAUserMutation
+    useLogoutAUserMutation,
+    // assign a single worker
+    useAssignASongMutation,
+    // get all songs allocated
+    useGetAllSongsAllocationsQuery
 
 } = authApiSlice
 

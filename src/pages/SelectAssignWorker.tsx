@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import CheckSelecIcon from '../assets/svg/CheckSelecIcon'
 import Button from '../components/Button'
 import Input from '../components/Input'
-import { useGetAllWorkersQuery } from '../features/auth/authApiSplice'
+import { useAssignASongMutation, useGetAllWorkersQuery } from '../features/auth/authApiSplice'
 
 const Loader = () => <div className="w-8 h-8 border-4 border-dashed rounded-full animate-spin border-[#3B71F7]"></div>
 
@@ -11,6 +11,7 @@ const SelectAssignWorker = ({ setStateBool }: any) => {
     const [search, setSearch] = useState<string>("")
     const [checker, setChecker] = useState<boolean>(false)
     const { data, isLoading } = useGetAllWorkersQuery({})
+    const [{ isLoading: isloadingAssign }] = useAssignASongMutation({})
 
     const filterTable = (data: any) => {
         return (

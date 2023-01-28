@@ -21,13 +21,14 @@ const SingleSong = () => {
     const [stateBool, setStateBool] = useState<boolean>(false)
     const { data, isLoading } = useSingleSongQuery(id, { refetchOnMountOrArgChange: true })
     const navigate = useNavigate()
+    console.log(data, 'single song by id')
 
     const worker = data?.ratings[0]
     const adminFeed = data?.admin_feedback
 
     return (
         <>{isLoading ? (
-            <div className="flex items-center justify-center h-screen">
+            <div className="flex items-center justify-center h-screen animate-pulse">
                 <Loader />
             </div>
         )
