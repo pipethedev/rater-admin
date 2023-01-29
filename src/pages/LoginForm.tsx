@@ -138,8 +138,8 @@ const LoginForm = () => {
               onChange={handleChange}
               TrailingIcon={() => (
                 <PasswordMe
-                  showPassword={showPassword}
-                  setShowPassword={setShowPassword}
+                  {...{ showPassword }}
+                  {...{ setShowPassword }}
                 />
               )}
             // onChange={(e: Event) => setPassword((e.target as HTMLInputElement).value)}

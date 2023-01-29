@@ -4,6 +4,7 @@ import { toast } from 'react-toastify'
 import Button from '../components/Button'
 import Header from '../components/Header'
 import Input from '../components/Input'
+import PasswordMe from '../components/PasswordMe'
 import { useChangePasswordMutation } from '../features/auth/authApiSplice'
 
 const Settings = () => {
@@ -11,6 +12,8 @@ const Settings = () => {
     const [password, setPassword] = useState<string>("")
     const [confirmPassword, setConfirmPassword] = useState<string>("")
     const [changePassword, { isSuccess, isLoading }] = useChangePasswordMutation({})
+    const [showPassword, setShowPassword] = useState<boolean>(false);
+
 
     useEffect(() => {
         if (isSuccess) {
@@ -96,6 +99,12 @@ const Settings = () => {
                         type="password"
                         value={confirmPassword}
                         onChange={(e: Event) => setConfirmPassword((e.target as HTMLInputElement).value)}
+                        TrailingIcon={() => (
+                            <PasswordMe
+                              showPassword={showPassword}
+                              setShowPassword={setShowPassword}
+                            />
+                          )}
                     />
                 </div>
 
