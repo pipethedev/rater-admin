@@ -10,7 +10,7 @@ const Loader = () => <div className="w-8 h-8 border-4 border-dashed rounded-full
 const SelectAssignWorker = ({ setStateBool, data }: any) => {
     const [search, setSearch] = useState<string>("")
     const [checker, setChecker] = useState<boolean>(false)
-    const { data: allworkers, isLoading } = useGetAllWorkersQuery({})
+    const { data: allworkers, isLoading, isError, error } = useGetAllWorkersQuery({})
     const [AssignASong, { data: assigndata, isLoading: isloadingAssign }] = useAssignASongMutation({})
 
     console.log(assigndata, 'assigndata')
@@ -43,6 +43,12 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
                         />
                     </div>
                     <div className="mt-4 relative">
+
+                        {isError && (
+                            <div className="flex items-center justify-center animate-pulse">
+                                <span className='text-3xl my-5'>Something Went Wrong - {error?.error}</span>
+                            </div>
+                        )}
 
                         {isLoading && <div className="flex items-center justify-center">
                             <Loader />

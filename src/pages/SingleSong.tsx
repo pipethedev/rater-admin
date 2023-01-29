@@ -28,8 +28,8 @@ const SingleSong = () => {
     return (
         <>
             {isError &&
-                <div className="flex items-center justify-center h-screen animate-pulse">
-                    {error}
+                <div className="flex items-center justify-center h-screen animate-pulse text-3xl">
+                    {error?.error}
                 </div>
             }
             {isLoading ? (

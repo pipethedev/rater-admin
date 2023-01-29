@@ -9,7 +9,7 @@ import { useAllSongsQuery } from '../features/auth/authApiSplice'
 import SelectAssignWorker from './SelectAssignWorker'
 
 const AllMusic = () => {
-    const { data, isLoading } = useAllSongsQuery({})
+    const { data, isLoading, isError, error } = useAllSongsQuery({})
     const [search, setSearch] = useState<string>("")
     const [stateBool, setStateBool] = useState<boolean>(false)
 
@@ -56,6 +56,9 @@ const AllMusic = () => {
 
             <div className="my-10">
                 <div className="flex items-center justify-center">
+                    {isError && (
+                        <span className='text-3xl my-5'>Something Went Wrong - {error?.error}</span>
+                    )}
                     {isLoading && <div className='text-3xl my-5'>
                         <Loader />
                     </div>}

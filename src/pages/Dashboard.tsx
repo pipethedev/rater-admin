@@ -26,7 +26,7 @@ interface Props {
 }
 const Dashboard = () => {
     const { data, isLoading, isFetching } = useDashboardStatsQuery({})
-    const { data: allsongs, isLoading: isLoadingAllsongs, isError, isSuccess } = useAllSongsQuery({})
+    const { data: allsongs, isLoading: isLoadingAllsongs, isError, error, isSuccess } = useAllSongsQuery({})
 
     const { data: transac, isLoading: loadingTrasac } = useGetAllTransactionsQuery({})
     const [stateBool, setStateBool] = useState<boolean>(false)
@@ -77,6 +77,11 @@ const Dashboard = () => {
 
                 <div className="my-10">
                     <div className="flex items-center justify-center">
+                        {isError &&
+                            <div className="flex items-center justify-center text-3xl animate-pulse">
+                                Something Went Wrong - {error?.error}
+                            </div>
+                        }
                         {isLoadingAllsongs &&
                             <div className="flex items-center justify-center">
                                 <Loader />
@@ -91,7 +96,7 @@ const Dashboard = () => {
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                         {allsongs?.slice(0, 5).map((item: any) => (
-                            <CardPlatList {...{ setStateBool }}  title={item?.title} subtitle={item?.file_name} rate={item?.ratings?.[0]['rating']} id={item?.id} />
+                            <CardPlatList {...{ setStateBool }} title={item?.title} subtitle={item?.file_name} rate={item?.ratings?.[0]['rating']} id={item?.id} />
                         ))}
                     </div>
                 </div>
