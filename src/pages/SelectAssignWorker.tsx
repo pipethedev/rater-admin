@@ -13,6 +13,8 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
     const { data: allworkers, isLoading } = useGetAllWorkersQuery({})
     const [AssignASong, { data: assigndata, isLoading: isloadingAssign }] = useAssignASongMutation({})
 
+    console.log(assigndata, 'assigndata')
+
     const filterTable = (data: any) => {
         return (
             allworkers?.filter((item: any) => item?.first_name.toLowerCase().includes(search.toLowerCase())

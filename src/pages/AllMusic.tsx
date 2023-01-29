@@ -12,10 +12,8 @@ const AllMusic = () => {
     const { data, isLoading } = useAllSongsQuery({})
     const [search, setSearch] = useState<string>("")
     const [stateBool, setStateBool] = useState<boolean>(false)
-    console.log(data, 'allsong')
 
     const Loader = () => <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-[#3B71F7]"></div>
-
 
     return (
         <section>
@@ -75,7 +73,7 @@ const AllMusic = () => {
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {data?.filter((item: any) => item.title.toLowerCase().indexOf(search.toLowerCase()) > -1)?.map((item: any) => (
-                        <CardPlatList {...{ stateBool }} {...{ setStateBool }} title={item?.title} subtitle={item?.file_name} rate={item?.ratings?.[0]['rating']} id={item?.id} key={item.id} />
+                        <CardPlatList {...{ stateBool }} {...{ setStateBool }} title={item?.title} subtitle={item?.file_name} rate={item?.ratings?.[0]['rating']} id={item?.id} />
                     ))}
                 </div>
             </div>

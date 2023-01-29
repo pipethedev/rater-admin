@@ -10,10 +10,9 @@ interface CardPlatListProps {
     subtitle: string
     rate: string
     id?: string
-    key?: string | number
     setStateBool?: Dispatch<SetStateAction<boolean>>
 }
-const CardPlatList = ({ title, subtitle, rate, id, key, setStateBool }: CardPlatListProps) => {
+const CardPlatList = ({ title, subtitle, rate, id, setStateBool }: CardPlatListProps) => {
 
     const [hover, setHover] = useState<boolean>(true)
 
@@ -23,7 +22,7 @@ const CardPlatList = ({ title, subtitle, rate, id, key, setStateBool }: CardPlat
         <div className={`my-3 cursor-pointer relative`}
             onMouseEnter={() => setHover(false)}
             onMouseLeave={() => setHover(true)}
-            {...{ key }} >
+            key={id} >
             {/* <CircleDots className={`${hover && 'hidden'} block z-50 absolute right-3 top-5`} onClick={() => null} /> */}
             <div className={`${hover && 'hidden'} block z-50 absolute right-3 top-5`}>
                 <Menu
