@@ -74,11 +74,9 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
                                         <div className="ml-4 text-base rounded-full text-[18px] font-semibold">{item?.first_name} {item?.last_name}</div>
                                     </div>
                                     <div className='relative'>
-                                        {
-                                            ((item?.id  === selectedWorker) &&
-                                                <CheckSelecIcon className='absolute right-0 -top-0' />
-                                            )
-                                        }
+                                        {((item?.id === selectedWorker) &&
+                                            <CheckSelecIcon className='absolute right-0 -top-0' />
+                                        )}
                                         <svg width="29" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <circle cx="15" cy="15" r="14.3" stroke="#CEDBFD" stroke-width="0.6" />
                                         </svg>
