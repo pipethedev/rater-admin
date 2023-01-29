@@ -13,7 +13,6 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
     const { data: allworkers, isLoading, isError, error } = useGetAllWorkersQuery({})
     const [AssignASong, { data: assigndata, isLoading: isloadingAssign }] = useAssignASongMutation({})
 
-    console.log(assigndata, 'assigndata')
 
     const filterTable = (data: any) => {
         return (
@@ -59,13 +58,10 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
                                 <div key={item?.id} className='flex items-center justify-between cursor-pointer mb-2'
                                     onClick={() => {
                                         AssignASong({
-                                            // songId: item?.ratings[i]?.song_id,
-                                            songId: data[0].id,
+                                            songId: data?.id,
                                             workerId: item?.id
                                         })
                                         setChecker(!checker)
-                                        console.log(data[0].id, 'id of songs')
-                                        console.log(item?.id, 'id of worker')
                                     }}>
                                     <div className='flex items-center'>
                                         <div className='flex items-center justify-center h-8 w-8 bg-[#3B71F7] rounded-full text-xl text-white text-center font-semibold p-7 sm:p-8'>
@@ -76,7 +72,7 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
                                     </div>
                                     <div className='relative'>
                                         {checker &&
-                                            (item?.ratings[i]?.song_id &&
+                                            ((item?.id  === data?.user_id) &&
                                                 <CheckSelecIcon className='absolute right-0 -top-0' />
                                             )
                                         }

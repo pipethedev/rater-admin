@@ -12,6 +12,13 @@ const AllMusic = () => {
     const { data, isLoading, isError, error } = useAllSongsQuery({})
     const [search, setSearch] = useState<string>("")
     const [stateBool, setStateBool] = useState<boolean>(false)
+    const [songObject, setSongObject] = useState(null)
+
+
+    const openAssignWorkerToSong = (data: any) => {
+        setSongObject(data)
+        setStateBool(true)
+    }
 
     const Loader = () => <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-[#3B71F7]"></div>
 
@@ -76,7 +83,7 @@ const AllMusic = () => {
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {data?.filter((item: any) => item.title.toLowerCase().indexOf(search.toLowerCase()) > -1)?.map((item: any) => (
-                        <CardPlatList {...{ stateBool }} {...{ setStateBool }} title={item?.title} subtitle={item?.file_name} rate={item?.ratings?.[0]['rating']} id={item?.id} />
+                        <CardPlatList {...{stateBool}} {...{item}} {...{ setStateBool }} title={item?.title} subtitle={item?.file_name} rate={item?.ratings?.[0]['rating']} id={item?.id} assignWorkFunc={openAssignWorkerToSong}/>
                     ))}
                 </div>
             </div>
@@ -86,7 +93,7 @@ const AllMusic = () => {
             </div> */}
 
             <Modal show={stateBool} closeModal={setStateBool}>
-                <SelectAssignWorker {...{ setStateBool }} {...{ data }} />
+                <SelectAssignWorker {...{ setStateBool }} data={songObject}  />
             </Modal>
         </section >
     )

@@ -31,7 +31,12 @@ const Dashboard = () => {
     const { data: transac, isLoading: loadingTrasac } = useGetAllTransactionsQuery({})
     const [stateBool, setStateBool] = useState<boolean>(false)
 
+    const [songObject, setSongObject] = useState(null)
 
+    const openAssignWorkerToSong = (data: any) => {
+        setSongObject(data)
+        setStateBool(true)
+    }
 
 
     return (
@@ -96,7 +101,7 @@ const Dashboard = () => {
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                         {allsongs?.slice(0, 5).map((item: any) => (
-                            <CardPlatList {...{ setStateBool }} title={item?.title} subtitle={item?.file_name} rate={item?.ratings?.[0]['rating']} id={item?.id} />
+                            <CardPlatList {...{stateBool}} {...{item}} {...{ setStateBool }} title={item?.title} subtitle={item?.file_name} rate={item?.ratings?.[0]['rating']} id={item?.id} assignWorkFunc={openAssignWorkerToSong} />
                         ))}
                     </div>
                 </div>
@@ -149,7 +154,7 @@ const Dashboard = () => {
             </div>
 
             <Modal show={stateBool} closeModal={setStateBool}>
-                <SelectAssignWorker {...{ setStateBool }} data={allsongs} />
+                <SelectAssignWorker {...{ setStateBool }} data={songObject}  />
             </Modal>
         </section>
     )
