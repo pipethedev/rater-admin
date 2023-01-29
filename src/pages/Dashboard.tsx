@@ -144,7 +144,7 @@ const Dashboard = () => {
             </div>
 
             <Modal show={stateBool} closeModal={setStateBool}>
-                <SelectAssignWorker {...{ setStateBool }} />
+                <SelectAssignWorker {...{ setStateBool }} data={allsongs} />
             </Modal>
         </section>
     )

@@ -12,6 +12,7 @@ const AllMusic = () => {
     const { data, isLoading } = useAllSongsQuery({})
     const [search, setSearch] = useState<string>("")
     const [stateBool, setStateBool] = useState<boolean>(false)
+    console.log(data, 'allsong')
 
     const Loader = () => <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-[#3B71F7]"></div>
 
@@ -63,7 +64,11 @@ const AllMusic = () => {
                     {/* {isFetching && <div className='text-3xl'>Fecthing all songs</div>} */}
                 </div>
                 <div className="flex items-center justify-center">
-                    {data?.length == 0 &&
+                    {search?.length < 0 &&
+                        (<div className='grid grid-cols-1 place-items-center w-screen text-center text-2xl font-semibold'>
+                            No Songs
+                        </div>)}
+                    {data?.length < 0 &&
                         (<div className='grid grid-cols-1 place-items-center w-screen text-center text-2xl font-semibold'>
                             No Songs
                         </div>)}
@@ -80,7 +85,7 @@ const AllMusic = () => {
             </div> */}
 
             <Modal show={stateBool} closeModal={setStateBool}>
-                <SelectAssignWorker {...{ setStateBool }} />
+                <SelectAssignWorker {...{ setStateBool }} {...{ data }} />
             </Modal>
         </section >
     )

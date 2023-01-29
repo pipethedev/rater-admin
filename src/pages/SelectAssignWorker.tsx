@@ -7,15 +7,15 @@ import { useAssignASongMutation, useGetAllWorkersQuery } from '../features/auth/
 const Loader = () => <div className="w-8 h-8 border-4 border-dashed rounded-full animate-spin border-[#3B71F7]"></div>
 
 
-const SelectAssignWorker = ({ setStateBool }: any) => {
+const SelectAssignWorker = ({ setStateBool, data }: any) => {
     const [search, setSearch] = useState<string>("")
     const [checker, setChecker] = useState<boolean>(false)
-    const { data, isLoading } = useGetAllWorkersQuery({})
-    const [AssignASong, { isLoading: isloadingAssign }] = useAssignASongMutation({})
+    const { data: allworkers, isLoading } = useGetAllWorkersQuery({})
+    const [AssignASong, { data: assigndata, isLoading: isloadingAssign }] = useAssignASongMutation({})
 
     const filterTable = (data: any) => {
         return (
-            data?.filter((item: any) => item?.first_name.toLowerCase().includes(search.toLowerCase())
+            allworkers?.filter((item: any) => item?.first_name.toLowerCase().includes(search.toLowerCase())
                 || item?.last_name.toLowerCase().includes(search.toLowerCase())
             )
         )
@@ -46,27 +46,29 @@ const SelectAssignWorker = ({ setStateBool }: any) => {
                             <Loader />
                         </div>}
 
-                        {filterTable(data)?.map((data: any, i: number) => (
+                        {filterTable(allworkers)?.map((item: any, i: number) => (
                             <>
-                                <div key={data?.id} className='flex items-center justify-between cursor-pointer mb-2'
+                                <div key={item?.id} className='flex items-center justify-between cursor-pointer mb-2'
                                     onClick={() => {
                                         AssignASong({
-                                            songId: data?.ratings[i]?.song_id,
-                                            workerId: data?.ratings[i]?.worker_id
+                                            // songId: item?.ratings[i]?.song_id,
+                                            songId: data[0].id,
+                                            workerId: item?.id
                                         })
                                         setChecker(!checker)
-                                        console.log(data?.ratings[i], 'id')
+                                        console.log(data[0].id, 'id of songs')
+                                        console.log(item?.id, 'id of worker')
                                     }}>
                                     <div className='flex items-center'>
                                         <div className='flex items-center justify-center h-8 w-8 bg-[#3B71F7] rounded-full text-xl text-white text-center font-semibold p-7 sm:p-8'>
-                                            <span className='whitespace-nowrap'>{data?.first_name[0]} {data?.last_name[0]}</span>
+                                            <span className='whitespace-nowrap'>{item?.first_name[0]} {item?.last_name[0]}</span>
                                         </div>
 
-                                        <div className="ml-4 text-base rounded-full text-[18px] font-semibold">{data?.first_name} {data?.last_name}</div>
+                                        <div className="ml-4 text-base rounded-full text-[18px] font-semibold">{item?.first_name} {item?.last_name}</div>
                                     </div>
                                     <div className='relative'>
                                         {checker &&
-                                            (data?.ratings[i]?.song_id &&
+                                            (item?.ratings[i]?.song_id &&
                                                 <CheckSelecIcon className='absolute right-0 -top-0' />
                                             )
                                         }
