@@ -74,7 +74,7 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
                                         <div className="ml-4 text-base rounded-full text-[18px] font-semibold">{item?.first_name} {item?.last_name}</div>
                                     </div>
                                     <div className='relative'>
-                                        {checker &&
+                                        {
                                             ((item?.id  === selectedWorker) &&
                                                 <CheckSelecIcon className='absolute right-0 -top-0' />
                                             )
