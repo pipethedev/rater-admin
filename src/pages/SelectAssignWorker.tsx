@@ -13,6 +13,8 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
     const { data: allworkers, isLoading, isError, error } = useGetAllWorkersQuery({})
     const [AssignASong, { data: assigndata, isLoading: isloadingAssign }] = useAssignASongMutation({})
 
+    const [selectedWorker, setSelectedWorker] = useState()
+
 
     const filterTable = (data: any) => {
         return (
@@ -62,6 +64,7 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
                                             workerId: item?.id
                                         })
                                         setChecker(!checker)
+                                        setSelectedWorker(item.id)
                                     }}>
                                     <div className='flex items-center'>
                                         <div className='flex items-center justify-center h-8 w-8 bg-[#3B71F7] rounded-full text-xl text-white text-center font-semibold p-7 sm:p-8'>
@@ -72,7 +75,7 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
                                     </div>
                                     <div className='relative'>
                                         {checker &&
-                                            ((item?.id  === data?.user_id) &&
+                                            ((item?.id  === selectedWorker) &&
                                                 <CheckSelecIcon className='absolute right-0 -top-0' />
                                             )
                                         }
