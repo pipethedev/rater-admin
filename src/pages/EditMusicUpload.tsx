@@ -8,7 +8,7 @@ const EditMusicUpload = ({ price, setStep }: any) => {
 
     const [postPrice, setPostPrice] = useState<string>('')
 
-    const [uploadMusic, { data, isLoading, isSuccess, isError }] = useUpdatePricingMutation(price?.id)
+    const [uploadMusic, { data, isLoading, isSuccess, isError, error: errorUpload }] = useUpdatePricingMutation(price?.id)
 
     useEffect(() => {
         if (isSuccess) {
@@ -34,7 +34,7 @@ const EditMusicUpload = ({ price, setStep }: any) => {
                 setPostPrice('')
             }
         } catch (error) {
-            console.log(error, 'errrro')
+            // console.log(error, 'errrro')
             toast.error("Failed Edit Price Please Try again" || error)
         }
 
@@ -43,7 +43,7 @@ const EditMusicUpload = ({ price, setStep }: any) => {
     return (
         <>
             {isError &&
-                <p className="text-red-600">Error </p>}
+                <p className="text-red-600">{`Error: ${errorUpload}`}</p>}
             <div>
                 <div className="flex flex-col max-w-md mx-auto my-auto rounded-md">
                     <div className="mb-8">

@@ -63,9 +63,10 @@ const AllMusic = () => {
 
             <div className="my-10">
                 <div className="flex items-center justify-center">
-                    {/* {isError && (
+                    {isError && (
+                        // @ts-ignore
                         <span className='text-3xl my-5'>Something Went Wrong - {error?.error}</span>
-                    )} */}
+                    )}
                     {isLoading && <div className='text-3xl my-5'>
                         <Loader />
                     </div>}

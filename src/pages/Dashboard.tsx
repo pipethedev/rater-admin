@@ -82,11 +82,12 @@ const Dashboard = () => {
 
                 <div className="my-10">
                     <div className="flex items-center justify-center">
-                        {/* {isError &&
+                        {isError &&
                             <div className="flex items-center justify-center text-3xl animate-pulse">
+                                {/* @ts-ignore */}
                                 Something Went Wrong - {error?.error}
                             </div>
-                        } */}
+                        }
                         {isLoadingAllsongs &&
                             <div className="flex items-center justify-center">
                                 <Loader />
