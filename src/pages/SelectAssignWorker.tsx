@@ -26,7 +26,8 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
 
     useEffect(() => {
         if (isErrodAssign) {
-          toast.error(erorAss?.data?.message)
+           // @ts-ignore
+            toast.error(erorAss?.data?.message)
         }
       }, [isErrodAssign])
 
@@ -107,9 +108,13 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
                                     workerId: selectedWorker
                                 })
                                 setChecker(!checker)
-                            } catch {
-                                console.log(erorAss?.data?.message)
-                                toast.error(erorAss?.data?.message)
+                            } catch (error) {
+                                // console.log(erorAss?.data?.message)
+                                if (isErrodAssign) {
+                                    // @ts-ignore
+                                    toast.error(error?.data?.message)
+                                  }
+                                // toast.error(error?.data?.message)
                             }
                             setStateBool(false)
                         }} />
