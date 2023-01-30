@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { toast } from 'react-toastify'
 import CheckSelecIcon from '../assets/svg/CheckSelecIcon'
 import Button from '../components/Button'
 import Input from '../components/Input'
@@ -12,7 +13,6 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
     const [checker, setChecker] = useState<boolean>(false)
     const { data: allworkers, isLoading, isError, error } = useGetAllWorkersQuery({})
     const [AssignASong, { data: assigndata, isLoading: isloadingAssign }] = useAssignASongMutation({})
-
     const [selectedWorker, setSelectedWorker] = useState()
 
 
@@ -44,7 +44,7 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
                         />
                     </div>
                     <div className="mt-4 relative">
-{/*
+                        {/*
                         {isError && (
                             <div className="flex items-center justify-center animate-pulse">
                                 <span className='text-3xl my-5'>Something Went Wrong - {error?.error}</span>
@@ -58,13 +58,21 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
                         {filterTable(allworkers)?.map((item: any, i: number) => (
                             <>
                                 <div key={item?.id} className='flex items-center justify-between cursor-pointer mb-2'
-                                    onClick={() => {
-                                        AssignASong({
-                                            songId: data?.id,
-                                            workerId: item?.id
-                                        })
-                                        setChecker(!checker)
-                                        setSelectedWorker(item.id)
+                                    onClick={async () => {
+                                        try {
+                                            if (data?.id && item?.id) {
+                                                await AssignASong({
+                                                    songId: data?.id,
+                                                    workerId: item?.id
+                                                })
+                                                setChecker(!checker)
+                                                setSelectedWorker(item.id)
+                                            }
+
+                                        } catch (error: any) {
+                                            console.log(error?.data?.message, 'ajajaj')
+                                            toast.error(error?.data?.message)
+                                        }
                                     }}>
                                     <div className='flex items-center'>
                                         <div className='flex items-center justify-center h-8 w-8 bg-[#3B71F7] rounded-full text-xl text-white text-center font-semibold p-7 sm:p-8'>
@@ -75,7 +83,7 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
                                     </div>
                                     <div className='relative'>
                                         {((item?.id === selectedWorker) &&
-                                            <CheckSelecIcon className='absolute right-0 -top-0' />
+                                            (isloadingAssign ? <Loader /> : <CheckSelecIcon className='absolute right-0 -top-0' />)
                                         )}
                                         <svg width="29" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <circle cx="15" cy="15" r="14.3" stroke="#CEDBFD" stroke-width="0.6" />

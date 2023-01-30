@@ -7,7 +7,7 @@ import { toast } from 'react-toastify'
 const GiveaFeedback = ({ setStateBool, id, data }: any) => {
 
     const [comment, setComment] = useState<string>('')
-    const [createFeedback, { isLoading, isSuccess, error,  }] = useCreateFeedbackMutation(id)
+    const [createFeedback, { isLoading, isSuccess  }] = useCreateFeedbackMutation(id)
     useEffect(() => {
         if (isSuccess) {
             toast.success("Feedback Created Successfully");
