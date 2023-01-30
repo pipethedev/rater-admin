@@ -263,7 +263,7 @@ export function Table<TRow extends {}>({
           <Pagination
             {...props.pagination}
             currentLength={data.length}
-            loading={props.loading}
+            // loading={props.loading}
             withNumber
           />
         </div>
@@ -341,7 +341,7 @@ const Pagination = ({
   setPageSize?: (pageSize: number) => void;
   totalRows?: number;
   currentLength: number;
-  loading: boolean;
+  loading?: boolean;
   withNumber: boolean;
 }) => {
   // const query = useRouteQuery();

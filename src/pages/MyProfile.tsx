@@ -13,7 +13,7 @@ const MyProfile = () => {
     const { data, isLoading, isFetching } = useGetViewAllProfileQuery({})
 
     const { data: allocationData, isLoading: loading, } = useGetAllSongsAllocationsQuery({ refetchOnMountOrArgChange: true})
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
 
     return (
@@ -88,12 +88,12 @@ const MyProfile = () => {
                     columns={[
                         {
                             header: "WORKER",
-                            view: (row) => (row?.worker),
+                            view: (row: any) => (row?.worker),
                         },
-                        { header: "SONGS", view: (row) => row?.song },
+                        { header: "SONGS", view: (row: any) => row?.song },
                         {
                             header: "ID",
-                            view: (row) => `${row?.song_id}`,
+                            view: (row: any) => `${row?.song_id}`,
                         },
                     ]}
                     data={allocationData ?? []}

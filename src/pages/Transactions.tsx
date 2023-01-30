@@ -89,16 +89,16 @@ const Transactions = () => {
                     columns={[
                         {
                             header: "FULLNAME",
-                            view: (row) => `${row?.user?.first_name} ${row?.user?.last_name}`,
+                            view: (row: any) => `${row?.user?.first_name} ${row?.user?.last_name}`,
                         },
-                        { header: "EMAIL ADDRESS", view: (row) => row?.user?.email },
+                        { header: "EMAIL ADDRESS", view: (row: any) => row?.user?.email },
                         {
                             header: "AMOUNT",
-                            view: (row) => formatKoboAmountForDisplay(row?.amount)
+                            view: (row: any) => formatKoboAmountForDisplay(row?.amount)
                         },
                         {
                             header: "PAYMENT STATUS",
-                            view: (row) => (row?.payment_status),
+                            view: (row: any) => (row?.payment_status),
                         },
                     ]}
                     data={filterTable(data) ?? []}

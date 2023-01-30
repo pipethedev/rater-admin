@@ -74,17 +74,17 @@ const Users = () => {
                         {
                             header: "FULLNAME",
                             // view: (row) => `${row?.user.first_name} ${row?.user.last_name}`,
-                            view: (row) => `${row?.first_name} ${row?.first_name}`,
+                            view: (row: any) => `${row?.first_name} ${row?.first_name}`,
                         },
-                        { header: "EMAIL ADDRESS", view: (row) => row?.email },
+                        { header: "EMAIL ADDRESS", view: (row: any) => row?.email },
                         {
                             header: "DESCRIPTION",
-                            // view: (row) => row?.amount ? (row?.amount) : 0
-                            view: (row) => (row?.role)
+                            // view: (row: any) => row?.amount ? (row?.amount) : 0
+                            view: (row: any) => (row?.role)
                         },
                         {
                             header: "MOBILE NUMBER",
-                            view: (row) => (row?.phone_number),
+                            view: (row: any) => (row?.phone_number),
                         },
                     ]}
                     data={filterTable(data) ?? []}

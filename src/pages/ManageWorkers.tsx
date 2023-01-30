@@ -34,7 +34,7 @@ const ManageWorkers = () => {
                     id
                 }).unwrap()
         } catch (error) {
-            console.error(error)
+            // console.error(error)
             toast.error(error?.error)
         }
 
@@ -103,7 +103,7 @@ const ManageWorkers = () => {
                         },
                     ]}
                     loading={isLoading}
-                    data={filterTable(data?.map((item): any => ({
+                    data={filterTable(data?.map((item: any) => ({
                         first_name: item?.first_name,
                         last_name: item?.last_name,
                         email: item?.email,

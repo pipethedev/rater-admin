@@ -14,8 +14,8 @@ interface CardPlatListProps {
     id?: string
     setStateBool?: Dispatch<SetStateAction<boolean>>
     assignWorkFunc?: any
-    item: any
-    stateBool: boolean
+    item?: any
+    stateBool?: boolean
 }
 const CardPlatList = ({ title, subtitle, rate, id, setStateBool,stateBool, assignWorkFunc, item }: CardPlatListProps) => {
 

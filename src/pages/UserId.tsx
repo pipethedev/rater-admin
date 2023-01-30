@@ -71,7 +71,7 @@ const UserId = () => {
         </div>
 
         <div className="flex items-center my-20 gap-4">
-          <p className="text-sm sm:text-lg font-extrabold">Emmanuel’sTop Songs</p>
+          <p className="text-sm sm:text-lg font-extrabold">Emmanuel&apos;sTop Songs</p>
           <p> — Based off Reviews and Ratings</p>
 
           {/* <p className="text-sm sm:text-base text-[#3B71F7] font-bold"><Link to="#" className='flex items-center'><p>View More</p> <span className='ml-3'><Arrowlong /></span></Link></p> */}
