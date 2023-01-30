@@ -5,7 +5,7 @@ import Button from '../components/Button'
 import Input from '../components/Input'
 import { useAssignASongMutation, useGetAllWorkersQuery } from '../features/auth/authApiSplice'
 
-const Loader = ({className}: any) => <div className={`w-8 h-8 border-4 border-dashed rounded-full animate-spin border-[#3B71F7] ${className}`}></div>
+const Loader = ({ className }: any) => <div className={`w-8 h-8 border-4 border-dashed rounded-full animate-spin border-[#3B71F7] ${className}`}></div>
 
 
 const SelectAssignWorker = ({ setStateBool, data }: any) => {
@@ -15,6 +15,7 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
     const [AssignASong, { data: assigndata, isLoading: isloadingAssign }] = useAssignASongMutation({})
     const [selectedWorker, setSelectedWorker] = useState()
 
+    console.log(assigndata, 'assigndata')
 
     const filterTable = (data: any) => {
         return (
@@ -31,7 +32,7 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
                     <h1 className=" text-[28px] font-semibold">Select Worker to assign song to</h1>
                     <span className='text-[#888888]'>All Songs uploaded on this platform (3,523)</span>
                 </div>
-                <form className=" ng-untouched ng-pristine ng-valid" onSubmit={() => null}>
+                <div className=" ng-untouched ng-pristine ng-valid" onSubmit={() => null}>
                     <div className="flex items-center justify-between w-full">
                         <Input
                             className="w-full flex-1 lg:w-96 p-4 pl-10 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
@@ -59,19 +60,8 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
                             <>
                                 <div key={item?.id} className='flex items-center justify-between cursor-pointer mb-2'
                                     onClick={async () => {
-                                        try {
-                                            if (data?.id && item?.id) {
-                                                await AssignASong({
-                                                    songId: data?.id,
-                                                    workerId: item?.id
-                                                })
                                                 setChecker(!checker)
                                                 setSelectedWorker(item.id)
-                                            }
-
-                                        } catch (error: any) {
-                                            toast.error(error?.data?.message)
-                                        }
                                     }}>
                                     <div className='flex items-center'>
                                         <div className='flex items-center justify-center h-8 w-8 bg-[#3B71F7] rounded-full text-xl text-white text-center font-semibold p-7 sm:p-8'>
@@ -82,7 +72,7 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
                                     </div>
                                     <div className='relative'>
                                         {((item?.id === selectedWorker) &&
-                                            (isloadingAssign ? <Loader className='absolute right-0 -top-0' /> : <CheckSelecIcon className='absolute right-0 -top-0' />)
+                                            (<CheckSelecIcon className='absolute right-0 -top-0' />)
                                         )}
                                         <svg width="29" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <circle cx="15" cy="15" r="14.3" stroke="#CEDBFD" stroke-width="0.6" />
@@ -92,10 +82,21 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
                             </>
                         ))}
                     </div>
-                </form>
+                </div>
                 <div className="space-y-2">
                     <div className='flex items-center justify-end'>
-                        <Button className=' mt-20 bg-[#516CF5] -p-10' type='submit' title="Select and Continue" onClick={() => setStateBool(false)} />
+                        <Button loading={isloadingAssign} className={`${isloadingAssign && 'w-64 '}mt-20 bg-[#516CF5] -p-10`} type='submit' title="Select and Continue" onClick={async () => {
+                            try {
+                                await AssignASong({
+                                    songId: data?.id,
+                                    workerId: selectedWorker
+                                })
+                                setChecker(!checker)
+                            } catch (error: any) {
+                                toast.error(error?.message)
+                            }
+                            setStateBool(false)
+                        }} />
                     </div>
                 </div>
             </div>
