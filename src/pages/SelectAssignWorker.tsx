@@ -5,7 +5,7 @@ import Button from '../components/Button'
 import Input from '../components/Input'
 import { useAssignASongMutation, useGetAllWorkersQuery } from '../features/auth/authApiSplice'
 
-const Loader = () => <div className="w-8 h-8 border-4 border-dashed rounded-full animate-spin border-[#3B71F7]"></div>
+const Loader = ({className}: any) => <div className={`w-8 h-8 border-4 border-dashed rounded-full animate-spin border-[#3B71F7] ${className}`}></div>
 
 
 const SelectAssignWorker = ({ setStateBool, data }: any) => {
@@ -82,7 +82,7 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
                                     </div>
                                     <div className='relative'>
                                         {((item?.id === selectedWorker) &&
-                                            (isloadingAssign ? <Loader /> : <CheckSelecIcon className='absolute right-0 -top-0' />)
+                                            (isloadingAssign ? <Loader className='absolute right-0 -top-0' /> : <CheckSelecIcon className='absolute right-0 -top-0' />)
                                         )}
                                         <svg width="29" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <circle cx="15" cy="15" r="14.3" stroke="#CEDBFD" stroke-width="0.6" />

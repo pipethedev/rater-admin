@@ -1,6 +1,7 @@
 // import { AIeyebol, AIeyeslashbol } from "arvara-icons";
 
 import EyeClose from "../assets/svg/EyeClose";
+import EyeOpen from "../assets/svg/EyeOpen";
 
 interface Props {
   showPassword: boolean;
@@ -16,7 +17,7 @@ const PasswordMe = (props: Props): JSX.Element => {
       {showPassword ? (
         <EyeClose className="icon solid text-blue-2" />
       ) : (
-        <EyeClose className="icon solid text-blue-2" />
+        <EyeOpen className="icon solid text-blue-2" />
       )}
     </div>
   );
