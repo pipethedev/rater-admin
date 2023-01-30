@@ -15,6 +15,8 @@ const ManageWorkers = () => {
     const { data, isLoading } = useGetAllWorkersQuery({})
     const [stateBool, setStateBool] = useState<boolean>(false)
     const [search, setSearch] = useState<string>("")
+    const [selectedActive, setSelectedActive] = useState()
+
 
     // const date = item.created_at;
     // format(parseISO(date), "dd-MM-yyyy");
@@ -109,7 +111,7 @@ const ManageWorkers = () => {
                         role: item?.role,
                         updated_at: format(new Date(item?.updated_at), "dd-MM-yyyy, hh:mm a"),
                         action: (
-                            <span className={`cursor-pointer ${item?.banned ? 'text-green-600 p-3 rounded-full bg-green-200' : 'text-red-600 p-3 rounded-full bg-red-200'}`} onClick={() => UnBanAUser(item?.banned, item?.id)}>{loadingBan ? "loading" : (item?.banned ? 'Activate' : 'Deactivate')}</span>
+                            <span className={`cursor-pointer ${item?.banned ? 'text-green-600 p-3 rounded-full bg-green-200' : 'text-red-600 p-3 rounded-full bg-red-200'}`} onClick={() =>{ UnBanAUser(item?.banned, item?.id), setSelectedActive(item?.id)}}>{(selectedActive === item?.id && loadingBan) ? "loading" : (item?.banned ? 'Activate' : 'Deactivate')}</span>
                         ),
                     }))) ?? []}
                     pagination={{ page: 5, pageSize: 1, totalRows: 1 }}

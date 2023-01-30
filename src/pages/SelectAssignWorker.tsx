@@ -70,7 +70,6 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
                                             }
 
                                         } catch (error: any) {
-                                            console.log(error?.data?.message, 'ajajaj')
                                             toast.error(error?.data?.message)
                                         }
                                     }}>

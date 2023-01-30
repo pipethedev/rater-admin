@@ -83,7 +83,7 @@ const AllMusic = () => {
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {data?.filter((item: any) => item.title.toLowerCase().indexOf(search.toLowerCase()) > -1)?.map((item: any) => (
-                        <CardPlatList {...{stateBool}} {...{item}} {...{ setStateBool }} title={item?.title} subtitle={item?.file_name} rate={item?.ratings?.[0]['rating']} id={item?.id} assignWorkFunc={openAssignWorkerToSong}/>
+                        <CardPlatList key={item?.id} {...{stateBool}} {...{item}} {...{ setStateBool }} title={item?.title} subtitle={item?.file_name} rate={item?.ratings?.[0]['rating']} id={item?.id} assignWorkFunc={openAssignWorkerToSong}/>
                     ))}
                 </div>
             </div>
