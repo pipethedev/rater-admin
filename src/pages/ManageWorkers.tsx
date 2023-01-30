@@ -33,8 +33,7 @@ const ManageWorkers = () => {
                     },
                     id
                 }).unwrap()
-        } catch (error) {
-            // console.error(error)
+        } catch (error: any) {
             toast.error(error?.error)
         }
 

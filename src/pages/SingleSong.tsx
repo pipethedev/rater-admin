@@ -20,18 +20,18 @@ const SingleSong = () => {
     const [tabIndex, setTabIndex] = useState<string>("Workers Reviews")
     const [stateBool, setStateBool] = useState<boolean>(false)
     const { data, isLoading, isError, error } = useSingleSongQuery(id, { refetchOnMountOrArgChange: true })
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     const worker = data?.ratings[0]
     const adminFeed = data?.admin_feedback
 
     return (
         <>
-            {isError &&
+            {/* {isError &&
                 <div className="flex items-center justify-center h-screen animate-pulse text-3xl">
                     {error?.error}
                 </div>
-            }
+            } */}
             {isLoading ? (
                 <div className="flex items-center justify-center h-screen animate-pulse">
                     <Loader />
@@ -96,8 +96,8 @@ const SingleSong = () => {
                         {/* Tabs */}
                         <div className="">
                             <div className="flex gap-6 h-full items-center flex-row my-4 ml-4 border-b-4 border-[#F1F3FF cursor-pointer relative">
-                                <p style={{ color: tabIndex === 'Workers Reviews' && '#3B71F7' }} className={"py-3 hover:border-b-4 p-4 hover:border-[#3B71F7] -mb-1 cursor-pointer hover:text-[#3B71F7] text-[#777777]" + (tabIndex === "Workers Reviews" && "text-[#3B71F7] border-b-4 border-b-[#3B71F7] bg-[#F5F8FF] p-4 -mb-1 font-semibold")} onClick={() => setTabIndex("Workers Reviews")}>Workers Reviews{" "}</p>
-                                <p style={{ color: tabIndex === 'Your Feedbacks' && '#3B71F7' }} className={"py-3 hover:border-b-4 p-4 hover:border-[#3B71F7] -mb-1 cursor-pointer hover:text-[#3B71F7] text-[#777777]" + (tabIndex === "Your Feedbacks" && "text-[#3B71F7] border-b-4 border-b-[#3B71F7] bg-[#F5F8FF] p-4 -mb-1 font-semibold")} onClick={() => setTabIndex("Your Feedbacks")}>Your Feedbacks</p>
+                                <p className={"py-3 hover:border-b-4 p-4 hover:border-[#3B71F7] -mb-1 cursor-pointer hover:text-[#3B71F7] text-[#777777]" + (tabIndex === "Workers Reviews" && "text-[#3B71F7] border-b-4 border-b-[#3B71F7] bg-[#F5F8FF] p-4 -mb-1 font-semibold")} onClick={() => setTabIndex("Workers Reviews")}>Workers Reviews{" "}</p>
+                                <p className={"py-3 hover:border-b-4 p-4 hover:border-[#3B71F7] -mb-1 cursor-pointer hover:text-[#3B71F7] text-[#777777]" + (tabIndex === "Your Feedbacks" && "text-[#3B71F7] border-b-4 border-b-[#3B71F7] bg-[#F5F8FF] p-4 -mb-1 font-semibold")} onClick={() => setTabIndex("Your Feedbacks")}>Your Feedbacks</p>
                             </div>
                         </div>
 

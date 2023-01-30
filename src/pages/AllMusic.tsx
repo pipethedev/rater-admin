@@ -48,7 +48,7 @@ const AllMusic = () => {
                 <Input
                     className="w-full lg:w-96 p-4 pl-10 outline-none text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
                     divStyle=''
-                    placeholder="Search songs by title or Artiste’s name'"
+                    placeholder="Search songs by title or Artiste&apos;s name"
                     searchIcon
                     type="search"
                     value={search}
@@ -63,9 +63,9 @@ const AllMusic = () => {
 
             <div className="my-10">
                 <div className="flex items-center justify-center">
-                    {isError && (
+                    {/* {isError && (
                         <span className='text-3xl my-5'>Something Went Wrong - {error?.error}</span>
-                    )}
+                    )} */}
                     {isLoading && <div className='text-3xl my-5'>
                         <Loader />
                     </div>}

@@ -82,11 +82,11 @@ const Dashboard = () => {
 
                 <div className="my-10">
                     <div className="flex items-center justify-center">
-                        {isError &&
+                        {/* {isError &&
                             <div className="flex items-center justify-center text-3xl animate-pulse">
                                 Something Went Wrong - {error?.error}
                             </div>
-                        }
+                        } */}
                         {isLoadingAllsongs &&
                             <div className="flex items-center justify-center">
                                 <Loader />
@@ -120,18 +120,18 @@ const Dashboard = () => {
                         columns={[
                             {
                                 header: "FULLNAME",
-                                view: (row) => `${row?.user?.first_name} ${row?.user?.last_name}`,
-                                // view: (row) => `${row?.user?.first_name} ${row?.user?.first_name}`,
+                                view: (row: any) => `${row?.user?.first_name} ${row?.user?.last_name}`,
+                                // view: (row: any) => `${row?.user?.first_name} ${row?.user?.first_name}`,
                             },
-                            { header: "EMAIL ADDRESS", view: (row) => row?.user?.email },
+                            { header: "EMAIL ADDRESS", view: (row: any) => row?.user?.email },
                             {
                                 header: "AMOUNT",
-                                view: (row) => formatKoboAmountForDisplay(row?.amount)
-                                // view: (row) => row?.amount ? (row?.amount) : 0
+                                view: (row: any) => formatKoboAmountForDisplay(row?.amount)
+                                // view: (row: any) => row?.amount ? (row?.amount) : 0
                             },
                             {
                                 header: "PAYMENT STATUS",
-                                view: (row) => (row?.payment_status),
+                                view: (row: any) => (row?.payment_status),
                             },
                         ]}
                         // data={[] ?? []}
@@ -139,7 +139,7 @@ const Dashboard = () => {
                         // loading={isLoading}
                         data={transac?.slice(0, 5) ?? []}
                         pagination={{ page: 5, pageSize: 1, totalRows: 1 }}
-                        rowActions={(row) => [
+                        rowActions={(row: any) => [
                             {
                                 action: () => { < DownloadIcon /> },
                                 name: "ACTION",

@@ -44,12 +44,12 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
                         />
                     </div>
                     <div className="mt-4 relative">
-
+{/*
                         {isError && (
                             <div className="flex items-center justify-center animate-pulse">
                                 <span className='text-3xl my-5'>Something Went Wrong - {error?.error}</span>
                             </div>
-                        )}
+                        )} */}
 
                         {isLoading && <div className="flex items-center justify-center">
                             <Loader />

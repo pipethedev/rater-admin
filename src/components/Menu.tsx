@@ -11,7 +11,7 @@ type TItems = {
   id: number;
   name: string;
   path?: string;
-  onclick: () => void | any | boolean
+  onclick: any
   icon?: ReactNode
 };
 interface Props {
@@ -73,7 +73,7 @@ const Menu = ({
                               <Link to={item.path}>{item.name}</Link>
                             )}
 
-                            {item.onclick() &&
+                            {item.onclick &&
                               <div className="flex items-center gap-2">
                                 {item.icon}
                                 <span className="ml-3">{item.name}</span>
