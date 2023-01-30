@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import CheckSelecIcon from '../assets/svg/CheckSelecIcon'
 import Button from '../components/Button'
@@ -12,10 +12,25 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
     const [search, setSearch] = useState<string>("")
     const [checker, setChecker] = useState<boolean>(false)
     const { data: allworkers, isLoading, isError, error } = useGetAllWorkersQuery({})
-    const [AssignASong, { data: assigndata, isLoading: isloadingAssign }] = useAssignASongMutation({})
+    const [AssignASong, { data: assigndata, isLoading: isloadingAssign, error: erorAss, isSuccess, isError: isErrodAssign }] = useAssignASongMutation({})
     const [selectedWorker, setSelectedWorker] = useState()
 
-    console.log(assigndata, 'assigndata')
+    // console.log(assigndata, 'assigndata')
+    // console.log(erorAss, 'erorAss')
+
+    useEffect(() => {
+        if (isSuccess) {
+          toast.success("Successfully Assigned A Worker")
+        }
+    }, [isSuccess])
+
+    useEffect(() => {
+        if (isErrodAssign) {
+          toast.error(erorAss?.data?.message)
+        }
+      }, [isErrodAssign])
+
+
 
     const filterTable = (data: any) => {
         return (
@@ -56,7 +71,7 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
                             <Loader />
                         </div>}
 
-                        {filterTable(allworkers)?.map((item: any, i: number) => (
+                        {filterTable(allworkers)?.map((item: any) => (
                             <>
                                 <div key={item?.id} className='flex items-center justify-between cursor-pointer mb-2'
                                     onClick={async () => {
@@ -75,7 +90,7 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
                                             (<CheckSelecIcon className='absolute right-0 -top-0' />)
                                         )}
                                         <svg width="29" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="15" cy="15" r="14.3" stroke="#CEDBFD" stroke-width="0.6" />
+                                            <circle cx="15" cy="15" r="14.3" stroke="#CEDBFD" strokeWidth="0.6" />
                                         </svg>
                                     </div>
                                 </div>
@@ -85,15 +100,16 @@ const SelectAssignWorker = ({ setStateBool, data }: any) => {
                 </div>
                 <div className="space-y-2">
                     <div className='flex items-center justify-end'>
-                        <Button loading={isloadingAssign} className={`${isloadingAssign && 'w-64 '}mt-20 bg-[#516CF5] -p-10`} type='submit' title="Select and Continue" onClick={async () => {
+                        <Button loading={isloadingAssign} disabled={isloadingAssign} className={`${isloadingAssign && 'w-64 '} mt-20 bg-[#516CF5] -p-10`} type='submit' title="Select and Continue" onClick={async () => {
                             try {
                                 await AssignASong({
                                     songId: data?.id,
                                     workerId: selectedWorker
                                 })
                                 setChecker(!checker)
-                            } catch (error: any) {
-                                toast.error(error?.message)
+                            } catch {
+                                console.log(erorAss?.data?.message)
+                                toast.error(erorAss?.data?.message)
                             }
                             setStateBool(false)
                         }} />
