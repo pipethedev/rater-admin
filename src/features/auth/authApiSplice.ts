@@ -117,6 +117,15 @@ export const authApiSlice = apiSlice.injectEndpoints({
             transformResponse: (response: any , meta, arg) => response.data,
             invalidatesTags: ['Auth'],
         }),
+        editFeedback: builder.mutation({
+            query: ({body, id}) => ({
+                url: `/rating/admin-feedback/${id}`,
+                method: 'PUT',
+                body
+            }),
+            transformResponse: (response: any , meta, arg) => response.data,
+            invalidatesTags: ['Auth'],
+        }),
         uploadMusic: builder.mutation({
             query: body => ({
                 // url: `/admin-feedback/:songId`,
@@ -206,6 +215,8 @@ export const {
     useGetPricingsQuery,
     // create a feedback
     useCreateFeedbackMutation,
+    // edite feedback
+    useEditFeedbackMutation,
     // upload music
     useUploadMusicMutation,
     // update pricing
