@@ -10,7 +10,7 @@ const EditAFeedBack = ({ setStateBool, id }: any) => {
     const [editFeedback, { isLoading, isSuccess  }] = useEditFeedbackMutation(id)
     useEffect(() => {
         if (isSuccess) {
-            toast.success("Feedback Edited Successfully");
+            toast.success("Admin feedback edited successfully");
             setStateBool(false)
         }
     }, [isSuccess]);
