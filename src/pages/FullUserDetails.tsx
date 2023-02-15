@@ -40,14 +40,14 @@ const FullUserDetails = ({data}: any) => {
             <div className="rounded-xl bg-[#F0F4FE]">
               <SongRaterIcon />
               <div className="p-3">
-                <p className='text-[#000000] text-2xl font-semibold '>2,304</p>
+                <p className='text-[#000000] text-2xl font-semibold '>--,--</p>
                 <p className='text-[#888888] text-sm font-semibold '>Song Uploaded</p>
               </div>
             </div>
             <div className="rounded-xl bg-[#FFF9EB]">
               <UserRaterIcon />
               <div className="p-3">
-                <p className='text-[#000000] text-2xl font-semibold '>124</p>
+                <p className='text-[#000000] text-2xl font-semibold '>--,--</p>
                 <p className='text-[#888888] text-sm font-semibold '>Total Reviews</p>
               </div>
             </div>
