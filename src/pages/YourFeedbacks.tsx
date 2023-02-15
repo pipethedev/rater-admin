@@ -6,11 +6,13 @@ const YourFeedbacks = ({ data, feed, setStateBool }: any) => {
             <div className="grid lg:grid-cols-2 gap-5">
                 <div className="flex flex-col p-6 space-y-6 overflow-hidden rounded-2xl shadow-sm border border-[#E2EAFE] relative">
                     <div className="flex space-x-4 items-start justify-between">
-                        <img alt="" src="https://source.unsplash.com/100x100/?portrait" className="object-cover w-12 h-12 rounded-full shadow" />
-                        <div className="flex flex-col space-y-1">
-                            <a rel="noopener noreferrer" href="#" className="text-base font-semibold">{data?.file_name}</a>
-                            <span className="text-sm">Today — {`${format(new Date(feed?.created_at), "MM/dd/yyyy")}`}</span>
-                            {/* <span className="text-sm">Today — {feed?.created_at}</span> */}
+                        <div className="flex space-x-4 items-center">
+                            <img alt="" src="https://source.unsplash.com/100x100/?portrait" className="object-cover w-12 h-12 rounded-full shadow" />
+                            <div className="flex flex-col space-y-1">
+                                <a rel="noopener noreferrer" href="#" className="text-base font-semibold">{data?.file_name}</a>
+                                <span className="text-sm">Today — {`${format(new Date(feed?.created_at), "MM/dd/yyyy")}`}</span>
+                                {/* <span className="text-sm">Today — {feed?.created_at}</span> */}
+                            </div>
                         </div>
                         <svg className='cursor-pointer' onClick={() => setStateBool(true)} width="75" height="37" viewBox="0 0 75 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect width="75" height="37" rx="18.5" fill="#F0F4FE" />
@@ -24,8 +26,6 @@ const YourFeedbacks = ({ data, feed, setStateBool }: any) => {
                         <span className={`${data?.ratings[0]?.rating === 'Good' || 'AlmostGood' ? 'text-[#00C288]' : "bg-[#f1afa6] text-[#c22d00] "} bg-[#EBFFF9] px-4 py-2 my-5 font-semibold text-base rounded-full min-w-max`}>{data?.ratings[0]?.rating}</span>
                         <p className='text-lg my-5'>{feed?.comment}</p>
                     </div>
-
-
                 </div>
             </div>
         </div>

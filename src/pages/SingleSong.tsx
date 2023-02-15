@@ -12,6 +12,7 @@ import WorkersReviews from './WorkersReviews'
 import YourFeedbacks from './YourFeedbacks'
 import { format } from "date-fns"
 import EditAFeedBack from './EditAFeedBack'
+import FullUserDetails from './FullUserDetails'
 
 const Loader = () => <div className="w-10 h-10 sm:w-16 sm:h-16 border-4 border-dashed rounded-full animate-spin border-[#3B71F7]"></div>
 
@@ -19,6 +20,7 @@ const Loader = () => <div className="w-10 h-10 sm:w-16 sm:h-16 border-4 border-d
 const SingleSong = () => {
     const { id } = useParams()
     const [tabIndex, setTabIndex] = useState<string>("Workers Reviews")
+    const [stateBoolUser, setStateBoolUser] = useState<boolean>(false)
     const [stateBool, setStateBool] = useState<boolean>(false)
     const [stateBoolEdit, setStateBoolEdit] = useState<boolean>(false)
     const { data, isLoading, isError, error } = useSingleSongQuery(id, { refetchOnMountOrArgChange: true })
@@ -69,7 +71,7 @@ const SingleSong = () => {
                                         </div>
 
                                         <div className='my-8 w-full'>
-                                            <p className='font-semibold text-2xl sm:text-5xl'>{data ? data?.title : '-- --'}</p>
+                                            <p className='font-semibold text-2xl sm:text-5xl cursor-pointer' onClick={() => setStateBoolUser(prev => !prev)}>{data ? data?.title : '-- --'}</p>
                                             <p className='text-lg my-2  border-b-4 border-[#E2EAFE] p-2'>Play Time — {data ? format(new Date(data?.updated_at), "dd-MM-yyyy") : '-- --'}</p>
 
                                             <div className="my-14">
@@ -122,6 +124,9 @@ const SingleSong = () => {
                                         </>)}
                                     </div>
 
+                                    <Modal show={stateBoolUser} closeModal={setStateBoolUser}>
+                                        <FullUserDetails />
+                                    </Modal>
                                     <Modal show={stateBool} closeModal={setStateBool}>
                                         <GiveaFeedback {...{ setStateBool }} {...{ id }} />
                                     </Modal>
