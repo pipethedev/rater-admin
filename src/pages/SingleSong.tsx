@@ -25,6 +25,7 @@ const SingleSong = () => {
     const [stateBoolEdit, setStateBoolEdit] = useState<boolean>(false)
     const { data, isLoading, isError, error } = useSingleSongQuery(id, { refetchOnMountOrArgChange: true })
     // const navigate = useNavigate()
+    console.log(data, 'datadatadata')
 
     const worker = data?.ratings[0]
     const adminFeed = data?.admin_feedback
@@ -125,7 +126,7 @@ const SingleSong = () => {
                                     </div>
 
                                     <Modal show={stateBoolUser} closeModal={setStateBoolUser}>
-                                        <FullUserDetails />
+                                        <FullUserDetails {...{data}} />
                                     </Modal>
                                     <Modal show={stateBool} closeModal={setStateBool}>
                                         <GiveaFeedback {...{ setStateBool }} {...{ id }} />
