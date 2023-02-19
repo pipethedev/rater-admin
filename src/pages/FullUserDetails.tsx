@@ -37,7 +37,7 @@ const FullUserDetails = ({data}: any) => {
           </div>
 
           <div className="grid grid-cols-2 gap-2 my-2">
-            <div className="rounded-xl bg-[#F0F4FE]">
+            {/* <div className="rounded-xl bg-[#F0F4FE]">
               <SongRaterIcon />
               <div className="p-3">
                 <p className='text-[#000000] text-2xl font-semibold '>--,--</p>
@@ -50,7 +50,7 @@ const FullUserDetails = ({data}: any) => {
                 <p className='text-[#000000] text-2xl font-semibold '>--,--</p>
                 <p className='text-[#888888] text-sm font-semibold '>Total Reviews</p>
               </div>
-            </div>
+            </div> */}
 
           </div>
         </div>
