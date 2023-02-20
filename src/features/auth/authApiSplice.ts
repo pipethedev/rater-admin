@@ -181,6 +181,11 @@ export const authApiSlice = apiSlice.injectEndpoints({
             providesTags: ["Auth"],
             transformResponse: (response: any, meta, arg) => response.data
         }),
+        getAllSongsAllAnalytics: builder.query({
+            query: ({songId, workerId}) => `song/analytics/${songId}/${workerId}`,
+            providesTags: ["Auth"],
+            transformResponse: (response: any, meta, arg) => response.data
+        }),
 
     })
 })
@@ -228,7 +233,9 @@ export const {
     // assign a single worker
     useAssignASongMutation,
     // get all songs allocated
-    useGetAllSongsAllocationsQuery
+    useGetAllSongsAllocationsQuery,
+    // getAllSongsAllAnalysis
+    useGetAllSongsAllAnalyticsQuery
 
 } = authApiSlice
 

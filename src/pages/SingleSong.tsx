@@ -6,7 +6,7 @@ import UserRaterIcon from '../assets/svg/UserRater.Icon'
 import Button from '../components/Button'
 import Header from '../components/Header'
 import Modal from '../components/Modal'
-import { useSingleSongQuery } from '../features/auth/authApiSplice'
+import { useGetAllSongsAllAnalyticsQuery, useSingleSongQuery } from '../features/auth/authApiSplice'
 import GiveaFeedback from './GiveaFeedback'
 import WorkersReviews from './WorkersReviews'
 import YourFeedbacks from './YourFeedbacks'
@@ -26,11 +26,15 @@ const SingleSong = () => {
     const [stateBool, setStateBool] = useState<boolean>(false)
     const [stateBoolEdit, setStateBoolEdit] = useState<boolean>(false)
     const { data, isLoading, isError, error } = useSingleSongQuery(id, { refetchOnMountOrArgChange: true })
-    // const navigate = useNavigate()
-    console.log(data, 'datadatadata')
-
     const worker = data?.ratings[0]
+    const workerId = data?.ratings[0].worker_id
     const adminFeed = data?.admin_feedback
+
+    const { data: Analisis } = useGetAllSongsAllAnalyticsQuery({songId: id, workerId})
+    // const navigate = useNavigate()
+    console.log(Analisis, 'Analisis')
+
+
 
     return (
         <>
@@ -128,7 +132,7 @@ const SingleSong = () => {
                                     </div>
 
                                     <Modal show={stateBoolStats} closeModal={setStateBoolStats}>
-                                        <WorkerStats {...{worker}} />
+                                        <WorkerStats {...{worker}} data={Analisis} />
                                     </Modal>
 
                                     <Modal show={stateBoolUser} closeModal={setStateBoolUser}>
