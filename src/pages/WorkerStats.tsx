@@ -5,7 +5,7 @@ const WorkerStats = ({ worker, data }: any) => {
     return (
         <div className=''>
 
-            <div className="flex items-center gap-x-4">
+            <div className="flex items-center gap-x-4 border rounded-xl border-[#D2DEFC] p-2">
                 <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="56" height="56" rx="8" fill="#F0F4FE" />
                     <path d="M37.3332 38.5V36.1667C37.3332 34.929 36.8415 33.742 35.9663 32.8668C35.0912 31.9917 33.9042 31.5 32.6665 31.5H23.3332C22.0955 31.5 20.9085 31.9917 20.0333 32.8668C19.1582 33.742 18.6665 34.929 18.6665 36.1667V38.5" stroke="#3B71F7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -35,7 +35,7 @@ const WorkerStats = ({ worker, data }: any) => {
             </div>
 
             <p className="font-medium text-lg my-4">Times Listened</p>
-            <div className="flex items-center gap-x-4 p-5 my-5 border rounded-xl border-[#D2DEFC]">
+            <div className="flex items-center gap-x-4 p-3 my-5 border rounded-xl border-[#D2DEFC]">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="16" cy="16" r="16" fill="#F0F4FE" />
                     <g clipPath="url(#clip0_1481_3293)">
