@@ -35,26 +35,26 @@ const WorkerStats = ({ worker, data }: any) => {
             </div>
 
             <p className="font-medium text-lg my-4">Times Listened</p>
-            <div className="flex items-center gap-x-4 p-3 my-5 border rounded-xl border-[#D2DEFC]">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="16" cy="16" r="16" fill="#F0F4FE" />
-                    <g clipPath="url(#clip0_1481_3293)">
-                        <path d="M15.7126 22.6663C19.3945 22.6663 22.3792 19.6816 22.3792 15.9997C22.3792 12.3178 19.3945 9.33301 15.7126 9.33301C12.0307 9.33301 9.0459 12.3178 9.0459 15.9997C9.0459 19.6816 12.0307 22.6663 15.7126 22.6663Z" stroke="#3B71F7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="M15.7124 12V16L18.3791 17.3333" stroke="#3B71F7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </g>
-                    <defs>
-                        <clipPath id="clip0_1481_3293">
-                            <rect width="16" height="16" fill="white" transform="translate(7.7124 8)" />
-                        </clipPath>
-                    </defs>
-                </svg>
+            {data?.map((item: any) => (
+                <div key={item?.id} className="flex items-center gap-x-4 p-3 mb-5 border rounded-xl border-[#D2DEFC]">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="16" r="16" fill="#F0F4FE" />
+                        <g clipPath="url(#clip0_1481_3293)">
+                            <path d="M15.7126 22.6663C19.3945 22.6663 22.3792 19.6816 22.3792 15.9997C22.3792 12.3178 19.3945 9.33301 15.7126 9.33301C12.0307 9.33301 9.0459 12.3178 9.0459 15.9997C9.0459 19.6816 12.0307 22.6663 15.7126 22.6663Z" stroke="#3B71F7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                            <path d="M15.7124 12V16L18.3791 17.3333" stroke="#3B71F7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_1481_3293">
+                                <rect width="16" height="16" fill="white" transform="translate(7.7124 8)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
 
-                {/* <p>4:28pm -4:32pm — Monday 23, 2023</p> */}
-                {data?.map((item: any) => (
-                    <p className="mb-3" key={item?.id}>{item?.listening_duration}— {format(new Date(item?.listened_at), "dd-MM-yyyy")}</p>
-
-                )) }
-            </div>
+                    {/* <p>4:28pm -4:32pm — Monday 23, 2023</p> */}
+                    <div></div>
+                    <p>{item?.listening_duration}— {format(new Date(item?.listened_at), "dd-MM-yyyy")}</p>
+                </div>
+            ))}
         </div>
     )
 }
