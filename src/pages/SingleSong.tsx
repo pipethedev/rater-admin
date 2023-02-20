@@ -13,6 +13,7 @@ import YourFeedbacks from './YourFeedbacks'
 import { format } from "date-fns"
 import EditAFeedBack from './EditAFeedBack'
 import FullUserDetails from './FullUserDetails'
+import WorkerStats from './WorkerStats'
 
 const Loader = () => <div className="w-10 h-10 sm:w-16 sm:h-16 border-4 border-dashed rounded-full animate-spin border-[#3B71F7]"></div>
 
@@ -21,6 +22,7 @@ const SingleSong = () => {
     const { id } = useParams()
     const [tabIndex, setTabIndex] = useState<string>("Workers Reviews")
     const [stateBoolUser, setStateBoolUser] = useState<boolean>(false)
+    const [stateBoolStats, setStateBoolStats] = useState<boolean>(false)
     const [stateBool, setStateBool] = useState<boolean>(false)
     const [stateBoolEdit, setStateBoolEdit] = useState<boolean>(false)
     const { data, isLoading, isError, error } = useSingleSongQuery(id, { refetchOnMountOrArgChange: true })
@@ -111,7 +113,7 @@ const SingleSong = () => {
                                     <div className="mb-20">
                                         {tabIndex === "Workers Reviews" && (<>
                                             {worker ? (
-                                                <WorkersReviews {...{ worker }} />
+                                                <WorkersReviews {...{ worker }} {... { setStateBoolStats }} />
                                             ) : (
                                                 <div className="flex items-center justify-center font-semibold text-black">No Data</div>
                                             )}
@@ -124,6 +126,10 @@ const SingleSong = () => {
                                             )}
                                         </>)}
                                     </div>
+
+                                    <Modal show={stateBoolStats} closeModal={setStateBoolStats}>
+                                        <WorkerStats {...{worker}} />
+                                    </Modal>
 
                                     <Modal show={stateBoolUser} closeModal={setStateBoolUser}>
                                         <FullUserDetails {...{data}} />
