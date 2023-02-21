@@ -33,11 +33,11 @@ const SingleSong = () => {
     const adminFeed = data?.admin_feedback
 
 
-    const [stateOject, setStateObject] = useState<object[]>(workerData)
+    const [stateOject, setStateObject] = useState<any>(workerData)
 
     const { data: Analisis } = useGetAllSongsAllAnalyticsQuery({songId: stateOject?.song_id, workerId: stateOject?.worker_id})
     // const navigate = useNavigate()
-    console.log(Analisis, 'Analisis')
+    // console.log(Analisis, 'Analisis')
     // console.log(workerData, 'workerData')
 
 
