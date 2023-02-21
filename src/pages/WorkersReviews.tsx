@@ -3,7 +3,7 @@ import { format } from "date-fns"
 const WorkersReviews = ({ worker, setStateBoolStats, setStateObject }: any) => {
   return (
       <>
-    <div className="grid lg:grid-cols-2 gap-5 m-4" style={{display: 'grid', gridTemplateColumns: 'repeat(2, minmax(2, 1fr)' }}>
+    <div className="grid lg:grid-cols-2 gap-5">
         {worker.map((worker: any) => (
           <div className="p-6 space-y-6 overflow-hidden rounded-2xl shadow-sm border border-[#E2EAFE] cursor-pointer"
             onClick={() => {
