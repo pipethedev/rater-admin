@@ -26,13 +26,22 @@ const SingleSong = () => {
     const [stateBool, setStateBool] = useState<boolean>(false)
     const [stateBoolEdit, setStateBoolEdit] = useState<boolean>(false)
     const { data, isLoading, isError, error } = useSingleSongQuery(id, { refetchOnMountOrArgChange: true })
-    const worker = data?.ratings[0]
-    const workerId = data?.ratings[0].worker_id
+
+    const workerData = data?.ratings //array
+    const worker = data?.ratings
+    // const workerId = data?.ratings[0].worker_id
     const adminFeed = data?.admin_feedback
 
-    const { data: Analisis } = useGetAllSongsAllAnalyticsQuery({songId: id, workerId})
+
+    const [stateOject, setStateObject] = useState<object[]>(workerData)
+
+    const { data: Analisis } = useGetAllSongsAllAnalyticsQuery({songId: stateOject?.song_id, workerId: stateOject?.worker_id})
     // const navigate = useNavigate()
     console.log(Analisis, 'Analisis')
+    // console.log(workerData, 'workerData')
+
+
+    // console.log(stateOject, 'Obeck Work')
 
 
 
@@ -117,7 +126,7 @@ const SingleSong = () => {
                                     <div className="mb-20">
                                         {tabIndex === "Workers Reviews" && (<>
                                             {worker ? (
-                                                <WorkersReviews {...{ worker }} {... { setStateBoolStats }} />
+                                                <WorkersReviews worker={workerData} {... { setStateBoolStats }} {...{setStateObject}} />
                                             ) : (
                                                 <div className="flex items-center justify-center font-semibold text-black">No Data</div>
                                             )}
@@ -132,7 +141,7 @@ const SingleSong = () => {
                                     </div>
 
                                     <Modal show={stateBoolStats} closeModal={setStateBoolStats}>
-                                        <WorkerStats {...{worker}} data={Analisis} />
+                                        <WorkerStats worker={stateOject} data={Analisis} />
                                     </Modal>
 
                                     <Modal show={stateBoolUser} closeModal={setStateBoolUser}>

@@ -1,9 +1,10 @@
 import { format } from "date-fns"
 
-const WorkersReviews = ({ worker, setStateBoolStats }: any) => {
+const WorkersReviews = ({ worker, setStateBoolStats, setStateObject }: any) => {
   return (
-      <div className="grid lg:grid-cols-2 gap-5">
-        <div className="flex flex-col p-6 space-y-6 overflow-hidden rounded-2xl shadow-sm border border-[#E2EAFE] cursor-pointer" onClick={() => setStateBoolStats(true)}>
+    <>{worker.map((worker: any) => (
+      <div className="grid grid-cols-2 gap-5 m-4" style={{display: 'grid', gridTemplateColumns: 'repeat(2, minmax(3, 1fr)' }} onClick={() => setStateObject(worker)}>
+        <div className="p-6 space-y-6 overflow-hidden rounded-2xl shadow-sm border border-[#E2EAFE] cursor-pointer" onClick={() => setStateBoolStats(true)}>
           <div className="flex space-x-4">
             <img alt="" src="https://source.unsplash.com/100x100/?portrait" className="object-cover w-12 h-12 rounded-full shadow" />
             <div className="flex flex-col space-y-1">
@@ -18,6 +19,9 @@ const WorkersReviews = ({ worker, setStateBoolStats }: any) => {
           </div>
         </div>
       </div>
+    ))
+    }
+    </>
   )
 }
 

@@ -52,7 +52,7 @@ const WorkerStats = ({ worker, data }: any) => {
 
                     {/* <p>4:28pm -4:32pm — Monday 23, 2023</p> */}
                     <div></div>
-                    <p>{item?.listening_duration}— {format(new Date(item?.listened_at), "dd-MM-yyyy")}</p>
+                    <p>{item?.listening_duration}— {format(new Date(item?.listened_at), "dd-MM-yyyy, hh:mm a")}</p>
                 </div>
             ))}
         </div>
